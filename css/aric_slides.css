@@ -1,0 +1,73 @@
+.reveal .slides {
+    text-align: left;
+}
+
+.reveal ul ul {
+    list-style-type: '⁃  ';
+}
+
+.title h1, .title h2 {
+    text-shadow: 2px 2px 5px #333333;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    text-transform: none;
+}
+
+p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
+    color: #bb88ff;
+    font-size: 85%;
+}
+
+.slot {
+    color: yellow;
+    font-variant: small-caps;
+    font-weight: bold;
+}
+
+li li {
+    font-size: 85%;
+}
+
+.nobullet ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.nosubbullet li li {
+    list-style-type: none;
+    color: gray;
+    padding-left: 0;
+}
+
+.leftalign p {
+    text-align: left;
+}
+
+.rightborder {
+    border-right: 1em solid transparent;
+}
+
+.columns .slide-content > .column {
+    padding: 0 3rem 0 0;
+}
+
+.output {
+    color: lightskyblue;
+    padding-bottom: 0.1ex;
+}
+
+.bigcode pre code {
+    max-height: 660px;
+    font-size: 80%;
+    line-height: 120%;
+}
+
+.thumbsdown {
+    list-style: "👎 ";
+}
+
+.thumbsup {
+    list-style: "👍 ";
+}
