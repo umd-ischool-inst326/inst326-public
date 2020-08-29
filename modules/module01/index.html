@@ -454,10 +454,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div align="center">
     <nav id="main_navigation">
-        <a href="/inst326">Home</a> |
-        <a href="/inst326/modules">Modules</a> |
-        <a href="/inst326/style">Stylesheet</a> |
-        <a href="/inst326/syllabus">Syllabus</a>
+        <a href="/inst326-public">Home</a> |
+        <a href="/inst326-public/modules">Modules</a> |
+        <a href="/inst326-public/style">Stylesheet</a> |
+        <a href="/inst326-public/syllabus">Syllabus</a>
     </nav>
 </div>
 <script>
@@ -472,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
             console.log(elements);
             elements.forEach(element => {
                 var anchor = element.getAttribute("href");
-                var localpath = anchor.replace("/inst326", prefix) + "/index.html";
+                var localpath = anchor.replace("/inst326-public", prefix) + "/index.html";
                 element.setAttribute("href", localpath);
             });
         }
