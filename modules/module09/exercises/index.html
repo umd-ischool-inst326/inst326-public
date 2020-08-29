@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Module 9</title>
+<title>Module 9 Exercises</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,21 +438,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Module 9</h1>
+<h1>Module 9 Exercises</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_topics">Topics</a></li>
-<li><a href="#_learning_outcomes">Learning Outcomes</a></li>
-<li><a href="#_readings">Readings</a></li>
-<li><a href="#_additional_readings_optional_as_needed">Additional Readings (optional, as needed)</a>
-<ul class="sectlevel2">
-<li><a href="#_historical_background">Historical Background</a></li>
-<li><a href="#_python_resources">Python Resources</a></li>
-<li><a href="#_database_resources">Database Resources</a></li>
-</ul>
-</li>
-<li><a href="#_links">Links</a></li>
+<li><a href="#_using_sql_for_querying">Using SQL for querying</a></li>
+<li><a href="#_populating_a_database_programmatically">Populating a database programmatically</a></li>
+<li><a href="#_challenge_design_and_modeling_practice">Challenge: Design and modeling practice</a></li>
 </ul>
 </div>
 </div>
@@ -489,124 +481,47 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_topics">Topics</h2>
+<h2 id="_using_sql_for_querying">Using SQL for querying</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This module looks at ways to integrate Python programs with databases and SQL (Structured Query Language). SQL is an ISO/ANSI standard for creating relational databases, and there are a number of widely used implementations, both commercial (e.g. Oracle) and open source (e.g. MariaDB).</p>
+<p>The data in the CSV file, <a href="energy.csv" class="bare">energy.csv</a>, should look familiar to you, it’s the data that we were working with in module 4. Remember how we had to iterate through the file to determine the largest wind and solar producing state?</p>
+</div>
+<div class="paragraph">
+<p>This time the CSV has been cleaned up a bit by removing the total rows which we had to ignore the last time. We’re going to use it as a way of explore why SQL, databases and Python are useful tools to use together.</p>
+</div>
+<div class="paragraph">
+<p>create a program that can read in the CSV data and load it into a database
+query the database to see what the maximum solar and wind producers are
+determine the total solar and wind production in the US by year</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_learning_outcomes">Learning Outcomes</h2>
+<h2 id="_populating_a_database_programmatically">Populating a database programmatically</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After completing this module, students should understand:</p>
+<p>The data in this CSV file (<a href="books.csv" class="bare">books.csv</a>) consists of a list of titles, authors, and dates of important works of fiction. The data are similar to the data used in the above examples.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>How to use the sqlite3 module to connect to a database</p>
-</li>
-<li>
-<p>How to load data to the database</p>
-</li>
-<li>
-<p>How to query the database</p>
-</li>
-<li>
-<p>The basics of CRUD operations</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The first task is to create a program that can read the data in the attached file and load it into a database.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_readings">Readings</h2>
+<h2 id="_challenge_design_and_modeling_practice">Challenge: Design and modeling practice</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Severance, <em>Python for Everybody</em>,  <a href="https://www.py4e.com/html3/15-database">Chapter 15: "Using Databases and SQL"</a></p>
-</li>
-<li>
-<p><a href="https://docs.python.org/3/library/sqlite3.html">Python documentation for sqlite3</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Consider again the bibliographic database, note that there are multiple titles in the attached file written by a single author. In order to normalize this data, the author names should be moved into their own table and related to the book data through a relationship.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_additional_readings_optional_as_needed">Additional Readings (optional, as needed)</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_historical_background">Historical Background</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Codd, E. F. (1970). "<a href="https://dl.acm.org/doi/10.1145/362384.362685">A Relational Model of Data for Large Shared Data Banks</a>," Communications of the ACM 13.6, 377-87.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_python_resources">Python Resources</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>PEP 249: <a href="https://www.python.org/dev/peps/pep-0249">Python Database API Specification</a>, v2.0</p>
-</li>
-<li>
-<p>Tutorials (all of these cover much the same ground):</p>
-</li>
-<li>
-<p><a href="https://www.pythoncentral.io/introduction-to-sqlite-in-python" class="bare">https://www.pythoncentral.io/introduction-to-sqlite-in-python</a></p>
-</li>
-<li>
-<p><a href="https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html" class="bare">https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html</a></p>
-</li>
-<li>
-<p><a href="http://www.sqlitetutorial.net/sqlite-python" class="bare">http://www.sqlitetutorial.net/sqlite-python</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_database_resources">Database Resources</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://mariadb.org">MariaDB, a community fork of MySQL</a></p>
-</li>
-<li>
-<p><a href="https://www.postgresql.org">PostgreSQL</a></p>
-</li>
-<li>
-<p><a href="https://www.fullstackpython.com/no-sql-datastore.html">Overview of Python on NoSQL (i.e. non-relational) databases</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_links">Links</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="slides.html">Slides</a></p>
-</li>
-<li>
-<p><a href="exercises">Exercises</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>How can the authors data be related to the book titles? Can you create a program that will manage the normalization process at load time?</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-27 11:36:22 -0400
+Last updated 2020-08-29 14:53:29 -0400
 </div>
 </div>
 </body>
