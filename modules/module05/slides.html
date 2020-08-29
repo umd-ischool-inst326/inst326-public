@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Data Structures</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reset.css">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/theme/inst326.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Data Structures</h1>
+</section>
+
+<section id="section" class="slide level1">
+<h1></h1>
+</section>
+<section id="section-1" class="slide level1">
+<h1></h1>
+<h2 id="tuples-structure">Tuples Structure</h2>
+<div>
+<ul>
+<li class="fragment">Collection of objects that are ordered and immutable</li>
+<li class="fragment">Tuples are sequences</li>
+<li class="fragment">Tuples use parentheses to enclose sequences</li>
+</ul>
+</div>
+</section>
+<section id="section-2" class="slide level1">
+<h1></h1>
+<h2 id="creating-tuples">Creating Tuples</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, “string”, <span class="fl">5.8</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>my_tuple <span class="op">=</span>  <span class="dv">1</span>, “string”, <span class="fl">5.8</span> </span>
+<span id="cb1-3"><a href="#cb1-3"></a>my_tuple <span class="op">=</span> “string”, </span>
+<span id="cb1-4"><a href="#cb1-4"></a>my_tuple <span class="op">=</span> ()</span></code></pre></div>
+</section>
+<section id="section-3" class="slide level1">
+<h1></h1>
+<h2 id="accessing-values-in-a-tuple">Accessing Values in a Tuple</h2>
+<p>We can use square brackets to slice at the indices just like lists. ~~~~ {.python .numberLines} my_tuple = (1, “string”, 5.8)</p>
+<p>my_tuple[1] # “string” my_tuple[:1] # (1,) my_tuple[:3] # (1, “string”, 5.8) ~~~~</p>
+</section>
+<section id="section-4" class="slide level1">
+<h1></h1>
+<h2 id="important-tuple-operations">Important Tuple Operations</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Python Expression</th>
+<th>Results</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>len((1,2,3))</td>
+<td>3</td>
+<td>Length</td>
+</tr>
+<tr class="even">
+<td>(1,2,3) + (4,5,6)</td>
+<td>(1,2,3,4,5,6)</td>
+<td>Concatenation</td>
+</tr>
+<tr class="odd">
+<td>(“Hi!”,) * 4</td>
+<td>(“Hi!”,“Hi!”,“Hi!”,“Hi!”)</td>
+<td>Repetition</td>
+</tr>
+<tr class="even">
+<td>3 in (1,2,3)</td>
+<td>True</td>
+<td>Membership</td>
+</tr>
+<tr class="odd">
+<td>for x in (1,2,3): print x</td>
+<td>1 2 3</td>
+<td>Iteration</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-5" class="slide level1">
+<h1></h1>
+<h2 id="recap">Recap</h2>
+<ul>
+<li>Tuples are sequences, ordered and immutable collections of objects.</li>
+<li>Tuples are enclosed with parentheses, items are separated with commas.</li>
+<li>Items in tuples can be accessed using square bracket notation.</li>
+<li>We can perform a variety of operations on tuples.</li>
+</ul>
+</section>
+<section id="section-6" class="slide level1">
+<h1></h1>
+<h2 id="returning-tuples">Returning Tuples</h2>
+<div>
+<ul>
+<li class="fragment">Sometimes it might be a good idea to return multiple items using a function.</li>
+<li class="fragment">Typically, if these items are different data types its good practice to return a tuple.
+<ul>
+<li class="fragment">For example, a function that returns a list of unique words, and a dictionary of an index of those words to files.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-7" class="slide level1">
+<h1></h1>
+<h2 id="example">Example</h2>
+<ul>
+<li>Sometimes it might be a good idea to return multiple items with a function.</li>
+<li>Typically, if these items are different data types its good practice to return a tuple.</li>
+<li>For example, a function that returns a list of unique words, and a dictionary of an index of those words to files.</li>
+</ul>
+</section>
+<section id="section-8" class="slide level1">
+<h1></h1>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> book:</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
+<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    </span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
+<span id="cb2-6"><a href="#cb2-6"></a>        <span class="co"># method that will return two variables</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>        <span class="co"># -----------------------------------</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>        <span class="co"># words in the file</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>        <span class="co">#</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>        <span class="co"># are the words and the values are the </span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>        <span class="co"># number of times that the </span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>        <span class="co"># word appears in the file</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>results <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
+</section>
+<section id="section-9" class="slide level1">
+<h1></h1>
+<h2 id="tuples-as-sequences">Tuples as Sequences</h2>
+</section>
+<section id="section-10" class="slide level1">
+<h1></h1>
+<h2 id="tuples-are-sequence-datatypes">Tuples are Sequence Datatypes</h2>
+<ul>
+<li>This means that we can…</li>
+</ul>
+</section>
+<section id="section-11" class="slide level1">
+<h1></h1>
+<h2 id="find-min-and-max-values">Find Min and Max Values</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">max</span>(<span class="bu">tuple</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">min</span>(<span class="bu">tuple</span>)</span></code></pre></div>
+</section>
+<section id="section-12" class="slide level1">
+<h1></h1>
+<h2 id="perform-sequence-unpacking">Perform Sequence Unpacking</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> book:</span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
+<span id="cb4-3"><a href="#cb4-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
+<span id="cb4-4"><a href="#cb4-4"></a>    </span>
+<span id="cb4-5"><a href="#cb4-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
+<span id="cb4-6"><a href="#cb4-6"></a>        <span class="co"># method that will return two variables</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>        <span class="co"># -------------------------------------</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>        <span class="co"># words in the file</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>        <span class="co">#</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="co"># are the words and the values </span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="co"># are the number of times that the </span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>        <span class="co"># word appears in the file</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a></span>
+<span id="cb4-16"><a href="#cb4-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>words, counts <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
+</section>
+<section id="section-13" class="slide level1">
+<h1></h1>
+<h2 id="iterate-over-the-tuple">Iterate over the Tuple</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> book:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
+<span id="cb5-3"><a href="#cb5-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    </span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
+<span id="cb5-6"><a href="#cb5-6"></a>        <span class="co"># Insert Docstring</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a></span>
+<span id="cb5-8"><a href="#cb5-8"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>results <span class="op">=</span> book(my_path).meta_data()</span>
+<span id="cb5-10"><a href="#cb5-10"></a></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">for</span> item <span class="kw">in</span> results:</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="bu">print</span>(item)</span></code></pre></div>
+</section>
+<section id="section-14" class="slide level1">
+<h1></h1>
+<h2 id="perform-sequence-operations">Perform Sequence Operations</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Python Expression</th>
+<th>Results</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>len((1,2,3))</td>
+<td>3</td>
+<td>Length</td>
+</tr>
+<tr class="even">
+<td>(1,2,3) + (4,5,6)</td>
+<td>(1,2,3,4,5,6)</td>
+<td>Concatenation</td>
+</tr>
+<tr class="odd">
+<td>(“Hi!”,) * 4</td>
+<td>(“Hi!”,“Hi!”,“Hi!”,“Hi!”)</td>
+<td>Repetition</td>
+</tr>
+<tr class="even">
+<td>3 in (1,2,3)</td>
+<td>True</td>
+<td>Membership</td>
+</tr>
+<tr class="odd">
+<td>for x in (1,2,3): print x</td>
+<td>1 2 3</td>
+<td>Iteration</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="section-15" class="slide level1">
+<h1></h1>
+<h2 id="sets">Sets</h2>
+</section>
+<section id="section-16" class="slide level1">
+<h1></h1>
+<h2 id="structure-of-sets">Structure of Sets</h2>
+<div>
+<ul>
+<li class="fragment">Collection of objects that are un-ordered and mutable</li>
+<li class="fragment">Contain no duplicate elements</li>
+<li class="fragment">Sets use curly braces to enclose sequences</li>
+</ul>
+</div>
+</section>
+<section id="section-17" class="slide level1">
+<h1></h1>
+<h2 id="frozen-sets">Frozen Sets</h2>
+<div>
+<ul>
+<li class="fragment">Collection of objects that are un-ordered and immutable</li>
+<li class="fragment">Contain no duplicate elements</li>
+<li class="fragment">Frozensets use curly braces to enclose sequences</li>
+</ul>
+</div>
+</section>
+<section id="section-18" class="slide level1">
+<h1></h1>
+<h2 id="recap-1">Recap</h2>
+<div>
+<ul>
+<li class="fragment">Sets are collections of unique items that are mutable and unordered.</li>
+<li class="fragment">Frozen sets are collections of unique items that are immutable and unordered.</li>
+</ul>
+</div>
+</section>
+<section id="section-19" class="slide level1">
+<h1></h1>
+<h2 id="creating-sets">Creating Sets</h2>
+</section>
+<section id="section-20" class="slide level1">
+<h1></h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
+<span id="cb6-2"><a href="#cb6-2"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
+<span id="cb6-3"><a href="#cb6-3"></a>myset <span class="op">=</span> <span class="bu">set</span>([ <span class="st">&quot;a&quot;</span>, “a” , <span class="st">&quot;b&quot;</span> , <span class="st">&quot;c&quot;</span> , “c” ])</span></code></pre></div>
+</section>
+<section id="section-21" class="slide level1">
+<h1></h1>
+<h2 id="removing-elements-from-sets">Removing Elements from Sets</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>myset.remove(“a”)</span></code></pre></div>
+</section>
+<section id="section-22" class="slide level1">
+<h1></h1>
+<h2 id="adding-elements-from-sets">Adding Elements from Sets</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>myset.add(“a”)</span></code></pre></div>
+</section>
+<section id="section-23" class="slide level1">
+<h1></h1>
+<h2 id="a-note-about-items-in-sets">A Note About Items in Sets</h2>
+<div>
+<ul>
+<li class="fragment">Sets are somewhat similar in concept to data structures known as “hash tables”</li>
+<li class="fragment">Hash tables: Data structures where items are passed through (hashed) using a “hash function” to compute a “hash code”.</li>
+<li class="fragment">This means that items in sets must be “hashable” (think immutable) otherwise you will raise an error.
+<ul>
+<li class="fragment">Frozen sets are immutable and therefor hashable, so frozensets can be items in a set without a problem.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-24" class="slide level1">
+<h1></h1>
+<h2 id="recap-2">Recap</h2>
+<ul>
+<li>We can create sets using set literals ({}) or by using the set() function.</li>
+<li>We can remove or add items from sets using the add() and remove() methods of set objects.</li>
+<li>Items in sets must be hashable (immutable).</li>
+</ul>
+</section>
+<section id="section-25" class="slide level1">
+<h1></h1>
+<h2 id="working-with-sets">Working with sets</h2>
+</section>
+<section id="section-26" class="slide level1">
+<h1></h1>
+<h2 id="set-operations">Set operations</h2>
+<div>
+<ul>
+<li class="fragment">We can use sets to solve unique challenges (or trivial challenges in unique ways)</li>
+<li class="fragment">In order to do this we need to perform operations using sets.</li>
+<li class="fragment">The ones you need to be aware of are…
+<ul>
+<li class="fragment">in (membership) &amp; not in (membership)</li>
+<li class="fragment">is subset &amp; is superset</li>
+<li class="fragment">union, intersection, difference</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-27" class="slide level1">
+<h1></h1>
+<h2 id="in-not-in">In &amp; Not In</h2>
+<ul>
+<li>Testing for membership</li>
+<li>Example:
+<ul>
+<li>x in f (where “x” is an item that may or may not be in set “f”)</li>
+<li>x not in (where “x” is an item that may or may not be in set “f”)</li>
+</ul></li>
+</ul>
+</section>
+<section id="section-28" class="slide level1">
+<h1></h1>
+<h2 id="is-subset-is-superset">Is Subset &amp; Is Superset</h2>
+<ul>
+<li>Testing whether all elements in one set are in another set</li>
+<li>Example:
+<ul>
+<li>x.issubset(f) (where “x” is a set that may or may not contain the same elements that are in set “f”)
+<ul>
+<li>Alternative syntax: x &lt;= f</li>
+</ul></li>
+<li>x.issuperset(f) (where “f” is a set that may or may not contain the same elements that are in set “x”)
+<ul>
+<li>Alternative syntax: x &gt;= f</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-29" class="slide level1">
+<h1></h1>
+<h2 id="union">Union</h2>
+<p><strong>Union, Intersection and Difference all evaluate to new sets.</strong></p>
+<ul>
+<li>Union
+<ul>
+<li>New set with elements of two sets</li>
+<li>Example Syntax:
+<ul>
+<li>x.union(f)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-30" class="slide level1">
+<h1></h1>
+<h2 id="intersection">Intersection</h2>
+<p><strong>Union, Intersection and Difference all evaluate to new sets.</strong></p>
+<ul>
+<li>Intersection
+<ul>
+<li>New set with elements that are common to both sets</li>
+<li>Example Syntax:
+<ul>
+<li>x.intersection(f)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-31" class="slide level1">
+<h1></h1>
+<h2 id="difference">Difference</h2>
+<p><strong>Union, Intersection and Difference all evaluate to new sets.</strong></p>
+<ul>
+<li>Difference
+<ul>
+<li>New set with elements in the first set but not the second set</li>
+<li>Example Syntax:
+<ul>
+<li>x.difference(f)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="section-32" class="slide level1">
+<h1></h1>
+<h2 id="example-using-sets">Example Using Sets</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb9-2"><a href="#cb9-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a>set1, set2 <span class="op">=</span> <span class="bu">set</span>(list1), <span class="bu">set</span>(list2)</span>
+<span id="cb9-5"><a href="#cb9-5"></a>set3 <span class="op">=</span> set1.intersection(set2) </span>
+<span id="cb9-6"><a href="#cb9-6"></a></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="bu">print</span>(<span class="bu">len</span>(set3)) <span class="co">#Result = 3</span></span></code></pre></div>
+</section>
+<section id="section-33" class="slide level1">
+<h1></h1>
+<h2 id="compared-to-no-sets">Compared to No Sets</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>resulting_list <span class="op">=</span> []</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="cf">for</span> num <span class="kw">in</span> list1:</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">if</span> num <span class="kw">in</span> resulting_list:</span>
+<span id="cb10-7"><a href="#cb10-7"></a>        <span class="cf">continue</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb10-9"><a href="#cb10-9"></a>        <span class="cf">if</span> num <span class="kw">in</span> list2:</span>
+<span id="cb10-10"><a href="#cb10-10"></a>            resulting_list.append(num)</span>
+<span id="cb10-11"><a href="#cb10-11"></a></span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="bu">print</span>(<span class="bu">len</span>(resulting_list)) <span class="co">#Result = 3</span></span></code></pre></div>
+</section>
+<section id="section-34" class="slide level1">
+<h1></h1>
+<h2 id="lists">Lists</h2>
+</section>
+<section id="section-35" class="slide level1">
+<h1></h1>
+<h2 id="stacks-and-queues">Stacks and Queues</h2>
+<div>
+<ul>
+<li class="fragment">By this point you should feel comfortable using lists in your code.</li>
+<li class="fragment">You should also be comfortable in understanding how the way that we think about lists guides the manner in which we utilize those lists in our code.</li>
+</ul>
+</div>
+</section>
+<section id="section-36" class="slide level1">
+<h1></h1>
+<h2 id="stacks">Stacks</h2>
+<div>
+<ul>
+<li class="fragment">Lists that contain objects that are added and removed using the LIFO principle (Last in, first out).
+<ul>
+<li class="fragment">Theoretically speaking we “push” things to the end/top of a list and then “pop” the items off the end/top of the list.</li>
+<li class="fragment">Ex. A stack of plates</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-37" class="slide level1">
+<h1></h1>
+<h2 id="stacks-continued">Stacks Continued</h2>
+<div>
+<ul>
+<li class="fragment">We can simulate stacks by using the append and pop methods of list objects</li>
+<li class="fragment">Uses:
+<ul>
+<li class="fragment">Holding and using most recent data elements for use in algorithms where that may be important.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-38" class="slide level1">
+<h1></h1>
+<h2 id="queues">Queues</h2>
+<div>
+<ul>
+<li class="fragment">Lists that contain objects that are added and removed using the FIFO principle (First in, first out).
+<ul>
+<li class="fragment">Theoretically speaking we “enqueue” things to the top/end of a list and then “dequeue” the items off the beginning of the list.</li>
+<li class="fragment">Ex. A line of people waiting at the DMV.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-39" class="slide level1">
+<h1></h1>
+<h2 id="queues-continued">Queues Continued</h2>
+<div>
+<ul>
+<li class="fragment">We can simulate stacks by using the append and pop(0) methods of list objects</li>
+<li class="fragment">Uses:
+<ul>
+<li class="fragment">Using collections where the order of the item has something to do with the FIFO principle such as algorithms for determining wait times.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-40" class="slide level1">
+<h1></h1>
+<h2 id="what-are-list-comprehensions">What are List Comprehensions?</h2>
+<ul>
+<li>List comprehensions are expressions that evaluate to lists</li>
+<li>Often are faster than iterating over one list to build another list</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>squares <span class="op">=</span> [n<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> n <span class="kw">in</span> numbers]</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(squares) <span class="co"># Output: [1,4,9,16]</span></span></code></pre></div>
+</section>
+<section id="section-41" class="slide level1">
+<h1></h1>
+<h2 id="syntax">Syntax</h2>
+<ul>
+<li>A list comprehension consists of
+<ol type="1">
+<li>brackets containing an expression</li>
+<li>followed by a for clause (iterating over some iterable)</li>
+<li>then zero or more for or if clauses.</li>
+</ol></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>list_a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb12-2"><a href="#cb12-2"></a>cube_list <span class="op">=</span> [ [a<span class="op">**</span><span class="dv">2</span>, a<span class="op">**</span><span class="dv">3</span>] <span class="cf">for</span> a <span class="kw">in</span> list_a]</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(cube_list) <span class="co"># Output: [[1,1], [4,8], [9,27]]</span></span></code></pre></div>
+</section>
+<section id="section-42" class="slide level1">
+<h1></h1>
+<h2 id="list-comprehensions---concise-lists">List Comprehensions - Concise Lists</h2>
+<ul>
+<li>List comprehensions can help make code shorter and more concise</li>
+<li>Consider the following example:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>[(x,y) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>] <span class="cf">if</span> x <span class="op">!=</span> y]</span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>combs <span class="op">=</span> []</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]:</span>
+<span id="cb13-5"><a href="#cb13-5"></a>    <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>]:</span>
+<span id="cb13-6"><a href="#cb13-6"></a>        <span class="cf">if</span> x <span class="op">!=</span> y:</span>
+<span id="cb13-7"><a href="#cb13-7"></a>            combs.append((x,y))</span></code></pre></div>
+</section>
+<section id="section-43" class="slide level1">
+<h1></h1>
+<h2 id="dictionary-values">Dictionary Values</h2>
+<div>
+<ul>
+<li class="fragment">Similar to sets, dictionaries function similarly to hash tables.
+<ul>
+<li class="fragment">In this case the keys are hashed and those corresponding hash codes then point to an unhashed object (the value)</li>
+</ul></li>
+<li class="fragment">Meaning, only hashable (immutable) objects can be keys.</li>
+<li class="fragment">Values can be either mutable or immutable.</li>
+</ul>
+</div>
+</section>
+<section id="section-44" class="slide level1">
+<h1></h1>
+<h2 id="dictionaries-can-be-values-in-other-dictionaries">Dictionaries Can Be Values in Other Dictionaries</h2>
+<div>
+<ul>
+<li class="fragment">Remember that when you use bracket notation to access the value of a key in a dictionary, the expression evaluates to the value itself.</li>
+<li class="fragment">This means that if I evaluate to a value that is a dictionary, I can access the values of the keys to the inner dictionary.
+<ul>
+<li class="fragment">And so on and so forth.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-45" class="slide level1">
+<h1></h1>
+<h2 id="here-is-an-example">Here is an Example</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>Dict <span class="op">=</span> { <span class="st">&#39;Dict1&#39;</span>: {<span class="dv">1</span>: <span class="st">&#39;G&#39;</span>, <span class="dv">2</span>: <span class="st">&#39;F&#39;</span>, <span class="dv">3</span>: <span class="st">&#39;G&#39;</span>},</span>
+<span id="cb14-2"><a href="#cb14-2"></a>         <span class="st">&#39;Dict2&#39;</span>: {<span class="st">&#39;Name&#39;</span>: <span class="st">&#39;INST326&#39;</span>, <span class="dv">1</span>: [<span class="dv">1</span>, <span class="dv">2</span>]} }</span></code></pre></div>
+<div>
+<ul>
+<li class="fragment">Dict[“Dict1”]
+<ul>
+<li class="fragment">{1: ‘G’, 2: ‘F’, 3: ‘G’}</li>
+</ul></li>
+<li class="fragment">Dict[“Dict1”][“2”]
+<ul>
+<li class="fragment">“F”</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-46" class="slide level1">
+<h1></h1>
+<h2 id="dictionaries-as-counters">Dictionaries as Counters</h2>
+<ul>
+<li>One common use for dictionaries is to use use dictionaries to count unique values in a sequence data type.</li>
+</ul>
+</section>
+<section id="section-47" class="slide level1">
+<h1></h1>
+<h2 id="dictionaries-as-indexes">Dictionaries as Indexes</h2>
+<ul>
+<li>One common use for dictionaries is to use use dictionaries to index data.</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="../../lib/reveal.js.4.0.2/dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="../../lib/reveal.js.4.0.2/plugin/notes/notes.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/search/search.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

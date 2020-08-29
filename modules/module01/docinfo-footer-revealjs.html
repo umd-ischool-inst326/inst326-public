@@ -1,0 +1,31 @@
+<script>
+    function transitions() {
+        const transitionlist = ["fade-in", "fade-out", "slide-in", "slide-out", "none-in", "none-out", "none"]
+        for (const transition of transitionlist) {
+            const elements = document.getElementsByClassName(transition);
+            for (const element of elements) {
+                // console.log(element);
+                var attr = element.getAttribute("data-transition");
+                if (typeof attr == "string" && attr.length) {
+                    attr += " " + transition;
+                } else {
+                    attr = transition;
+                }
+                element.setAttribute("data-transition", attr);
+            }
+        }
+    }
+
+    function styleListItems() {
+        const stylelist = ["thumbsup", "thumbsdown"];
+        for (const style of stylelist) {
+            const elements = document.getElementsByClassName(style);
+            for (const element of elements) {
+                // console.log(element);
+                element.closest("li").classList.add(style);
+            }
+        }
+    }
+    styleListItems();
+    transitions();
+</script>

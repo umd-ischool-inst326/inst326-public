@@ -1,49 +1,33 @@
-= INST 326 Module 9
-//:stylesdir: ../../css
+= INST 326 Modules
+//:stylesdir: css
 //:stylesheet: page.css
-:includedir: ../../includes
+:includedir: ../includes
 :toc: left
 
 ++++
 include::{includedir}/navigation.html[]
 ++++
 
-== Topics
+== Preliminaries: Introduction to the Course and Installation
 
-This module looks at ways to integrate Python programs with databases and SQL (Structured Query Language). SQL is an ISO/ANSI standard for creating relational databases, and there are a number of widely used implementations, both commercial (e.g. Oracle) and open source (e.g. MariaDB).
+- link:introduction[Slides]
 
-== Learning Outcomes
+== Part 1: Fundamentals
 
-After completing this module, students should understand:
+- link:module01[Module 1: Python Fundamentals]
+- link:module02[Module 2: Functions and Iteration]
+- link:module03[Module 3: Data Types]
+- link:module04[Module 4: Serialization and File I/O]
+- link:module05[Module 5: Regular Expressions]
 
-- How to use the sqlite3 module to connect to a database
-- How to load data to the database
-- How to query the database
-- The basics of CRUD operations
+== Part 2: Object-Oriented Programming in Python
 
-== Readings
+- link:module06[Module 6: OOP Fundamentals]
+- link:module07[Module 7: Inheritance and Composition]
+- link:[Module 8: Packaging and Distributing Code]
 
-- Severance, _Python for Everybody_,  link:https://www.py4e.com/html3/15-database[Chapter 15: "Using Databases and SQL"]
-- link:https://docs.python.org/3/library/sqlite3.html[Python documentation for sqlite3]
+== Part 3: Python for Data Analysis
 
-== Additional Readings (optional, as needed)
-
-=== Historical Background
-- Codd, E. F. (1970). "link:https://dl.acm.org/doi/10.1145/362384.362685[A Relational Model of Data for Large Shared Data Banks]," Communications of the ACM 13.6, 377-87.
-
-=== Python Resources
-- PEP 249: link:https://www.python.org/dev/peps/pep-0249[Python Database API Specification], v2.0
-- Tutorials (all of these cover much the same ground):
-  - link:https://www.pythoncentral.io/introduction-to-sqlite-in-python[]
-  - link:https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html[]
-  - link:http://www.sqlitetutorial.net/sqlite-python[]
-
-=== Database Resources
-- link:https://mariadb.org[MariaDB, a community fork of MySQL]
-- link:https://www.postgresql.org[PostgreSQL]
-- link:https://www.fullstackpython.com/no-sql-datastore.html[Overview of Python on NoSQL (i.e. non-relational) databases]
-
-== Links
-
-- link:slides.html[Slides]
-- link:exercises[Exercises]
+- link:module09[Module 9: Databases and SQL]
+- link:module10[Module 10: Data on the Web]
+- link:module11[Module 11: Data Analysis]
