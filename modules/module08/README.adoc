@@ -1,0 +1,26 @@
+= INST 326 Module 1
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Overview
+
+Overview of the module goes here.
+
+=== Links
+- Slides (forthcoming)
+- Exercise(s) (forthcoming)
+
+== Learning Outcomes
+
+Forthcoming
+
+== Additional Readings
+
+Forthcoming
+

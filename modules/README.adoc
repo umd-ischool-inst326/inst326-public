@@ -8,26 +8,25 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Preliminaries: Introduction to the Course and Installation
-
-- link:introduction[Slides]
-
 == Part 1: Fundamentals
 
-- link:module01[Module 1: Python Fundamentals]
-- link:module02[Module 2: Functions and Iteration]
-- link:module03[Module 3: Data Types]
-- link:module04[Module 4: Serialization and File I/O]
-- link:module05[Module 5: Regular Expressions]
+- link:module01/index.html[Module 1: Python Fundamentals 1]
+- link:module02/index.html[Module 2: Python Fundamentals 2]
+- link:module03/index.html[Module 3: Intro to Git and Testing]
 
 == Part 2: Object-Oriented Programming in Python
 
-- link:module06[Module 6: OOP Fundamentals]
-- link:module07[Module 7: Inheritance and Composition]
-- link:[Module 8: Packaging and Distributing Code]
+- link:module04/index.html[Module 4: Basics of OOP]
+- link:module05/index.html[Module 5: Advanced Data Structures]
+- link:module06/index.html[Module 6: Serialization and File I/O]
+- link:module07/index.html[Module 7: Regular Expressions]
+- link:module08/index.html[Module 8: Remote Collaboration]
+- link:module09/index.html[Module 9: Advanced OOP]
 
 == Part 3: Python for Data Analysis
 
-- link:module09[Module 9: Databases and SQL]
-- link:module10[Module 10: Data on the Web]
-- link:module11[Module 11: Data Analysis]
+- link:module10/index.html[Module 10: Databases and SQL]
+- link:module11/index.html[Module 11: Data on the Web]
+- link:module12/index.html[Module 12: Web Scraping]
+- link:module13/index.html[Module 13: Data Analysis]
+- link:module14/index.html[Module 14: Ethics in Programming]
