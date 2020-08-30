@@ -1,4 +1,4 @@
-= INST 326 Module 1
+= INST 326 Module 10
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,7 +10,7 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Overview of the module goes here.
+Databases and SQL.
 
 === Links
 - Slides (forthcoming)
