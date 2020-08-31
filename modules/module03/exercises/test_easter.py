@@ -1,7 +1,7 @@
 """ Test the calculation of Gregorian Easter. """
 
-# Replace "easter" below with the name of your script (without the .py).
-from easter import easter_date
+# Replace "exercise1" below with the name of your script (without the .py).
+from exercise1 import easter_date
 
 
 def test_easter_date():

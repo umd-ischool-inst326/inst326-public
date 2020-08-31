@@ -65,9 +65,14 @@ li li {
 }
 
 .thumbsdown {
-    list-style: "👎 ";
+    list-style: "👎 " !important;
 }
 
 .thumbsup {
-    list-style: "👍 ";
+    list-style: "👍 " !important;
+}
+
+.fullwidth pre {
+    width: 100% !important;
+    margin: 0 !important;
 }

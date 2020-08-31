@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Object-Oriented Programming</title>
+<title>Exercise: Calculating Easter</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,9 +436,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Object-Oriented Programming</h1>
+<h1>Exercise: Calculating Easter</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_background">Background</a>
+<ul class="sectlevel2">
+<li><a href="#_algorithm">Algorithm</a></li>
+<li><a href="#_limitations">Limitations</a></li>
+</ul>
+</li>
+<li><a href="#_instructions">Instructions</a></li>
+<li><a href="#_running_your_program">Running your program</a></li>
+<li><a href="#_hints">Hints</a></li>
+<li><a href="#_testing">Testing</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -473,43 +488,474 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_syllabi">Current Syllabi</h2>
+<h2 id="_background">Background</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The Christian holiday Easter is scheduled based on a conventionalized lunar calendar. For most Christian denominations that schedule their holidays according to the Gregorian calendar, Easter falls on a Sunday between March 22 and April 25.</p>
+</div>
+<div class="paragraph">
+<p>One of the earliest algorithms for computing the date of Gregorian Easter was given by mathematician Carl Friedrich Gauss.<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> The steps in this algorithm are given below. Note the following notational conventions:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="inst326_fall2020_westgard.pdf">INST326-102 (Westgard)</a></p>
+<p>\$Y\$ represents a year</p>
 </li>
 <li>
-<p><a href="INST326_Syllabus_Fall2020_Cruz_AUG29.pdf">INST326-ESG1 (Cruz)</a></p>
+<p>\$mod\$ represents the modulo operation</p>
+</li>
+<li>
+<p>\$floor(x)\$ represents the closest integer less than or equal to \$x\$ (this is called the <em>floor</em> of \$x\$)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, \$floor(7/3)\$ is 2. \$floor(6/3)\$ is also 2. \$floor(5/3)\$ is 1.</p>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_algorithm">Algorithm</h3>
+<div class="paragraph">
+<p>Define the following variables:</p>
+</div>
+<div class="stemblock">
+<div class="content">
+\$a = Y mod 19\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$b = Y mod 4\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$c = Y mod 7\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$k = floor(Y/100)\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$p = floor((13 + 8k) / 25)\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$q = floor(k/4)\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$M = (15 - p + k - q) mod 30\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$N = (4 + k - q) mod 7\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$d = (19a + M) mod 30\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$e = (2b + 4c + 6d + N) mod 7\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$r = 22 + d + e\$
+</div>
+</div>
+<div class="stemblock">
+<div class="content">
+\$s = d + e - 9\$
+</div>
+</div>
+<div class="paragraph">
+<p>Then, if all of the following conditions are true, Gregorian Easter falls on April 19:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\$d = 29\$</p>
+</li>
+<li>
+<p>\$e = 6\$</p>
+</li>
+<li>
+<p>\$s = 26\$</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Otherwise, if all of the following conditions are true, Gregorian Easter falls on April 18:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\$d = 28\$</p>
+</li>
+<li>
+<p>\$e = 6\$</p>
+</li>
+<li>
+<p>\$(11M + 11) mod 30 &lt; 19\$</p>
+</li>
+<li>
+<p>\$s = 25\$</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Otherwise, if \$s &gt; 0\$, Gregorian Easter falls on the \$s\$th day of April.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, Gregorian Easter falls on the \$r\$th day of March.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_limitations">Limitations</h3>
+<div class="paragraph">
+<p>The Gregorian calendar was first adopted in October 1582, so the output of Gauss&#8217;s algorithm will be meaningless for years prior to 1583.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_previous_syllabi">Previous Syllabi</h2>
+<h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Make a script using the <a href="easter.py">template</a> below. Replace the comment in the template with a function called <code>easter_date()</code> that implements Gauss&#8217;s algorithm for computing Gregorian Easter. Your function should take a four-digit year (an integer) as its only argument. It should return<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> a string consisting of a month and a day (e.g., <code>"April 4"</code>).</p>
+</div>
+<div class="paragraph">
+<p>If the year is less than 1583, your function should raise a <code>ValueError</code>.</p>
+</div>
+<div class="paragraph">
+<p>Your function should have a docstring that briefly states</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="archive/sp2020-101.pdf">Spring 2020</a></p>
+<p>what the function does</p>
 </li>
 <li>
-<p><a href="archive/fa2019-103.pdf">Fall 2019</a></p>
+<p>what argument(s) it requires</p>
 </li>
 <li>
-<p>link: archive/sp2019-101.pdf[Spring 2019]</p>
+<p>what kind of value it returns and what this value means</p>
+</li>
+<li>
+<p>what error(s) it raises and what they mean</p>
 </li>
 </ul>
 </div>
+<div class="listingblock">
+<div class="title">Template</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><span class="n">include</span><span class="p">::</span><span class="n">easter</span><span class="o">.</span><span class="n">py</span></code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_your_program">Running your program</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To run your program, open a terminal and ensure you are in the directory where your script is saved. At the command prompt, type <code>python3</code> (Windows users, type <code>python</code> instead) followed by a space, the name of your script, another space, and a year. For example, if your script were called <code>easter.py</code> and you wanted to find the date of Easter in 2025, you would type</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>python3 easter.py 2025</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hints">Hints</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Expressions like \$19a\$ are perfectly valid in algebra, but not in Python. You will need to explicitly tell Python to multiply in these situations.</p>
+</div>
+<div class="paragraph">
+<p>The floor operation in Gauss&#8217;s algorithm is always used in conjunction with division. Remember that Python has a floor division operator.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing">Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can use the script <a href="test_easter.py" class="bare">test_easter.py</a> to test your solution. Make sure you have Pytest installed (see <a href="https://docs.pytest.org/en/latest/getting-started.html#install-pytest" class="bare">https://docs.pytest.org/en/latest/getting-started.html#install-pytest</a>) and that your script and <code>test_easter.py</code> are in the same directory on your computer. Edit line 4 of <code>test_easter.py</code> so that it contains the name of your script (withou the <code>.py</code> ending).</p>
+</div>
+<div class="paragraph">
+<p>To use the test script, open a terminal and navigate to the directory containing your script and <code>test_easter.py</code>. Then type the following at the command prompt:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>pytest test_easter.py</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. The source of the algorithm presented here is <a href="https://en.wikipedia.org/wiki/Computus#Gauss'_Easter_algorithm" class="bare">https://en.wikipedia.org/wiki/Computus#Gauss'_Easter_algorithm</a>. In addition to the algorithm itself, this page also provides a thorough explanation of each element of the algorithm.
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Note the difference between returning a value and printing a value. Your function should not print anything.
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-31 08:55:41 -0400
+Last updated 2020-08-31 08:45:27 -0400
 </div>
 </div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>

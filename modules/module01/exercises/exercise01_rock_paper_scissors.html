@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Object-Oriented Programming</title>
+<title>Exercise: Calculating Easter</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,9 +436,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article">
+<body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Object-Oriented Programming</h1>
+<h1>Exercise: Calculating Easter</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_background">Background</a></li>
+<li><a href="#_instructions">Instructions</a></li>
+<li><a href="#_submitting_your_script">Submitting your script</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -473,43 +481,86 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_current_syllabi">Current Syllabi</h2>
+<h2 id="_background">Background</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="inst326_fall2020_westgard.pdf">INST326-102 (Westgard)</a></p>
-</li>
-<li>
-<p><a href="INST326_Syllabus_Fall2020_Cruz_AUG29.pdf">INST326-ESG1 (Cruz)</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Rock, paper, scissors is a game for two players. Each player chooses one of three hand shapes: rock, paper, or scissors. The players show each other their hand shapes at the same time. Rock defeats scissors; scissors defeats paper; paper defeats rock. If both players select the same hand shape, the round ends in a tie.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_previous_syllabi">Previous Syllabi</h2>
+<h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Decide who will be the driver and who will be the navigator. The driver does the typing, while the navigator watches for errors and helps to plan ahead for the next steps. Drivers and navigators can switch roles as often as they would like throughout the pair programming session. Both driver and navigator should be focused on the programming task throughout the session.</p>
+</div>
+<div class="paragraph">
+<p>Use Visual Studio Code to write a Python script called <code>rps.py</code>. At the top of the script, write a comment in which you list your full name and your partner&#8217;s full name.</p>
+</div>
+<div class="paragraph">
+<p>In your script, ask the user to enter player 1&#8217;s hand shape ("r", "p", or "s") and player 2&#8217;s hand shape (same letters). Then determine the outcome of the round and print the appropriate string from the list below:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="archive/sp2020-101.pdf">Spring 2020</a></p>
+<p>"Tie!"</p>
 </li>
 <li>
-<p><a href="archive/fa2019-103.pdf">Fall 2019</a></p>
+<p>"Player 1 wins!"</p>
 </li>
 <li>
-<p>link: archive/sp2019-101.pdf[Spring 2019]</p>
+<p>"Player 2 wins!"</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Ask the user if they want to do another round (have them enter "y" for yes or "n" for no). Repeat the above steps until the user chooses not to do another round. When the user decides not to do another round, print "Goodbye!".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_submitting_your_script">Submitting your script</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you finish your script during class, notify the instructional team member, who will look over your script with you and sign off on it if everything is in order.</p>
+</div>
+<div class="paragraph">
+<p>Whether or not the instructional team member signed off on your script, at the end of the session, the driver should email a copy of the script to the navigator. If you did not complete the script during class time, you may complete the script together outside of class, or each of you may complete the script individually. <strong>It is not okay for one team member to complete the script for the other person without that person&#8217;s participation.</strong></p>
+</div>
+<div class="paragraph">
+<p>Both driver and navigator should upload the script to ELMS, even if the instructional team member has signed off on the script.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-31 08:55:41 -0400
+Last updated 2020-08-31 08:45:27 -0400
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
