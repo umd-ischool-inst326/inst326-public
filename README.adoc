@@ -1,0 +1,23 @@
+= INST 326 Object-Oriented Programming
+//:stylesdir: css
+//:stylesheet: page.css
+:includedir: includes
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Welcome
+
+This website is an Open Educational Resource (OER) for a course on Python Programming offered through the link:https://ischool.umd.edu[College of Information Studies] at the link:https://umd.edu[University of Maryland College Park].
+
+The course is divided into 14 [modules](modules) covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:
+
+1. Fundamentals
+2. Object-Oriented Programming
+3. Working with Data
+
+== Acknowledgements
+
+Thanks to link:https://github.com/edsu[Ed Summers] for sharing content and ideas from his own version of this course. link:https://github.com/edsu[Ed Summers] developed the original concept for the way the site is maintained and built using Make, Asciidoctor, and Github pages.

@@ -115,8 +115,12 @@
 <section id="section-3" class="slide level1">
 <h1></h1>
 <h2 id="accessing-values-in-a-tuple">Accessing Values in a Tuple</h2>
-<p>We can use square brackets to slice at the indices just like lists. ~~~~ {.python .numberLines} my_tuple = (1, “string”, 5.8)</p>
-<p>my_tuple[1] # “string” my_tuple[:1] # (1,) my_tuple[:3] # (1, “string”, 5.8) ~~~~</p>
+<p>We can use square brackets to slice at the indices just like lists.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>my_tuple <span class="op">=</span> (<span class="dv">1</span>, “string”, <span class="fl">5.8</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>my_tuple[<span class="dv">1</span>]    <span class="co"># &quot;string&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>my_tuple[:<span class="dv">1</span>]   <span class="co"># (1,)</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>my_tuple[:<span class="dv">3</span>]   <span class="co"># (1, “string”, 5.8)</span></span></code></pre></div>
 </section>
 <section id="section-4" class="slide level1">
 <h1></h1>
@@ -192,23 +196,23 @@
 </section>
 <section id="section-8" class="slide level1">
 <h1></h1>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">class</span> book:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
-<span id="cb2-3"><a href="#cb2-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    </span>
-<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
-<span id="cb2-6"><a href="#cb2-6"></a>        <span class="co"># method that will return two variables</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>        <span class="co"># -----------------------------------</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>        <span class="co"># words in the file</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>        <span class="co">#</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
-<span id="cb2-12"><a href="#cb2-12"></a>        <span class="co"># are the words and the values are the </span></span>
-<span id="cb2-13"><a href="#cb2-13"></a>        <span class="co"># number of times that the </span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>        <span class="co"># word appears in the file</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a>results <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> book:</span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
+<span id="cb3-3"><a href="#cb3-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
+<span id="cb3-4"><a href="#cb3-4"></a>    </span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
+<span id="cb3-6"><a href="#cb3-6"></a>        <span class="co"># method that will return two variables</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>        <span class="co"># -----------------------------------</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>        <span class="co"># words in the file</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a>        <span class="co">#</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>        <span class="co"># are the words and the values are the </span></span>
+<span id="cb3-13"><a href="#cb3-13"></a>        <span class="co"># number of times that the </span></span>
+<span id="cb3-14"><a href="#cb3-14"></a>        <span class="co"># word appears in the file</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a>results <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
 </section>
 <section id="section-9" class="slide level1">
 <h1></h1>
@@ -224,45 +228,45 @@
 <section id="section-11" class="slide level1">
 <h1></h1>
 <h2 id="find-min-and-max-values">Find Min and Max Values</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">max</span>(<span class="bu">tuple</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">min</span>(<span class="bu">tuple</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">max</span>(<span class="bu">tuple</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="bu">min</span>(<span class="bu">tuple</span>)</span></code></pre></div>
 </section>
 <section id="section-12" class="slide level1">
 <h1></h1>
 <h2 id="perform-sequence-unpacking">Perform Sequence Unpacking</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> book:</span>
-<span id="cb4-2"><a href="#cb4-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
-<span id="cb4-3"><a href="#cb4-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
-<span id="cb4-4"><a href="#cb4-4"></a>    </span>
-<span id="cb4-5"><a href="#cb4-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
-<span id="cb4-6"><a href="#cb4-6"></a>        <span class="co"># method that will return two variables</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>        <span class="co"># -------------------------------------</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>        <span class="co"># words in the file</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a>        <span class="co">#</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
-<span id="cb4-12"><a href="#cb4-12"></a>        <span class="co"># are the words and the values </span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>        <span class="co"># are the number of times that the </span></span>
-<span id="cb4-14"><a href="#cb4-14"></a>        <span class="co"># word appears in the file</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a>words, counts <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
-</section>
-<section id="section-13" class="slide level1">
-<h1></h1>
-<h2 id="iterate-over-the-tuple">Iterate over the Tuple</h2>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> book:</span>
 <span id="cb5-2"><a href="#cb5-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
 <span id="cb5-3"><a href="#cb5-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
 <span id="cb5-4"><a href="#cb5-4"></a>    </span>
 <span id="cb5-5"><a href="#cb5-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
-<span id="cb5-6"><a href="#cb5-6"></a>        <span class="co"># Insert Docstring</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>results <span class="op">=</span> book(my_path).meta_data()</span>
-<span id="cb5-10"><a href="#cb5-10"></a></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">for</span> item <span class="kw">in</span> results:</span>
-<span id="cb5-12"><a href="#cb5-12"></a>    <span class="bu">print</span>(item)</span></code></pre></div>
+<span id="cb5-6"><a href="#cb5-6"></a>        <span class="co"># method that will return two variables</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>        <span class="co"># -------------------------------------</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>        <span class="co"># unique_words = a list of unique </span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>        <span class="co"># words in the file</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>        <span class="co">#</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>        <span class="co"># word_counts = a dictionary where the keys </span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>        <span class="co"># are the words and the values </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>        <span class="co"># are the number of times that the </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>        <span class="co"># word appears in the file</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>words, counts <span class="op">=</span> book(my_path).meta_data()</span></code></pre></div>
+</section>
+<section id="section-13" class="slide level1">
+<h1></h1>
+<h2 id="iterate-over-the-tuple">Iterate over the Tuple</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">class</span> book:</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, path):</span>
+<span id="cb6-3"><a href="#cb6-3"></a>        <span class="va">self</span>.f <span class="op">=</span> <span class="bu">open</span>(path).read()</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    </span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="kw">def</span> meta_data(<span class="va">self</span>):</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="co"># Insert Docstring</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a>my_path <span class="op">=</span> <span class="st">&quot;my_file.txt&quot;</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>results <span class="op">=</span> book(my_path).meta_data()</span>
+<span id="cb6-10"><a href="#cb6-10"></a></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="cf">for</span> item <span class="kw">in</span> results:</span>
+<span id="cb6-12"><a href="#cb6-12"></a>    <span class="bu">print</span>(item)</span></code></pre></div>
 </section>
 <section id="section-14" class="slide level1">
 <h1></h1>
@@ -346,19 +350,19 @@
 </section>
 <section id="section-20" class="slide level1">
 <h1></h1>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
-<span id="cb6-2"><a href="#cb6-2"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
-<span id="cb6-3"><a href="#cb6-3"></a>myset <span class="op">=</span> <span class="bu">set</span>([ <span class="st">&quot;a&quot;</span>, “a” , <span class="st">&quot;b&quot;</span> , <span class="st">&quot;c&quot;</span> , “c” ])</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
+<span id="cb7-2"><a href="#cb7-2"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
+<span id="cb7-3"><a href="#cb7-3"></a>myset <span class="op">=</span> <span class="bu">set</span>([ <span class="st">&quot;a&quot;</span>, “a” , <span class="st">&quot;b&quot;</span> , <span class="st">&quot;c&quot;</span> , “c” ])</span></code></pre></div>
 </section>
 <section id="section-21" class="slide level1">
 <h1></h1>
 <h2 id="removing-elements-from-sets">Removing Elements from Sets</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>myset.remove(“a”)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>myset.remove(“a”)</span></code></pre></div>
 </section>
 <section id="section-22" class="slide level1">
 <h1></h1>
 <h2 id="adding-elements-from-sets">Adding Elements from Sets</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>myset.add(“a”)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>myset.add(“a”)</span></code></pre></div>
 </section>
 <section id="section-23" class="slide level1">
 <h1></h1>
@@ -481,29 +485,29 @@
 <section id="section-32" class="slide level1">
 <h1></h1>
 <h2 id="example-using-sets">Example Using Sets</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb9-2"><a href="#cb9-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a>set1, set2 <span class="op">=</span> <span class="bu">set</span>(list1), <span class="bu">set</span>(list2)</span>
-<span id="cb9-5"><a href="#cb9-5"></a>set3 <span class="op">=</span> set1.intersection(set2) </span>
-<span id="cb9-6"><a href="#cb9-6"></a></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="bu">print</span>(<span class="bu">len</span>(set3)) <span class="co">#Result = 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb10-2"><a href="#cb10-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>set1, set2 <span class="op">=</span> <span class="bu">set</span>(list1), <span class="bu">set</span>(list2)</span>
+<span id="cb10-5"><a href="#cb10-5"></a>set3 <span class="op">=</span> set1.intersection(set2) </span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="bu">print</span>(<span class="bu">len</span>(set3)) <span class="co">#Result = 3</span></span></code></pre></div>
 </section>
 <section id="section-33" class="slide level1">
 <h1></h1>
 <h2 id="compared-to-no-sets">Compared to No Sets</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb10-2"><a href="#cb10-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
-<span id="cb10-3"><a href="#cb10-3"></a></span>
-<span id="cb10-4"><a href="#cb10-4"></a>resulting_list <span class="op">=</span> []</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="cf">for</span> num <span class="kw">in</span> list1:</span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="cf">if</span> num <span class="kw">in</span> resulting_list:</span>
-<span id="cb10-7"><a href="#cb10-7"></a>        <span class="cf">continue</span></span>
-<span id="cb10-8"><a href="#cb10-8"></a>    <span class="cf">else</span>:</span>
-<span id="cb10-9"><a href="#cb10-9"></a>        <span class="cf">if</span> num <span class="kw">in</span> list2:</span>
-<span id="cb10-10"><a href="#cb10-10"></a>            resulting_list.append(num)</span>
-<span id="cb10-11"><a href="#cb10-11"></a></span>
-<span id="cb10-12"><a href="#cb10-12"></a><span class="bu">print</span>(<span class="bu">len</span>(resulting_list)) <span class="co">#Result = 3</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb11-2"><a href="#cb11-2"></a>list2 <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>]</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>resulting_list <span class="op">=</span> []</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="cf">for</span> num <span class="kw">in</span> list1:</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="cf">if</span> num <span class="kw">in</span> resulting_list:</span>
+<span id="cb11-7"><a href="#cb11-7"></a>        <span class="cf">continue</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-9"><a href="#cb11-9"></a>        <span class="cf">if</span> num <span class="kw">in</span> list2:</span>
+<span id="cb11-10"><a href="#cb11-10"></a>            resulting_list.append(num)</span>
+<span id="cb11-11"><a href="#cb11-11"></a></span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="bu">print</span>(<span class="bu">len</span>(resulting_list)) <span class="co">#Result = 3</span></span></code></pre></div>
 </section>
 <section id="section-34" class="slide level1">
 <h1></h1>
@@ -578,10 +582,10 @@
 <li>List comprehensions are expressions that evaluate to lists</li>
 <li>Often are faster than iterating over one list to build another list</li>
 </ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
-<span id="cb11-2"><a href="#cb11-2"></a>squares <span class="op">=</span> [n<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> n <span class="kw">in</span> numbers]</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="bu">print</span>(squares) <span class="co"># Output: [1,4,9,16]</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb12-2"><a href="#cb12-2"></a>squares <span class="op">=</span> [n<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> n <span class="kw">in</span> numbers]</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(squares) <span class="co"># Output: [1,4,9,16]</span></span></code></pre></div>
 </section>
 <section id="section-41" class="slide level1">
 <h1></h1>
@@ -594,10 +598,10 @@
 <li>then zero or more for or if clauses.</li>
 </ol></li>
 </ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>list_a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
-<span id="cb12-2"><a href="#cb12-2"></a>cube_list <span class="op">=</span> [ [a<span class="op">**</span><span class="dv">2</span>, a<span class="op">**</span><span class="dv">3</span>] <span class="cf">for</span> a <span class="kw">in</span> list_a]</span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">print</span>(cube_list) <span class="co"># Output: [[1,1], [4,8], [9,27]]</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>list_a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb13-2"><a href="#cb13-2"></a>cube_list <span class="op">=</span> [ [a<span class="op">**</span><span class="dv">2</span>, a<span class="op">**</span><span class="dv">3</span>] <span class="cf">for</span> a <span class="kw">in</span> list_a]</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="bu">print</span>(cube_list) <span class="co"># Output: [[1,1], [4,8], [9,27]]</span></span></code></pre></div>
 </section>
 <section id="section-42" class="slide level1">
 <h1></h1>
@@ -606,13 +610,13 @@
 <li>List comprehensions can help make code shorter and more concise</li>
 <li>Consider the following example:</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>[(x,y) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>] <span class="cf">if</span> x <span class="op">!=</span> y]</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>combs <span class="op">=</span> []</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]:</span>
-<span id="cb13-5"><a href="#cb13-5"></a>    <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>]:</span>
-<span id="cb13-6"><a href="#cb13-6"></a>        <span class="cf">if</span> x <span class="op">!=</span> y:</span>
-<span id="cb13-7"><a href="#cb13-7"></a>            combs.append((x,y))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>[(x,y) <span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>] <span class="cf">if</span> x <span class="op">!=</span> y]</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a>combs <span class="op">=</span> []</span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="cf">for</span> x <span class="kw">in</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]:</span>
+<span id="cb14-5"><a href="#cb14-5"></a>    <span class="cf">for</span> y <span class="kw">in</span> [<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>]:</span>
+<span id="cb14-6"><a href="#cb14-6"></a>        <span class="cf">if</span> x <span class="op">!=</span> y:</span>
+<span id="cb14-7"><a href="#cb14-7"></a>            combs.append((x,y))</span></code></pre></div>
 </section>
 <section id="section-43" class="slide level1">
 <h1></h1>
@@ -644,8 +648,8 @@
 <section id="section-45" class="slide level1">
 <h1></h1>
 <h2 id="here-is-an-example">Here is an Example</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>Dict <span class="op">=</span> { <span class="st">&#39;Dict1&#39;</span>: {<span class="dv">1</span>: <span class="st">&#39;G&#39;</span>, <span class="dv">2</span>: <span class="st">&#39;F&#39;</span>, <span class="dv">3</span>: <span class="st">&#39;G&#39;</span>},</span>
-<span id="cb14-2"><a href="#cb14-2"></a>         <span class="st">&#39;Dict2&#39;</span>: {<span class="st">&#39;Name&#39;</span>: <span class="st">&#39;INST326&#39;</span>, <span class="dv">1</span>: [<span class="dv">1</span>, <span class="dv">2</span>]} }</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource python numberLines"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>Dict <span class="op">=</span> { <span class="st">&#39;Dict1&#39;</span>: {<span class="dv">1</span>: <span class="st">&#39;G&#39;</span>, <span class="dv">2</span>: <span class="st">&#39;F&#39;</span>, <span class="dv">3</span>: <span class="st">&#39;G&#39;</span>},</span>
+<span id="cb15-2"><a href="#cb15-2"></a>         <span class="st">&#39;Dict2&#39;</span>: {<span class="st">&#39;Name&#39;</span>: <span class="st">&#39;INST326&#39;</span>, <span class="dv">1</span>: [<span class="dv">1</span>, <span class="dv">2</span>]} }</span></code></pre></div>
 <div>
 <ul>
 <li class="fragment">Dict[“Dict1”]

@@ -39,6 +39,7 @@ my_tuple = ()
 ## Accessing Values in a Tuple
 
 We can use square brackets to slice at the indices just like lists.
+
 ~~~~ {.python .numberLines}
 my_tuple = (1, “string”, 5.8)
 
