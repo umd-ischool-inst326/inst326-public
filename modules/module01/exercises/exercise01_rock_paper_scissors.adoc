@@ -1,4 +1,4 @@
-= Exercise: Calculating Easter
+= Exercise: Rock, Paper, Scissors
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../../includes

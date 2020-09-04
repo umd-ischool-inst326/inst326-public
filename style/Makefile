@@ -1,4 +1,4 @@
-all: index guide pdf
+all: index guide
 
 index: README.adoc
 	asciidoctor README.adoc -o index.html
