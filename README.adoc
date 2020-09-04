@@ -12,7 +12,7 @@ include::{includedir}/navigation.html[]
 
 This website is an Open Educational Resource (OER) for a course on Python Programming offered through the link:https://ischool.umd.edu[College of Information Studies] at the link:https://umd.edu[University of Maryland College Park].
 
-The course is divided into 14 [modules](modules) covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:
+The course is divided into 14 link:modules/index.html[modules] covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:
 
 1. Fundamentals
 2. Object-Oriented Programming
@@ -20,4 +20,4 @@ The course is divided into 14 [modules](modules) covering various topics in prog
 
 == Acknowledgements
 
-Thanks to link:https://github.com/edsu[Ed Summers] for sharing content and ideas from his own version of this course. link:https://github.com/edsu[Ed Summers] developed the original concept for the way the site is maintained and built using Make, Asciidoctor, and Github pages.
+This site was developed by Aric Bills, Gabriel Cruz, Jen Golbeck and Joshua Westgard in Summer 2020 with the support of a Teaching Innovation Grant from the Provost's Office at the University of Maryland College Park. The site's content is maintained in markdown and asciidoc files stored in a Github repository. It is built and published using link:https://www.gnu.org/software/make/[GNU Make], link:https://pandoc.org[pandoc], link:https://asciidoctor.org[asciidoctor], and https://revealjs.com[reveal.js], and is served to the public web via Github pages. Ed Summers and Joshua Westgard developed the site's build framework for an earlier version of a shared INST326 website in 2019.
