@@ -1,4 +1,4 @@
-= INST 326 Module 2
+= INST 326 Module 2: Fundamentals Part 2
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,17 +10,26 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Python Fundamentals, Part 2
+This module is a review of the most important basic data structures in the Python language, including strings, lists, dictionaries, and tuples.
 
 === Links
-- Slides (forthcoming)
-- Exercise(s) (forthcoming)
+* link:slides.html[Slides]
+* Exercises (forthcoming)
 
 == Learning Outcomes
 
-Forthcoming
+After completing this module, students should understand:
+
+* The fundamental data types in Python.
+* How to create instances of data types, and where applicable, how to update them.
+* How Python implements data types as objects.
+* How to find out more about these types and their methods using the built-in documentation.
 
 == Additional Readings
 
-Forthcoming
+.Severance, _Python for Everybody_
+* link:https://www.py4e.com/html3/06-strings[Chapter 6: Strings]
+* link:https://www.py4e.com/html3/08-lists[Chapter 8: Lists]
+* link:https://www.py4e.com/html3/09-dictionaries[Chapter 9: Dictionaries]
+* link:https://www.py4e.com/html3/10-tuples[Chapter 10: Tuples]
 
