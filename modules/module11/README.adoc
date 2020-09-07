@@ -1,4 +1,4 @@
-= INST 326 Module 11
+= INST 326 Module 11: Data on the Web
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

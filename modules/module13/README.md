@@ -1,5 +1,5 @@
 ---
-title: INST 326 Module 1
+title: INST 326 Module 13: Data Analysis
 permalink: index.html
 css: ../../css/page.css
 ---

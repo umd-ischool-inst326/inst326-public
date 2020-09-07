@@ -1,5 +1,5 @@
 ---
-title: INST 326 Module 5
+title: INST 326 Module 5: Advanced Data Structures
 permalink: index.html
 css: ../../css/page.css
 ---
