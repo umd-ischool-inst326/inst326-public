@@ -1,5 +1,5 @@
 ---
-title: INST 326 Module 7
+title: "INST 326 Module 7: Regular Expressions"
 permalink: index.html
 css: ../../css/page.css
 ---
