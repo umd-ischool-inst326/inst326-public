@@ -1,0 +1,472 @@
+= Blocks & Structures: Data Types in Python
+:imagesdir: images
+:docinfo: shared
+:revealjsdir: ../../lib/reveal.js.3.9.2
+:source-highlighter: highlightjs
+:customcss: ../../css/aric_slides.css
+:revealjs_width: 1400
+:revealjs_height: 800
+:title-slide-background-image: nick-pampoukidis-71DBqqpWrBI-unsplash.jpg
+
+== Introduction
+
+=== Atomic vs. Compound Data
+
+* Data types in Python can be _atomic_ or _compound_
+* Atomic data types in Python include:
+** Integers
+** Floats
+** Booleans
+** Strings
+* These data types cannot (in general) contain other data
+
+=== Revisiting Strings
+
+* Atomic data types were addressed in the previous module
+* Variable assignment, evaluation of expressions, and Boolean contexts dealt with aspects of atomic data types
+* Strings are atomic, but also share certain characteristics of compound data structures
+* For that reason they are discussed further in this lecture
+
+=== Stacking the Building Blocks
+
+* Python also includes _compound_ data types
+* These _data structures_ can be made up of atomic data types
+* IMPORTANT: Compound data can also contain other compound data
+* For example, a list can contain other lists as its elements
+
+=== Everything is an object
+
+* Under the hood, all of Python's data types are objects
+* This means that they share some fundamental characteristics _and_
+* You can use some common commands to learn about them:
+** type(): _returns an object's class_
+** dir(): _returns list of available methods_
+** help(): _opens built-in documentation pages_
+
+=== Try it out (interactive mode)
+
+[source, python]
+----
+>>> s = "To be or not to be."
+>>> type(s)
+    <class 'str'>
+>>> help(str)
+    ... opens interactive documentation ...
+>>> dir(s)
+    ... displays list of available string methods ...
+----
+
+
+== Strings
+
+=== What are strings?
+
+* Strings are textual data
+* Strings are ordered sequences of characters
+* The characters that make up a string are mapped or link:https://en.wikipedia.org/wiki/Character_encoding["encoded"] in a particular character set
+* In Python (starting with v3), strings are encoded by default in link:https://unicode.org[unicode]
+* unicode supports any language or writing system (well, _almost_ any...)
+
+=== Creating strings
+
+[source, python]
+----
+s = "To be or not to be"
+----
+
+* We create strings using quotation marks
+* You can use single (') or double (") quotes
+* You cannot _mix_ single/double quotes when creating a string
+* you can _nest_ them (useful if you need to include quotation marks in a string)
+
+=== Accessing strings
+
+* Strings are sequences of characters
+* By default the variable returns the whole sequence
+* Parts of strings (called substrings) are accessed by index
+* The first position of a string has an offset of zero
+
+[source, python]
+----
+>>> x = 'To be or not to be.'
+>>> x[3]
+----
+
+[%step]
+* ANSWER: **b**
+
+=== String indices and slices
+
+* The index is an integer representing the distance (offset) from the beginning of the string
+* Sequences can be accessed by slicing (beginning and end separated by colon)
+
+[source, python]
+----
+>>> lyric = "Another one bites the dust."
+>>> lyric[12:17]
+----
+
+[%step]
+* ANSWER: **bites**
+
+=== "Modifying" strings
+
+* Strings are _immutable_ which means they do not change.
+* However it's common to reassign a string variable.
+
+[source, python]
+----
+>>> x = 'hello'
+>>> x = x.upper()  # reassigns x
+>>> print(x)
+----
+
+[%step]
+* ANSWER: **HELLO**
+
+
+=== String Methods
+
+link:https://docs.python.org/3/library/string.html[Strings] have lots of useful
+methods like *upper()* which you just saw.  Here are a few more, but try using
+*dir* and *help* to learn about them:
+
+[cols, width="85%", grid="none", frame="none"]
+|===
+| lower() | join(words) | find(s)           | format(args)
+| upper() | split(s)    | replace(old, new) | capitalize()
+|===
+
+
+=== String Formatting
+
+* Most programming languages have a system for string formatting
+* Python has had several such systems over its history
+* With v3.6 Python introduced "f-strings", which are now the preferred way to format strings
+
+=== How f-strings work
+
+* You can think of f-strings as strings that include placeholders
+* The values of variables can be plugged into the string seamlessly without needing to rely on concatenation
+
+[source, python]
+----
+name = "Hal"
+verb = "open"
+object = "pod bay doors"
+message = f"{verb} the {object}, {name}!".capitalize()
+print(message)
+----
+
+[%step]
+* ANSWER: **'Open the pod bay doors, Hal!'**
+
+== Lists
+
+=== What are lists?
+
+* Lists are ordered sequences of other objects
+* Lists are what are called "arrays" in some other languages
+* Lists can be nested (e.g. a list of lists, or a list of dictionaries)
+* Lists can be made up of heterogenous elements
+
+=== Creating lists
+
+* Create a list with list() or with square brackets (empty or not)
+** x = list()
+** x = []
+** x = ['hello', 'world']
+* Notice how the items of a list are separated by commas
+
+=== Accessing lists
+
+* Like strings, lists are an ordered sequence
+* Like strings, elements can be accessed by index position: `my_list[2]`
+* Like strings, lists can be sliced: `my_list[2:5]`
+* Use **len()** to find out how many elements are in a list: `len(my_list)`
+
+=== Loops and Lists
+
+And the **for loop** is super handy for operating on lists:
+
+[source, python]
+----
+colors = ["red", "green", "blue", "black"]
+for color in colors:
+    print(color)
+----
+
+[%step]
+* ANSWER: +
+red + 
+green + 
+blue + 
+black
+
+=== Modifying lists
+
+* Unlike strings, lists can be changed in place
+* You can reassign the item at a particular position
+
+[source, python]
+----
+x = ['hello', 'world']
+x[1] = 'universe'
+print(x)
+----
+
+[%step]
+* ANSWER: **['hello', 'universe']**
+
+=== Adding an element to a list
+
+* Use the append() method to add an element to the end of a list:
+
+[source, python]
+----
+cheeses = ['manchego', 'cheddar', 'swiss']
+cheeses.append('gorgonzola')
+print(cheeses)
+----
+
+[%step]
+* ANSWER: **['manchego', 'cheddar', 'swiss', 'gorgonzola']**
+
+=== Adding a list to another list
+
+* Use exend() to add all the elements of one list to the end of another:
+
+[source, python]
+----
+cheeses = ['stilton', 'cheddar']
+french = ['brie', 'camembert']
+cheeses.extend(french)
+print(cheeses)
+----
+
+[%step]
+* ANSWER: **['stilton', 'cheddar', 'brie', 'camembert']**
+
+=== Deleting an element from a list
+
+* You can remove elements from a list by del or .pop()
+* Use del() when you want to discard the item immediately
+* Use .pop() when you need to access the item being discarded
+* As items are removed, the index position of the remaining items changes
+
+[source, python]
+----
+cheeses = ['manchego', 'cheddar', 'swiss']
+del(cheeses[0])
+print(cheeses.pop(1)
+print(cheeses)
+----
+
+[%step]
+* ANSWER: +
+**'swiss'** + 
+**['cheddar']**
+
+
+== Dictionaries
+
+=== What are dictionaries?
+
+* Dictionaries are _unordered_ collections of key/value pairs
+* They are what is referred to in other languages as an "associative array"
+* They are similar to a phone book or real-life dictionary, except that the keys are not sorted by default
+
+
+=== Creating dictionaries
+
+Create a dictionary with dict() or with curly braces:
+
+[source, python]
+----
+my_dictionary = dict()
+my_dictionary = {}
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+----
+
+=== Accessing dictionaries
+
+You can look up the values in a dictionary by referencing the key:
+
+[source, python]
+----
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+print(phone_book['Bruce Banner'])
+----
+
+[%step]
+* ANSWER: **555-555-1234**
+
+=== Accessing dictionaries
+
+Access the keys of a dictionary with the **keys()** method:
+
+[source, python]
+----
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+for k in phone_book.keys():
+    print(k)
+----
+
+[%step]
+* ANSWER: +
+**Bruce Banner** +
+**Sue Storm**
+
+=== Accessing dictionaries
+
+Access the values of a dictionary with the **values()** method:
+
+[source, python]
+----
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+for val in phone_book.values():
+    print(val)
+----
+
+[%step]
+* ANSWER: +
+**555-555-1234** +
+**555-555-5678**
+
+=== Accessing dictionaries
+
+Access the key/value pairs with the **items()** method:
+
+[source, python]
+----
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+for key, val in phone_book.items():
+    print(key, val)
+----
+
+[%step, %nobullet]
+* ANSWER: +
+**Bruce Banner 555-555-1234** +
+**Sue Storm 555-555-5678**
+
+
+=== Modifying dictionaries
+
+* The keys of a dictionary can be assigned to different values directly
+
+``` {.python .numberLines}
+phone_book['Bruce Banner'] = "555-555-9876"
+```
+* If the key does not exist, a new key/value pair will be added
+* Note that each key of a given dictionary must be unique
+
+
+=== Deleting from a dictionary
+You can remove a key/value pair from a dictionary by using the **pop** method or the del() built-in function:
+
+[source, python]
+----
+phone_book = {
+    'Bruce Banner': '555-555-1234',
+    'Sue Storm': '555-555-5678'
+}
+phone_book.pop('Bruce Banner')
+print(phone_book)
+----
+
+[%step]
+* ANSWER: +
+{'Sue Storm': '555-555-5678'}
+
+=== Accessing a nested dictionary
+
+To access dictionaries within dictionaries, concatenate the keys:
+
+[source, python]
+----
+energy = {
+  "Colorado": {
+    "solar": 16530.477,
+    "wind": 2942132.635
+  },
+  "New Jersey": {
+    "solar": 2437.768,
+    "wind": 19149.957
+  },
+  "Washington": {
+    "solar": 0.0,
+    "wind": 3538935.954
+  }
+}
+print(energy['Washington']['wind'])
+----
+
+[%step]
+* ANSWER: + 
+**3538935.954**
+
+
+== Tuples
+
+=== What are tuples?
+
+* Tuples are ordered, immutable sequences of other objects
+* You will hear tuple pronounced both "too-pull" and "tuh-pull"
+* Contrary to how the name sounds, tuples can have any number of elements (not just two!)
+
+=== Creating tuples
+
+* Tuples can be created with tuple()
+* Tuples are also often created with parentheses
+
+[source, python]
+----
+x = ('foo', 'bar')
+----
+
+* But in fact, the comma is what allows python to recognize the tuple
+
+=== Accessing tuples
+
+* Similar to lists, the items in a tuple are accessed by index position
+* A common pattern is to assign the elements of tuples in a single line
+* For example, the .items() method of dictionaries returns key/value pairs as a tuple:
+
+[source, python]
+----
+for name, number in phone_book.items():
+    print(name, number)
+----
+
+=== "Modifying" tuples
+
+* Like strings, tuples are immutable
+* If you try to reassign a value inside a tuple, Python will raise a type error
+* You can, however, create a new tuple with modified values
+
+[source, python]
+----
+my_tuple = ('foo', 'bar')
+new_tuple = (my_tuple[0], my_tuple[1].upper())
+print(new_tuple)
+----
+
+[%step]
+* ANSWER: ('foo', 'BAR')
+
+
