@@ -143,36 +143,36 @@ td.hdlist1{font-weight:bold;padding-bottom:1.25em}
 link.rel = 'stylesheet';
 link.type = 'text/css';
 link.href = window.location.search.match( /print-pdf/gi ) ? "../../lib/reveal.js.3.9.2/css/print/pdf.css" : "../../lib/reveal.js.3.9.2/css/print/paper.css";
-document.getElementsByTagName( 'head' )[0].appendChild( link );</script><link rel="stylesheet" href="../../css/aric_slides.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-background-image="images/nick-pampoukidis-71DBqqpWrBI-unsplash.jpg"><h1>Blocks &amp; Structures</h1><h2>Data Types in Python</h2></section><section><section id="_introduction"><h2>Introduction</h2></section><section id="_atomic_vs_compound_data"><h2>Atomic vs. Compound Data</h2><div class="slide-content"><div class="ulist"><ul><li><p>Data types in Python can be <em>atomic</em> or <em>compound</em></p></li><li><p>Atomic data types in Python include:</p><div class="ulist"><ul><li><p>Integers</p></li><li><p>Floats</p></li><li><p>Booleans</p></li><li><p>Strings</p></li></ul></div></li><li><p>These data types cannot (in general) contain other data</p></li></ul></div></div></section><section id="_revisiting_strings"><h2>Revisiting Strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>Atomic data types were addressed in the previous module</p></li><li><p>Variable assignment, evaluation of expressions, and Boolean contexts dealt with aspects of atomic data types</p></li><li><p>Strings are atomic, but also share certain characteristics of compound data structures</p></li><li><p>For that reason they are discussed further in this lecture</p></li></ul></div></div></section><section id="_stacking_the_building_blocks"><h2>Stacking the Building Blocks</h2><div class="slide-content"><div class="ulist"><ul><li><p>Python also includes <em>compound</em> data types</p></li><li><p>These <em>data structures</em> can be made up of atomic data types</p></li><li><p>IMPORTANT: Compound data can also contain other compound data</p></li><li><p>For example, a list can contain other lists as its elements</p></li></ul></div></div></section><section id="_everything_is_an_object"><h2>Everything is an object</h2><div class="slide-content"><div class="ulist"><ul><li><p>Under the hood, all of Python&#8217;s data types are objects</p></li><li><p>This means that they share some fundamental characteristics <em>and</em></p></li><li><p>You can use some common commands to learn about them:</p><div class="ulist"><ul><li><p>type(): <em>returns an object&#8217;s class</em></p></li><li><p>dir(): <em>returns list of available methods</em></p></li><li><p>help(): <em>opens built-in documentation pages</em></p></li></ul></div></li></ul></div></div></section><section id="_try_it_out_interactive_mode"><h2>Try it out (interactive mode)</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; s = "To be or not to be."
+document.getElementsByTagName( 'head' )[0].appendChild( link );</script><link rel="stylesheet" href="../../css/aric_slides.css"></head><body><div class="reveal"><div class="slides"><section class="title" data-state="title" data-background-image="images/nick-pampoukidis-71DBqqpWrBI-unsplash.jpg"><h1>Blocks &amp; Structures</h1><h2>Data Types in Python</h2></section><section><section id="_introduction"><h2>Introduction</h2></section><section id="_atomic_vs_compound_data"><h2>Atomic vs. Compound Data</h2><div class="slide-content"><div class="ulist"><ul><li><p>Data types in Python can be <em>atomic</em> or <em>compound</em></p></li><li><p>Atomic data types in Python include:</p><div class="ulist"><ul><li><p>Integers</p></li><li><p>Floats</p></li><li><p>Booleans</p></li><li><p>Strings</p></li></ul></div></li><li><p>These data types cannot (in general) contain other data</p></li></ul></div></div></section><section id="_revisiting_strings"><h2>Revisiting Strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>Atomic data types were addressed in the previous module</p></li><li><p>Variable assignment, evaluation of expressions, and Boolean contexts dealt with aspects of atomic data types</p></li><li><p>Strings are atomic, but also share certain characteristics of compound data structures</p></li><li><p>For that reason they are discussed further in this lecture</p></li></ul></div></div></section><section id="_stacking_the_building_blocks"><h2>Stacking the Building Blocks</h2><div class="slide-content"><div class="ulist"><ul><li><p>Python also includes <em>compound</em> data types</p></li><li><p>These <em>data structures</em> can be made up of atomic data types</p></li><li><p>IMPORTANT: Compound data can also contain other compound data</p></li><li><p>For example, a list can contain other lists as its elements</p></li></ul></div></div></section><section id="_everything_is_an_object"><h2>Everything is an object</h2><div class="slide-content"><div class="ulist"><ul><li><p>Under the hood, all of Python&#8217;s data types are objects</p></li><li><p>This means that they share some fundamental characteristics <em>and</em></p></li><li><p>You can use some common commands to learn about them:</p><div class="ulist"><ul><li><p>type(): <em>returns an object&#8217;s class</em></p></li><li><p>dir(): <em>returns list of available methods</em></p></li><li><p>help(): <em>opens built-in documentation pages</em></p></li></ul></div></li></ul></div></div></section><section id="_try_it_out_interactive_mode"><h2>Try it out (interactive mode)</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">&gt;&gt;&gt; s = "To be or not to be."
 &gt;&gt;&gt; type(s)
     &lt;class 'str'&gt;
 &gt;&gt;&gt; help(str)
     ... opens interactive documentation ...
 &gt;&gt;&gt; dir(s)
     ... displays list of available string methods ...</code></pre></div></div></div></section></section>
-<section><section id="_strings"><h2>Strings</h2></section><section id="_what_are_strings"><h2>What are strings?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Strings are textual data</p></li><li><p>Strings are ordered sequences of characters</p></li><li><p>The characters that make up a string are mapped or <a href="https://en.wikipedia.org/wiki/Character_encoding">"encoded"</a> in a particular character set</p></li><li><p>In Python (starting with v3), strings are encoded by default in <a href="https://unicode.org">unicode</a></p></li><li><p>unicode supports any language or writing system (well, <em>almost</em> any&#8230;&#8203;)</p></li></ul></div></div></section><section id="_creating_strings"><h2>Creating strings</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">s = "To be or not to be"</code></pre></div></div>
+<section><section id="_strings"><h2>Strings</h2></section><section id="_what_are_strings"><h2>What are strings?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Strings are textual data</p></li><li><p>Strings are ordered sequences of characters</p></li><li><p>The characters that make up a string are mapped or <a href="https://en.wikipedia.org/wiki/Character_encoding">"encoded"</a> in a particular character set</p></li><li><p>In Python (starting with v3), strings are encoded by default in <a href="https://unicode.org">unicode</a></p></li><li><p>unicode supports any language or writing system (well, <em>almost</em> any&#8230;&#8203;)</p></li></ul></div></div></section><section id="_creating_strings"><h2>Creating strings</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">s = "To be or not to be"</code></pre></div></div>
 <div class="ulist"><ul><li><p>We create strings using quotation marks</p></li><li><p>You can use single (') or double (") quotes</p></li><li><p>You cannot <em>mix</em> single/double quotes when creating a string</p></li><li><p>you can <em>nest</em> them (useful if you need to include quotation marks in a string)</p></li></ul></div></div></section><section id="_accessing_strings"><h2>Accessing strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>Strings are sequences of characters</p></li><li><p>By default the variable returns the whole sequence</p></li><li><p>Parts of strings (called substrings) are accessed by index</p></li><li><p>The first position of a string has an offset of zero</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; x = 'To be or not to be.'
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">&gt;&gt;&gt; x = 'To be or not to be.'
 &gt;&gt;&gt; x[3]</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>b</strong></p></li></ul></div></div></section><section id="_string_indices_and_slices"><h2>String indices and slices</h2><div class="slide-content"><div class="ulist"><ul><li><p>The index is an integer representing the distance (offset) from the beginning of the string</p></li><li><p>Sequences can be accessed by slicing (beginning and end separated by colon)</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; lyric = "Another one bites the dust."
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">&gt;&gt;&gt; lyric = "Another one bites the dust."
 &gt;&gt;&gt; lyric[12:17]</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>bites</strong></p></li></ul></div></div></section><section id="_modifying_strings"><h2>"Modifying" strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>Strings are <em>immutable</em> which means they do not change.</p></li><li><p>However it&#8217;s common to reassign a string variable.</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; x = 'hello'
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">&gt;&gt;&gt; x = 'hello'
 &gt;&gt;&gt; x = x.upper()  # reassigns x
 &gt;&gt;&gt; print(x)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>HELLO</strong></p></li></ul></div></div></section><section id="_string_methods"><h2>String Methods</h2><div class="slide-content"><div class="paragraph"><p><a href="https://docs.python.org/3/library/string.html">Strings</a> have lots of useful
 methods like <strong>upper()</strong> which you just saw.  Here are a few more, but try using
 <strong>dir</strong> and <strong>help</strong> to learn about them:</p></div>
 <table class="tableblock frame-none grid-none" style="width:85%"><colgroup><col style="width:25%"><col style="width:25%"><col style="width:25%"><col style="width:25%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">lower()</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">join(words)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">find(s)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">format(args)</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">upper()</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">split(s)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">replace(old, new)</p></td><td class="tableblock halign-left valign-top"><p class="tableblock">capitalize()</p></td></tr></table></div></section><section id="_string_formatting"><h2>String Formatting</h2><div class="slide-content"><div class="ulist"><ul><li><p>Most programming languages have a system for string formatting</p></li><li><p>Python has had several such systems over its history</p></li><li><p>With v3.6 Python introduced "f-strings", which are now the preferred way to format strings</p></li></ul></div></div></section><section id="_how_f_strings_work"><h2>How f-strings work</h2><div class="slide-content"><div class="ulist"><ul><li><p>You can think of f-strings as strings that include placeholders</p></li><li><p>The values of variables can be plugged into the string seamlessly without needing to rely on concatenation</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">name = "Hal"
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">name = "Hal"
 verb = "open"
 object = "pod bay doors"
 message = f"{verb} the {object}, {name}!".capitalize()
 print(message)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>'Open the pod bay doors, Hal!'</strong></p></li></ul></div></div></section></section>
 <section><section id="_lists"><h2>Lists</h2></section><section id="_what_are_lists"><h2>What are lists?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Lists are ordered sequences of other objects</p></li><li><p>Lists are what are called "arrays" in some other languages</p></li><li><p>Lists can be nested (e.g. a list of lists, or a list of dictionaries)</p></li><li><p>Lists can be made up of heterogenous elements</p></li></ul></div></div></section><section id="_creating_lists"><h2>Creating lists</h2><div class="slide-content"><div class="ulist"><ul><li><p>Create a list with list() or with square brackets (empty or not)</p><div class="ulist"><ul><li><p>x = list()</p></li><li><p>x = []</p></li><li><p>x = ['hello', 'world']</p></li></ul></div></li><li><p>Notice how the items of a list are separated by commas</p></li></ul></div></div></section><section id="_accessing_lists"><h2>Accessing lists</h2><div class="slide-content"><div class="ulist"><ul><li><p>Like strings, lists are an ordered sequence</p></li><li><p>Like strings, elements can be accessed by index position: <code>my_list[2]</code></p></li><li><p>Like strings, lists can be sliced: <code>my_list[2:5]</code></p></li><li><p>Use <strong>len()</strong> to find out how many elements are in a list: <code>len(my_list)</code></p></li></ul></div></div></section><section id="_loops_and_lists"><h2>Loops and Lists</h2><div class="slide-content"><div class="paragraph"><p>And the <strong>for loop</strong> is super handy for operating on lists:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">colors = ["red", "green", "blue", "black"]
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">colors = ["red", "green", "blue", "black"]
 for color in colors:
     print(color)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
@@ -180,20 +180,20 @@ red<br>
 green<br>
 blue<br>
 black</p></li></ul></div></div></section><section id="_modifying_lists"><h2>Modifying lists</h2><div class="slide-content"><div class="ulist"><ul><li><p>Unlike strings, lists can be changed in place</p></li><li><p>You can reassign the item at a particular position</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">x = ['hello', 'world']
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">x = ['hello', 'world']
 x[1] = 'universe'
 print(x)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>['hello', 'universe']</strong></p></li></ul></div></div></section><section id="_adding_an_element_to_a_list"><h2>Adding an element to a list</h2><div class="slide-content"><div class="ulist"><ul><li><p>Use the append() method to add an element to the end of a list:</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">cheeses = ['manchego', 'cheddar', 'swiss']
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">cheeses = ['manchego', 'cheddar', 'swiss']
 cheeses.append('gorgonzola')
 print(cheeses)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>['manchego', 'cheddar', 'swiss', 'gorgonzola']</strong></p></li></ul></div></div></section><section id="_adding_a_list_to_another_list"><h2>Adding a list to another list</h2><div class="slide-content"><div class="ulist"><ul><li><p>Use .extend() to add all the elements of one list to the end of another:</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">cheeses = ['stilton', 'cheddar']
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">cheeses = ['stilton', 'cheddar']
 french = ['brie', 'camembert']
 cheeses.extend(french)
 print(cheeses)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>['stilton', 'cheddar', 'brie', 'camembert']</strong></p></li></ul></div></div></section><section id="_deleting_an_element_from_a_list"><h2>Deleting an element from a list</h2><div class="slide-content"><div class="ulist"><ul><li><p>You can remove elements from a list by del or .pop()</p></li><li><p>Use del() when you want to discard the item immediately</p></li><li><p>Use .pop() when you need to access the item being discarded</p></li><li><p>As items are removed, the index position of the remaining items changes</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">cheeses = ['manchego', 'cheddar', 'swiss']
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">cheeses = ['manchego', 'cheddar', 'swiss']
 del(cheeses[0])
 print(cheeses.pop(1)
 print(cheeses)</code></pre></div></div>
@@ -201,56 +201,56 @@ print(cheeses)</code></pre></div></div>
 <strong>'swiss'</strong><br>
 <strong>['cheddar']</strong></p></li></ul></div></div></section></section>
 <section><section id="_dictionaries"><h2>Dictionaries</h2></section><section id="_what_are_dictionaries"><h2>What are dictionaries?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Dictionaries are <em>unordered</em> collections of key/value pairs</p></li><li><p>They are what is referred to in other languages as an "associative array"</p></li><li><p>They are similar to a phone book or real-life dictionary, except that the keys are not sorted by default</p></li></ul></div></div></section><section id="_creating_dictionaries"><h2>Creating dictionaries</h2><div class="slide-content"><div class="paragraph"><p>Create a dictionary with dict() or with curly braces:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">my_dictionary = dict()
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">my_dictionary = dict()
 my_dictionary = {}
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}</code></pre></div></div></div></section><section id="_accessing_dictionaries"><h2>Accessing dictionaries</h2><div class="slide-content"><div class="paragraph"><p>You can look up the values in a dictionary by referencing the key:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phone_book = {
+    }</code></pre></div></div></div></section><section id="_accessing_dictionaries"><h2>Accessing dictionaries</h2><div class="slide-content"><div class="paragraph"><p>You can look up the values in a dictionary by referencing the key:</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 print(phone_book['Bruce Banner'])</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: <strong>555-555-1234</strong></p></li></ul></div></div></section><section id="_accessing_dictionaries_2"><h2>Accessing dictionaries</h2><div class="slide-content"><div class="paragraph"><p>Access the keys of a dictionary with the <strong>keys()</strong> method:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phone_book = {
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for k in phone_book.keys():
     print(k)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
 <strong>Bruce Banner</strong><br>
 <strong>Sue Storm</strong></p></li></ul></div></div></section><section id="_accessing_dictionaries_3"><h2>Accessing dictionaries</h2><div class="slide-content"><div class="paragraph"><p>Access the values of a dictionary with the <strong>values()</strong> method:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phone_book = {
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for val in phone_book.values():
     print(val)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
 <strong>555-555-1234</strong><br>
 <strong>555-555-5678</strong></p></li></ul></div></div></section><section id="_accessing_dictionaries_4"><h2>Accessing dictionaries</h2><div class="slide-content"><div class="paragraph"><p>Access the key/value pairs with the <strong>items()</strong> method:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phone_book = {
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for key, val in phone_book.items():
     print(key, val)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
 <strong>Bruce Banner 555-555-1234</strong><br>
 <strong>Sue Storm 555-555-5678</strong></p></li></ul></div></div></section><section id="_modifying_dictionaries"><h2>Modifying dictionaries</h2><div class="slide-content"><div class="ulist"><ul><li><p>The keys of a dictionary can be assigned to different values directly</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="{.python .numberLines}" class="language-{.python .numberLines} hljs" data-noescape="true">phone_book['Bruce Banner'] = "555-555-9876"</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book['Bruce Banner'] = "555-555-9876"</code></pre></div></div>
 <div class="ulist"><ul><li><p>If the key does not exist, a new key/value pair will be added</p></li><li><p>Note that each key of a given dictionary must be unique</p></li></ul></div></div></section><section id="_deleting_from_a_dictionary"><h2>Deleting from a dictionary</h2><div class="slide-content"><div class="paragraph"><p>You can remove a key/value pair from a dictionary by using the <strong>pop</strong> method or the del() built-in function:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phone_book = {
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 phone_book.pop('Bruce Banner')
 print(phone_book)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
 {'Sue Storm': '555-555-5678'}</p></li></ul></div></div></section><section id="_accessing_a_nested_dictionary"><h2>Accessing a nested dictionary</h2><div class="slide-content"><div class="paragraph"><p>To access dictionaries within dictionaries, concatenate the keys:</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">energy = {
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">energy = {
   "Colorado": {
     "solar": 16530.477,
     "wind": 2942132.635
@@ -268,11 +268,11 @@ print(energy['Washington']['wind'])</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER:<br>
 <strong>3538935.954</strong></p></li></ul></div></div></section></section>
 <section><section id="_tuples"><h2>Tuples</h2></section><section id="_what_are_tuples"><h2>What are tuples?</h2><div class="slide-content"><div class="ulist"><ul><li><p>Tuples are ordered, immutable sequences of other objects</p></li><li><p>You will hear tuple pronounced both "too-pull" and "tuh-pull"</p></li><li><p>Contrary to how the name sounds, tuples can have any number of elements (not just two!)</p></li></ul></div></div></section><section id="_creating_tuples"><h2>Creating tuples</h2><div class="slide-content"><div class="ulist"><ul><li><p>Tuples can be created with tuple()</p></li><li><p>Tuples are also often created with parentheses</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">x = ('foo', 'bar')</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">x = ('foo', 'bar')</code></pre></div></div>
 <div class="ulist"><ul><li><p>But in fact, the comma is what allows python to recognize the tuple</p></li></ul></div></div></section><section id="_accessing_tuples"><h2>Accessing tuples</h2><div class="slide-content"><div class="ulist"><ul><li><p>Similar to lists, the items in a tuple are accessed by index position</p></li><li><p>A common pattern is to assign the elements of tuples in a single line</p></li><li><p>For example, the .items() method of dictionaries returns key/value pairs as a tuple:</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">for name, number in phone_book.items():
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">for name, number in phone_book.items():
     print(name, number)</code></pre></div></div></div></section><section id="_modifying_tuples"><h2>"Modifying" tuples</h2><div class="slide-content"><div class="ulist"><ul><li><p>Like strings, tuples are immutable</p></li><li><p>If you try to reassign a value inside a tuple, Python will raise a type error</p></li><li><p>You can, however, create a new tuple with modified values</p></li></ul></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">my_tuple = ('foo', 'bar')
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">my_tuple = ('foo', 'bar')
 new_tuple = (my_tuple[0], my_tuple[1].upper())
 print(new_tuple)</code></pre></div></div>
 <div class="ulist"><ul><li class="fragment"><p>ANSWER: ('foo', 'BAR')</p></li></ul></div></div></section></section></div></div><script src="../../lib/reveal.js.3.9.2/js/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {

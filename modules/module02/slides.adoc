@@ -45,7 +45,7 @@
 
 === Try it out (interactive mode)
 
-[source, python]
+[source, python, linenums]
 ----
 >>> s = "To be or not to be."
 >>> type(s)
@@ -69,7 +69,7 @@
 
 === Creating strings
 
-[source, python]
+[source, python, linenums]
 ----
 s = "To be or not to be"
 ----
@@ -86,7 +86,7 @@ s = "To be or not to be"
 * Parts of strings (called substrings) are accessed by index
 * The first position of a string has an offset of zero
 
-[source, python]
+[source, python, linenums]
 ----
 >>> x = 'To be or not to be.'
 >>> x[3]
@@ -100,7 +100,7 @@ s = "To be or not to be"
 * The index is an integer representing the distance (offset) from the beginning of the string
 * Sequences can be accessed by slicing (beginning and end separated by colon)
 
-[source, python]
+[source, python, linenums]
 ----
 >>> lyric = "Another one bites the dust."
 >>> lyric[12:17]
@@ -114,7 +114,7 @@ s = "To be or not to be"
 * Strings are _immutable_ which means they do not change.
 * However it's common to reassign a string variable.
 
-[source, python]
+[source, python, linenums]
 ----
 >>> x = 'hello'
 >>> x = x.upper()  # reassigns x
@@ -149,7 +149,7 @@ methods like *upper()* which you just saw.  Here are a few more, but try using
 * You can think of f-strings as strings that include placeholders
 * The values of variables can be plugged into the string seamlessly without needing to rely on concatenation
 
-[source, python]
+[source, python, linenums]
 ----
 name = "Hal"
 verb = "open"
@@ -189,7 +189,7 @@ print(message)
 
 And the **for loop** is super handy for operating on lists:
 
-[source, python]
+[source, python, linenums]
 ----
 colors = ["red", "green", "blue", "black"]
 for color in colors:
@@ -208,7 +208,7 @@ black
 * Unlike strings, lists can be changed in place
 * You can reassign the item at a particular position
 
-[source, python]
+[source, python, linenums]
 ----
 x = ['hello', 'world']
 x[1] = 'universe'
@@ -222,7 +222,7 @@ print(x)
 
 * Use the append() method to add an element to the end of a list:
 
-[source, python]
+[source, python, linenums]
 ----
 cheeses = ['manchego', 'cheddar', 'swiss']
 cheeses.append('gorgonzola')
@@ -236,7 +236,7 @@ print(cheeses)
 
 * Use .extend() to add all the elements of one list to the end of another:
 
-[source, python]
+[source, python, linenums]
 ----
 cheeses = ['stilton', 'cheddar']
 french = ['brie', 'camembert']
@@ -254,7 +254,7 @@ print(cheeses)
 * Use .pop() when you need to access the item being discarded
 * As items are removed, the index position of the remaining items changes
 
-[source, python]
+[source, python, linenums]
 ----
 cheeses = ['manchego', 'cheddar', 'swiss']
 del(cheeses[0])
@@ -281,26 +281,26 @@ print(cheeses)
 
 Create a dictionary with dict() or with curly braces:
 
-[source, python]
+[source, python, linenums]
 ----
 my_dictionary = dict()
 my_dictionary = {}
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 ----
 
 === Accessing dictionaries
 
 You can look up the values in a dictionary by referencing the key:
 
-[source, python]
+[source, python, linenums]
 ----
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 print(phone_book['Bruce Banner'])
 ----
 
@@ -311,12 +311,12 @@ print(phone_book['Bruce Banner'])
 
 Access the keys of a dictionary with the **keys()** method:
 
-[source, python]
+[source, python, linenums]
 ----
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for k in phone_book.keys():
     print(k)
 ----
@@ -330,12 +330,12 @@ for k in phone_book.keys():
 
 Access the values of a dictionary with the **values()** method:
 
-[source, python]
+[source, python, linenums]
 ----
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for val in phone_book.values():
     print(val)
 ----
@@ -349,12 +349,12 @@ for val in phone_book.values():
 
 Access the key/value pairs with the **items()** method:
 
-[source, python]
+[source, python, linenums]
 ----
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 for key, val in phone_book.items():
     print(key, val)
 ----
@@ -369,9 +369,11 @@ for key, val in phone_book.items():
 
 * The keys of a dictionary can be assigned to different values directly
 
-``` {.python .numberLines}
+[source, python, linenums]
+----
 phone_book['Bruce Banner'] = "555-555-9876"
-```
+----
+
 * If the key does not exist, a new key/value pair will be added
 * Note that each key of a given dictionary must be unique
 
@@ -379,12 +381,12 @@ phone_book['Bruce Banner'] = "555-555-9876"
 === Deleting from a dictionary
 You can remove a key/value pair from a dictionary by using the **pop** method or the del() built-in function:
 
-[source, python]
+[source, python, linenums]
 ----
 phone_book = {
     'Bruce Banner': '555-555-1234',
     'Sue Storm': '555-555-5678'
-}
+    }
 phone_book.pop('Bruce Banner')
 print(phone_book)
 ----
@@ -397,7 +399,7 @@ print(phone_book)
 
 To access dictionaries within dictionaries, concatenate the keys:
 
-[source, python]
+[source, python, linenums]
 ----
 energy = {
   "Colorado": {
@@ -434,7 +436,7 @@ print(energy['Washington']['wind'])
 * Tuples can be created with tuple()
 * Tuples are also often created with parentheses
 
-[source, python]
+[source, python, linenums]
 ----
 x = ('foo', 'bar')
 ----
@@ -447,7 +449,7 @@ x = ('foo', 'bar')
 * A common pattern is to assign the elements of tuples in a single line
 * For example, the .items() method of dictionaries returns key/value pairs as a tuple:
 
-[source, python]
+[source, python, linenums]
 ----
 for name, number in phone_book.items():
     print(name, number)
@@ -459,7 +461,7 @@ for name, number in phone_book.items():
 * If you try to reassign a value inside a tuple, Python will raise a type error
 * You can, however, create a new tuple with modified values
 
-[source, python]
+[source, python, linenums]
 ----
 my_tuple = ('foo', 'bar')
 new_tuple = (my_tuple[0], my_tuple[1].upper())
@@ -468,5 +470,3 @@ print(new_tuple)
 
 [%step]
 * ANSWER: ('foo', 'BAR')
-
-
