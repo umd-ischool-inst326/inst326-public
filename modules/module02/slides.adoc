@@ -234,7 +234,7 @@ print(cheeses)
 
 === Adding a list to another list
 
-* Use exend() to add all the elements of one list to the end of another:
+* Use .extend() to add all the elements of one list to the end of another:
 
 [source, python]
 ----
