@@ -3,6 +3,8 @@
 # Replace "easter" below with the name of your script (without the .py).
 from easter import easter_date
 
+import pytest
+
 
 def test_easter_date():
     assert easter_date(2021) == "April 4"
@@ -17,3 +19,5 @@ def test_easter_date():
     assert easter_date(2011) == "April 24"
     assert easter_date(1981) == "April 19"
     assert easter_date(2049) == "April 18"
+    with pytest.raises(ValueError):
+        easter_date(1582)

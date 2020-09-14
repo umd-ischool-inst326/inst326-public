@@ -17,3 +17,7 @@ annual_permit_fees.png: screenshot of a table from https://transportation.umd.ed
 taken 2020-08-27
 
 surprise.png: created by me using Inkscape, Aug. 29, 2020.
+
+Git-Logo-White.svg: based on Git-Logo-White.eps from https://git-scm.com/downloads/logos, created by Jason Long and licensed under a Creative Commons Attribution 3.0 Unported License. Added attribution to image.
+
+git_commands.svg: created by me using Inkscape, Fall 2019, based on similar images online.

@@ -122,7 +122,7 @@ Your function should have a docstring that briefly states
 .Template
 [source,python]
 ----
-include::easter.py
+include::easter.py[]
 ----
 
 == Running your program

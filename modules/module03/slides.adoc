@@ -41,6 +41,7 @@ The Patriot is a surface-to-air missile system designed to intercept incoming mi
 
 === Summary
 
+[%step]
 * Sometimes little errors can cause big problems
 * A lot of problems can be prevented through careful testing
 
@@ -195,7 +196,7 @@ assert isclose(myfloat, 0.3333333333333333)
 
 === Summary
 
-[.nosubbullet]
+[%step,role="nosubbullet"]
 * `assert` statements tell Python to verify an expression
 * If the expression evaluates to `False` or a falsy value, an `AssertionError` is raised
 ** You can specify an error message to go along with an `AssertionError`
@@ -298,9 +299,9 @@ Flavor #4:
 from math import pi as PI, sqrt as square_root
 from statistics import stdev as st_dev
 
-pi
-sqrt(5)
-stdev([1, 3, 2, 5, 6])
+PI
+square_root(5)
+st_dev([1, 3, 2, 5, 6])
 ----
 
 Imports specific [slot]#object#{blank}s from [slot]#modulename# into the current (global) namespace but renames them to [slot]#othername#.
@@ -409,6 +410,7 @@ Demonstrate __name__ in an interactive interpreter.
 
 === Summary
 
+[%step]
 * We want to write scripts that work as both programs and modules
 * Modules generally shouldn't execute code when they are loaded
 * `+++if __name__ == "__main__":+++` helps you isolate instructions that should only run when your program runs.
@@ -494,9 +496,151 @@ def test_faculty_parking_edge_cases():
 ----
 --
 
+=== Running your tests
+
+The following instructions assume you have Pytest installed.
+
+. Open a terminal in the directory where your script and test script live.
+. Type `pytest` followed by a space and the name of your test script, e.g.: +
+`pytest test_facparking.py`
+
+=== Interpreting the output: passed all tests
+
+----
+========================== test session starts ===========================
+platform linux -- Python 3.8.2, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /home/aric/Documents/INST326/2020_fall/module03
+collected 2 items                                                        
+
+test_facparking.py ..                                              [100%]
+
+=========================== 2 passed in 0.00s ============================
+----
+
+=== Interpreting the output: failed test
+
+++++
+<pre class="fragment">
+========================== test session starts ===========================
+platform linux -- Python 3.8.2, pytest-6.0.1, py-1.9.0, pluggy-0.13.1
+rootdir: /home/aric/Documents/INST326/2020_fall/module03
+collected 2 items                                                        
+
+test_facparking.py F.                                              [100%]
+</pre>
+<pre class="fragment">
+================================ FAILURES ================================
+____________________ test_faculty_parking_happy_path _____________________
+
+    def test_faculty_parking_happy_path():
+        """ some happy path cases to test
+        faculty_parking() """
+        assert fp.faculty_parking(25_000) == 494
+>       assert fp.faculty_parking(40_000) == 559
+E       assert 550 == 559
+E        +  where 550 = <function faculty_parking at 0x7f1114b443a0>(40000)
+E        +    where <function faculty_parking at 0x7f1114b443a0> = fp.faculty_parking
+
+test_facparking.py:7: AssertionError
+</pre>
+<pre class="fragment">
+======================== short test summary info =========================
+FAILED test_facparking.py::test_faculty_parking_happy_path - assert 550...
+====================== 1 failed, 1 passed in 0.02s =======================
+</pre>
+++++
+
+=== Two ways a test can fail
+
+[%step]
+* There can be an error in the code being tested
+* There can be an error in the test code
+
+=== I passed all tests! My code is perfect, right?
+
+* Passing tests is not a guarantee of correctness
+* The better your test set, the more confidence you can have in your code
+
+=== Summary
+
+[%step]
+* Pytest is a popular, easy-to-use test framework for Python
+* Tests go in fuctions whose names start with `test`
+* Tests are built on `assert` statements
+
+
 //   don't put your tests in your main script! definitely don't import your script within itself
 
 // running your tests
 // interpreting results
 //   in cases where all tests succeed
 //   in cases where one or more tests fail
+
+[%notitle]
+== Git
+
+image::Git-Logo-White.svg[canvas, size=contain]
+
+=== Git is a version control system
+
+[%step]
+* Allows us to track and undo changes to files on a project
+* Allows us to easily share code with others
+* Allows us to make local edits without affecting collaborators
+
+=== Git "places"
+
+[%step,role="nosubbullet"]
+* Remote repository
+** "Official" copy of files and their edit history; accessible to others
+* Local repository
+** Your personal copy of the files and their edit history
+* Working directory
+** Where you can make changes to files; no edit history here
+* Staging area
+** Where you take snapshots of edits to go into the local repository
+
+[.columns]
+=== Some Git commands
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git clone`
+** Make a local repository from a remote repository
+* `git add`
+** Stage a file for commit
+* `git commit`
+** Commit staged changes to the local repository
+--
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git push`
+** Send commits from the local repository to the remote repository
+* `git fetch`
+** Pull commits from the remote repository to the local repository
+--
+
+[.column]
+--
+[%step,role="nosubbullet"]
+* `git merge`
+** Reconcile `fetch`{blank}ed changes with the current state of files in your working directory
+* `git pull`
+** Do `fetch` and `merge` in a single step
+--
+
+[%notitle]
+=== Git commands, illustrated
+
+image::git_commands.svg[canvas, size=contain]
+
+=== Let's see some Git in action
+
+=== Summary
+
+* Git is a version control system
+* Git "places" include the remote repository, the local repository, the working directory, and the staging area
+* Git commands include clone, add, commit, push, fetch, merge, and pull
