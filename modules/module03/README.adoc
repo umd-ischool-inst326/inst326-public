@@ -1,4 +1,4 @@
-= INST 326 Module 3
+= INST 326 Module 3: Introduction to Testing and Git
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,17 +10,23 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Introduction to Git and Testing
+An introduction to software testing, Python's module import system (including how to import your own modules), and the basics of version control using git.
 
 === Links
-- Slides (forthcoming)
-- Exercise(s) (forthcoming)
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
 
 == Learning Outcomes
 
-Forthcoming
+After completing this module, students should understand:
+
+* Why software testing is important.
+* How to organized code for testing.
+* How to write tests and run them with pytest.
+* How module imports work.
+* The basics of version control with git and Github.
 
 == Additional Readings
 
-Forthcoming
+* John Wiegley, "link:https://jwiegley.github.io/git-from-the-bottom-up/[Git from the Bottom Up]"
 
