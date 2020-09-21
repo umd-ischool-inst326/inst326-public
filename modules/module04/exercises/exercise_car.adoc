@@ -1,0 +1,75 @@
+= Exercise: Car class
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+== Background
+
+For this exercise you will develop a module containing a `Car` class. Instances of the class will be able to turn left or right and drive forward. They will be able to consume and 
+
+== Instructions
+
+Write a class called `Car` with methods as described below:
+
+=== `+++__init__+++()` method
+
+Write an ``+++__init__+++()` method with `self` as its only parameter. Set the following attributes to the values specified in the table below:
+
+[%autowidth]
+[%header, cols=2*]
+|===
+|Attribute |Starting value
+
+|`x`
+|`0`
+
+|`y`
+|`0`
+
+|`heading`
+|`"n"` (for north)
+|===
+
+=== `turn()` method
+
+Write a `turn()` method with two parameters, `self` and `direction`. You can assume that `direction` will have one of two string values: `"l"` (for left) or `"r"` (for right). Change the value of the `heading` attribute according to the value of `direction`. For example, if `heading` is `"n"` and `direction` is `"r"`, change `heading` to `"e"`.
+
+=== `drive()` method
+
+Write a `drive()` method with two parameters, `self` and `distance`. Assume that the value of `distance` is an integer; set `1` as its default value.
+
+This method should change either the `x` or `y` attributes, depending on the value of `heading`. `y` should increase as the car heads north; `x` should increase as the car heads east.
+
+=== `status()` method
+
+Write a `status()` method with one parameter, `self`. Print the current position and heading, like this:
+
+----
+Coordinates: (4, 2)
+Heading: e
+----
+
+=== Docstrings
+
+Write a docstring for your class that documents the purpose of the class as well as the purpose and expected data type of each attribute.
+
+For each of the methods you wrote, write a docstring that documents the purpose of the method as well as the purpose and expected data type of each parameter other than `self` (you never need to document `self` in a docstring). Also document any side effects each method has, such as modifying attributes or writing to standard output.
+
+Be sure your docstrings are the first statement in the class or method they document. Improperly positioned docstrings are not recognized as docstrings by Python.
+
+== Using your class
+
+You can use your class by importing your module into another script. Below is an example of such a script; it assumes the `Car` class is defined in a script called `car.py` which is located in the same directory as this script.
+
+.use_car.py
+[source, python]
+----
+include::use_car.py[]
+----
