@@ -1,4 +1,4 @@
-= Exercise: Car class
+= Exercise: Appointment class
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../../includes
