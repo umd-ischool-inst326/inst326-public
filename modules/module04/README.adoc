@@ -21,11 +21,11 @@ Basics of object-oriented programming in Python:
 * Class docstrings
 
 === Links
-- link:slides.html[Slides]
-** link:memobox.py["memobox" example class]
-** link:memobox_demo.py[Example usage of memobox class]
-- link:exercises/exercise_car.html[Car exercise]
-- link:exercise/exercise_appointment.html[Appointment exercise]
+* link:slides.html[Slides]
+  ** link:memobox.py["memobox" example class]
+  ** link:memobox_demo.py[Example usage of memobox class]
+* link:exercises/exercise_car.html[Car exercise]
+* link:exercises/exercise_appointment.html[Appointment exercise]
 
 == Learning Outcomes
 
@@ -38,5 +38,5 @@ Basics of object-oriented programming in Python:
 
 == Additional Readings
 
-link:https://docs.python.org/3/tutorial/classes.html[Classes section from the official Python tutorial]
-link:https://python-textbok.readthedocs.io/en/1.0/Classes.html[Classes chapter from _Object-Oriented Programming in Python_, University of Cape Town]
+* link:https://docs.python.org/3/tutorial/classes.html[Classes section from the official Python tutorial]
+* link:https://python-textbok.readthedocs.io/en/1.0/Classes.html[Classes chapter from _Object-Oriented Programming in Python_, University of Cape Town]
