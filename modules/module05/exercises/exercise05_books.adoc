@@ -1,0 +1,20 @@
+= Exercise: Book Indexer
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+
+== Instructions
+
+* Read in “monte_cristo.txt” and “two_cities.txt”.
+* Use sets to determine unique words in each text file.
+* Create one large set that is the union of all the sets
+* Use a dictionary in order to index words
+    * Where key is the word and value is the list of all files containing that word 

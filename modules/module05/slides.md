@@ -2,12 +2,13 @@
 title: "Data Structures"
 subtitle:
 revealjs-url: "../../lib/reveal.js.4.0.2"
-theme: "inst326"
+theme: "inst326_gabriel"
 transition: "slide"
 ---
 
 #
 
+## Tuples
 
 
 #
@@ -16,9 +17,10 @@ transition: "slide"
 
 ::: incremental
 
-- Collection of objects that are ordered and immutable
-- Tuples are sequences
-- Tuples use parentheses to enclose sequences
+- What we know
+    - Collection of objects that are ordered and immutable
+    - Tuples are sequences
+    - Tuples use parentheses to enclose sequences
 
 
 :::
@@ -27,18 +29,32 @@ transition: "slide"
 
 ## Creating Tuples
 
+### What we know:
+
 ~~~~ {.python .numberLines}
+my_tuple = tuple([1,2,3])
 my_tuple = (1, “string”, 5.8)
+~~~~
+
+#
+
+## Creating Tuples
+
+### What is new:
+
+~~~~ {.python .numberLines}
 my_tuple =  1, “string”, 5.8 
 my_tuple = “string”, 
 my_tuple = ()
 ~~~~
 
+The comma is what allows python to recognize the tuple
+
 #
 
 ## Accessing Values in a Tuple
 
-We can use square brackets to slice at the indices just like lists.
+We can use square brackets to slice at the indices just like other secuence datatypes.
 
 ~~~~ {.python .numberLines}
 my_tuple = (1, “string”, 5.8)
@@ -82,28 +98,21 @@ my_tuple[:3]   # (1, “string”, 5.8)
 
 #
 
-## Example
-- Sometimes it might be a good idea to return multiple items with a function.
-- Typically, if these items are different data types its good practice to return a tuple.
-- For example, a function that returns a list of unique words, and a dictionary of an index of those words to files.
-
-#
-
 ~~~~ {.python .numberLines}
 class book:
     def __init__(self, path):
         self.f = open(path).read()
     
     def meta_data(self):
-        # method that will return two variables
-        # -----------------------------------
-        # unique_words = a list of unique 
-        # words in the file
-        #
-        # word_counts = a dictionary where the keys 
-        # are the words and the values are the 
-        # number of times that the 
-        # word appears in the file
+        """ Method that will return two variables
+        Returns:
+            unique_words (list): list of unique words in the file
+            word_counts (dict): a dictionary where the keys are 
+            the words and the values are the number of times that 
+            the word appears in the file
+        """
+
+        return unique_words, word_counts
 
 my_path = "my_file.txt"
 results = book(my_path).meta_data()
@@ -116,7 +125,7 @@ results = book(my_path).meta_data()
 #
 
 ## Tuples are Sequence Datatypes
-- This means that we can...
+This means that we can...
 
 #
 
@@ -136,15 +145,15 @@ class book:
         self.f = open(path).read()
     
     def meta_data(self):
-        # method that will return two variables
-        # -------------------------------------
-        # unique_words = a list of unique 
-        # words in the file
-        #
-        # word_counts = a dictionary where the keys 
-        # are the words and the values 
-        # are the number of times that the 
-        # word appears in the file
+        """ Method that will return two variables
+        Returns:
+            unique_words (list): list of unique words in the file
+            word_counts (dict): a dictionary where the keys are 
+            the words and the values are the number of times that 
+            the word appears in the file
+        """
+
+        return unique_words, word_counts
 
 my_path = "my_file.txt"
 words, counts = book(my_path).meta_data()
@@ -160,7 +169,15 @@ class book:
         self.f = open(path).read()
     
     def meta_data(self):
-        # Insert Docstring
+        """ Method that will return two variables
+        Returns:
+            unique_words (list): list of unique words in the file
+            word_counts (dict): a dictionary where the keys are 
+            the words and the values are the number of times that 
+            the word appears in the file
+        """
+
+        return unique_words, word_counts
 
 my_path = "my_file.txt"
 results = book(my_path).meta_data()
@@ -230,7 +247,15 @@ for item in results:
 ~~~~ {.python .numberLines}
 myset = {"a", "b", "c"}
 myset = set(["a", "b", "c"])
-myset = set([ "a", “a” , "b" , "c" , “c” ])
+myset = set([ "a", "a" , "b" , "c" , "c" ])
+~~~~
+
+#
+
+~~~~ {.python .numberLines}
+myset = frozenset({"a", "b", "c"})
+myset = frozenset(["a", "b", "c"])
+myset = frozenset([ "a", "a" , "b" , "c" , "c" ])
 ~~~~
 
 #
@@ -251,14 +276,50 @@ myset.add(“a”)
 
 #
 
-## A Note About Items in Sets
+## A Note About Sets
 
 ::: incremental
 
-- Sets are somewhat similar in concept to data structures known as “hash tables” 
-- Hash tables: Data structures where items are passed through (hashed) using a “hash function” to compute a “hash code”.
-- This means that items in sets must be “hashable” (think immutable) otherwise you will raise an error.
+- Items in sets must be “hashable” (think immutable) otherwise you will raise an error.
     - Frozen sets are immutable and therefor hashable, so frozensets can be items in a set without a problem. 
+
+:::
+
+#
+
+## Hash Tables
+- In Python, sets and dictionaries are implemented using hashtables
+    - Hash tables: Data structures where items are passed through a “hash function” to compute a “hash code”. 
+        - Optimized for data retrieval where we might not care about member order.
+
+
+
+#
+
+## Why do Hash Tables matter?
+
+::: incremental
+
+- Implimentation helps guide decision making:
+    - If we care about member order in relation to other members:
+        - strings, lists, tuples
+    - If we prioritize membership or value pairing over "order":
+        - sets, dictionaries
+
+:::
+
+#
+
+## Consider the following
+
+::: incremental
+
+- Is "morse" in "the morse code"?
+    - Yes
+- Are the letters m,o,r,s, and e in "here come the dots"?
+    - Yes
+- Is "morse" in "here come the dots"?
+    - No
 
 :::
 
@@ -295,7 +356,7 @@ myset.add(“a”)
 - Testing for membership
 - Example:
     - x in f (where “x” is an item that may or may not be in set “f”)
-    - x not in (where “x” is an item that may or may not be in set “f”)
+    - x not in f (where “x” is an item that may or may not be in set “f”)
 
 #
 
@@ -435,6 +496,10 @@ print(len(resulting_list)) #Result = 3
 
 #
 
+## List Comprehensions
+
+#
+
 ## What are List Comprehensions?
 - List comprehensions are expressions that evaluate to lists 
 - Often are faster than iterating over one list to build another list
@@ -479,20 +544,60 @@ for x in [1,2,3]:
 
 #
 
-## Dictionary Values
+## Dictionaries
+
+#
+
+## What we know
 
 ::: incremental
 
-- Similar to sets, dictionaries function similarly to hash tables.
+- Dictionaries are unordered collections of key/value pairs
+- We can create dictionaries with:
+    - dict() 
+    - curly braces
+
+:::
+
+#
+
+## What we know - Accessing Data
+
+#### We can access data in dictionaries:
+- By referencing the a key
+    - dictionary[key]
+- Using built in methods
+    - keys() - returns list of all keys in dictionary
+    - values() - returns a list of all values in dictionary
+    - items() - returns a list of tuples containing key value pairs
+
+#
+
+## What We Know - Removing Data
+
+#### We can remove data from the dictionary using:
+- pop() method
+    - returns dictionary
+- del() built in function
+
+#
+
+## Dictionary Items
+
+::: incremental
+
+- Similar to sets, dictionaries in Python are implemented using hash tables.
     - In this case the keys are hashed and those corresponding hash codes then point to an unhashed object (the value)
-- Meaning, only hashable (immutable) objects can be keys.
+- Only hashable (immutable) objects can be keys.
 - Values can be either mutable or immutable.
 
 :::
 
 #
 
-## Dictionaries Can Be Values in Other Dictionaries
+## Important Things to Know
+
+**1) Dictionaries Can Be Values in Other Dictionaries**
 
 ::: incremental
 
@@ -508,29 +613,26 @@ for x in [1,2,3]:
 ## Here is an Example
 
 ~~~~ {.python .numberLines}
-Dict = { 'Dict1': {1: 'G', 2: 'F', 3: 'G'},
-         'Dict2': {'Name': 'INST326', 1: [1, 2]} }
+Dict = { 'Dict1': {"1": 'G', "2": 'F', "3": 'G'},
+         'Dict2': {'Name': 'INST326', "1": ["1", "2"]} }
 
 ~~~~
 
-::: incremental
+~~~~ {.python .numberLines}
+Dict[“Dict1”] #{1: 'G', 2: 'F', 3: 'G'}
+Dict[“Dict1”]["2"] #“F”
 
-- Dict[“Dict1”]
-    - {1: 'G', 2: 'F', 3: 'G'}
-- Dict[“Dict1”][“2”]
-    - “F”
+~~~~
 
-
-:::
 
 #
 
-## Dictionaries as Counters
+## Important Things to Know
 
-- One common use for dictionaries is to use use dictionaries to count unique values in a sequence data type.
+**2) One common use for dictionaries is to use them to count unique values in a sequence data type.**
 
 #
 
-## Dictionaries as Indexes
+## Important Things to Know
 
-- One common use for dictionaries is to use use dictionaries to index data.
+**3) One common use for dictionaries is to use them to index data.**

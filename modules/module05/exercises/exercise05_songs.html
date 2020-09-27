@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Modules</title>
+<title>Exercise: Song Maker</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,13 +438,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Modules</h1>
+<h1>Exercise: Song Maker</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_part_1_fundamentals">Part 1: Fundamentals</a></li>
-<li><a href="#_part_2_object_oriented_programming_in_python">Part 2: Object-Oriented Programming in Python</a></li>
-<li><a href="#_part_3_python_for_data_analysis">Part 3: Python for Data Analysis</a></li>
+<li><a href="#_background">Background</a></li>
+<li><a href="#_notes">Notes</a></li>
+<li><a href="#_instructions">Instructions</a></li>
+<li><a href="#_hints">Hints</a></li>
 </ul>
 </div>
 </div>
@@ -481,69 +482,135 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_part_1_fundamentals">Part 1: Fundamentals</h2>
+<h2 id="_background">Background</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For this exercise we are going to create a simple Song class. The song will contain data pertaining to the artist whoperforms the song, the name of the song, the beats per minute, and the notes that are in the song.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notes">Notes</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="module01/index.html">Module 1: Python Fundamentals 1</a></p>
+<p>The name of your file should consist exclusively of lower-case letters, numbers, and underscores, and the file extension .py. Your filename should not start with a number.</p>
 </li>
 <li>
-<p><a href="module02/index.html">Module 2: Python Fundamentals 2</a></p>
-</li>
-<li>
-<p><a href="module03/index.html">Module 3: Intro to Git and Testing</a></p>
+<p>This exercise does not require the use of command line arguments.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_part_2_object_oriented_programming_in_python">Part 2: Object-Oriented Programming in Python</h2>
+<h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="module04/index.html">Module 4: Basics of OOP</a></p>
+<p>Create your class song</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Write an <em>init</em>() method with self, name(str), primary_artist(str), bpm(int) and chords(list) as the parameters. This method should to the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set an attribute name (representing the song’s name) to the name</p>
 </li>
 <li>
-<p><a href="module05/index.html">Module 5: Advanced Data Structures</a></p>
+<p>Set an attribute artists (representing the artists that perform that song) to a list containing the primary_artist parameter.</p>
 </li>
 <li>
-<p><a href="module06/index.html">Module 6: Serialization and File I/O</a></p>
+<p>Set and attribute bpm (representing the beats per minute/tempo of the song) to the bpm parameter.</p>
 </li>
 <li>
-<p><a href="module07/index.html">Module 7: Regular Expressions</a></p>
+<p>Set an attribute chords (representing a list of chords that the song is comprised of) to the parameter chords.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a href="module08/index.html">Module 8: Remote Collaboration</a></p>
+<p>Write an associated_artists() method with the parameters self and other_artists. Other_artists should take a string value. This method should do the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Append the other_artists parameter to the artists parameter.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a href="module09/index.html">Module 9: Advanced OOP</a></p>
+<p>Write a change_beat() method with the parameters self, increase and change. Increase should take a boolean value; give it a default value of True. Change should take an integer type; give it a default value of 5. This method should do the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Increase the bpm attribute by the amount of the parameter change if increase is True.</p>
+</li>
+<li>
+<p>Decrease the bpm attribute by the amount of the parameter change if increase is False.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write a modulate() method with the parameters self and steps. Steps will take an integer; give it the default value 1. This method should do the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create a list containing all of the notes in the chromatic scale. They are:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>'C','C#','D','D#','E','F','F#','G','G#','A','A#','B'</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create an empty list, this list will hold the modulated chords.</p>
+</li>
+<li>
+<p>The method should then determine the correct modulated chord from the list given the index position of the starting chord and the step value.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In music, a single step corresponds to two “half steps” away from the starting chord. Meaning, if I modulate “C” 1 step, the resulting chord will be “D”. If I modulate “C” .5 steps, the resulting chord will be “C#”.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The method should append all new modulated chords to the empty list created earlier and set the chords attribute to this new list of modulated chords.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write an info() method with one parameter self. This method should print a message letting the user know the songs name, artists, chords and beats per minute.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write docstrings for each method. (<em>init</em>() doesn&#8217;t need a docstring.)</p>
+</li>
+<li>
+<p>Write an if <em>name</em> == "<em>main</em>": statement in which you create an instance of your class and invoke each method (you don&#8217;t have to explicitly invoke <em>init</em>()).</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_part_3_python_for_data_analysis">Part 3: Python for Data Analysis</h2>
+<h2 id="_hints">Hints</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="module10/index.html">Module 10: Databases and SQL</a></p>
-</li>
-<li>
-<p><a href="module11/index.html">Module 11: Data on the Web</a></p>
-</li>
-<li>
-<p><a href="module12/index.html">Module 12: Web Scraping</a></p>
-</li>
-<li>
-<p><a href="module13/index.html">Module 13: Data Analysis</a></p>
-</li>
-<li>
-<p><a href="module14/index.html">Module 14: Ethics in Programming</a></p>
+<p>You will find that the tricky part to this exercise is determining the note given the modulation amount. You might find the modulo operator helpful in this scenario.</p>
 </li>
 </ul>
 </div>
@@ -552,8 +619,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-30 15:21:41 -0400
+Last updated 2020-09-24 22:53:49 -0400
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>

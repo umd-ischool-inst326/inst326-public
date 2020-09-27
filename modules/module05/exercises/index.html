@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Modules</title>
+<title>Module 5 Exercises</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,21 +436,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>INST 326 Modules</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_part_1_fundamentals">Part 1: Fundamentals</a></li>
-<li><a href="#_part_2_object_oriented_programming_in_python">Part 2: Object-Oriented Programming in Python</a></li>
-<li><a href="#_part_3_python_for_data_analysis">Part 3: Python for Data Analysis</a></li>
-</ul>
-</div>
+<h1>Module 5 Exercises</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
 <div align="center">
     <nav id="main_navigation">
         <a href="/inst326-public/index.html">Home</a> |
@@ -478,82 +468,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     }
     window.onload = localurl;
 </script>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_part_1_fundamentals">Part 1: Fundamentals</h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="module01/index.html">Module 1: Python Fundamentals 1</a></p>
+<p><a href="exercise05_songs.html">Songs</a></p>
 </li>
 <li>
-<p><a href="module02/index.html">Module 2: Python Fundamentals 2</a></p>
-</li>
-<li>
-<p><a href="module03/index.html">Module 3: Intro to Git and Testing</a></p>
+<p><a href="exercise05_books.html">Books</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_part_2_object_oriented_programming_in_python">Part 2: Object-Oriented Programming in Python</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="module04/index.html">Module 4: Basics of OOP</a></p>
-</li>
-<li>
-<p><a href="module05/index.html">Module 5: Advanced Data Structures</a></p>
-</li>
-<li>
-<p><a href="module06/index.html">Module 6: Serialization and File I/O</a></p>
-</li>
-<li>
-<p><a href="module07/index.html">Module 7: Regular Expressions</a></p>
-</li>
-<li>
-<p><a href="module08/index.html">Module 8: Remote Collaboration</a></p>
-</li>
-<li>
-<p><a href="module09/index.html">Module 9: Advanced OOP</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_part_3_python_for_data_analysis">Part 3: Python for Data Analysis</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="module10/index.html">Module 10: Databases and SQL</a></p>
-</li>
-<li>
-<p><a href="module11/index.html">Module 11: Data on the Web</a></p>
-</li>
-<li>
-<p><a href="module12/index.html">Module 12: Web Scraping</a></p>
-</li>
-<li>
-<p><a href="module13/index.html">Module 13: Data Analysis</a></p>
-</li>
-<li>
-<p><a href="module14/index.html">Module 14: Ethics in Programming</a></p>
-</li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-30 15:21:41 -0400
+Last updated 2020-09-24 22:29:02 -0400
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
