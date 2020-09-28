@@ -485,7 +485,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this exercise we are going to create a simple Song class. The song will contain data pertaining to the artist who performs the song, the name of the song, the beats per minute, and the notes that are in the song.</p>
+<p>For this exercise we are going to create a simple Song class. The song will contain data pertaining to the artist whoperforms the song, the name of the song, the beats per minute, and the notes that are in the song.</p>
 </div>
 </div>
 </div>
@@ -510,53 +510,53 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p>Create a class named <strong>song</strong>.</p>
+<p>Create your class song</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Write an <strong><em>init</em>()</strong> method with <strong>self</strong>, <strong>name</strong>(str), <strong>primary_artist</strong>(str), <strong>bpm</strong>(int) and <strong>chords</strong>(list) as the parameters. This method should to the following:</p>
+<p>Write an <em>init</em>() method with self, name(str), primary_artist(str), bpm(int) and chords(list) as the parameters. This method should to the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Set an attribute <strong>name</strong> (representing the song’s name) to the <strong>name</strong></p>
+<p>Set an attribute name (representing the song’s name) to the name</p>
 </li>
 <li>
-<p>Set an attribute <strong>artists</strong> (representing the artists that perform that song) to a list containing the <strong>primary_artist</strong> parameter.</p>
+<p>Set an attribute artists (representing the artists that perform that song) to a list containing the primary_artist parameter.</p>
 </li>
 <li>
-<p>Set and attribute <strong>bpm</strong> (representing the beats per minute/tempo of the song) to the <strong>bpm</strong> parameter.</p>
+<p>Set and attribute bpm (representing the beats per minute/tempo of the song) to the bpm parameter.</p>
 </li>
 <li>
-<p>Set an attribute <strong>chords</strong> (representing a list of chords that the song is comprised of) to the parameter <strong>chords</strong>.</p>
+<p>Set an attribute chords (representing a list of chords that the song is comprised of) to the parameter chords.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Write an <strong>associated_artists()</strong> method with the parameters <strong>self</strong> and <strong>other_artists</strong>. <strong>Other_artists</strong> should take a string value. This method should do the following:</p>
+<p>Write an associated_artists() method with the parameters self and other_artists. Other_artists should take a string value. This method should do the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Append the <strong>other_artists</strong> parameter to the <strong>artists</strong> parameter.</p>
+<p>Append the other_artists parameter to the artists parameter.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Write a <strong>change_beat()</strong> method with the parameters <strong>self</strong>, <strong>increase</strong> and <strong>change</strong>. <strong>Increase</strong> should take a boolean value; give it a default value of <strong>True</strong>. <strong>Change</strong> should take an integer type; give it a default value of <strong>5</strong>. This method should do the following:</p>
+<p>Write a change_beat() method with the parameters self, increase and change. Increase should take a boolean value; give it a default value of True. Change should take an integer type; give it a default value of 5. This method should do the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Increase the <strong>bpm</strong> attribute by the amount of the parameter <strong>change</strong> if <strong>increase</strong> is True.</p>
+<p>Increase the bpm attribute by the amount of the parameter change if increase is True.</p>
 </li>
 <li>
-<p>Decrease the <strong>bpm</strong> attribute by the amount of the parameter <strong>change</strong> if <strong>increase</strong> is False.</p>
+<p>Decrease the bpm attribute by the amount of the parameter change if increase is False.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Write a <strong>modulate()</strong> method with the parameters <strong>self</strong> and <strong>steps</strong>. <strong>Steps</strong> will take an integer; give it the default value 1. This method should do the following:</p>
+<p>Write a modulate() method with the parameters self and steps. Steps will take an integer; give it the default value 1. This method should do the following:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -583,22 +583,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<p>The method should append all new modulated chords to the empty list created earlier and set the <strong>chords</strong> attribute to this new list of modulated chords.</p>
+<p>The method should append all new modulated chords to the empty list created earlier and set the chords attribute to this new list of modulated chords.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Write an <strong>info()</strong> method with one parameter <strong>self</strong>. This method should print a message letting the user know the songs <strong>name</strong>, <strong>artists</strong>, <strong>chords</strong> and <strong>beats per minute</strong>.</p>
+<p>Write an info() method with one parameter self. This method should print a message letting the user know the songs name, artists, chords and beats per minute.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Write docstrings for each method. (<strong>__init__()</strong> doesn&#8217;t need a docstring.)</p>
+<p>Write docstrings for each method. (<em>init</em>() doesn&#8217;t need a docstring.)</p>
 </li>
 <li>
-<p>Write an <strong>if __name__ == "__main__":</strong> statement in which you create an instance of your class and invoke each method (you don&#8217;t have to explicitly invoke <strong>__init__()</strong>).</p>
+<p>Write an if <em>name</em> == "<em>main</em>": statement in which you create an instance of your class and invoke each method (you don&#8217;t have to explicitly invoke <em>init</em>()).</p>
 </li>
 </ul>
 </div>
@@ -619,7 +619,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-27 20:03:14 -0400
+Last updated 2020-09-24 22:53:49 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">
