@@ -1,4 +1,4 @@
-= INST 326 Module 2 Exercises
+= INST 326 Module 6 Exercises
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../../includes
@@ -12,9 +12,8 @@ include::{includedir}/navigation.html[]
 
 == Exercises
 
-* link:exercise01.html[Working with Files]
-* link:exercise02.html[Reading Energy Production Data from CSV]
-* link:exercise03.html[Reading Twitter Data from JSON]
+* link:exercise01.html[Reading Energy Production Data from CSV]
+* link:exercise02.html[Reading Twitter Data from JSON]
 
 == Warm Up (Plain Text)
 

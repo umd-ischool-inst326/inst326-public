@@ -10,7 +10,14 @@
 include::{includedir}/navigation.html[]
 ++++
 
-Download the link::energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  Then use that data to do the following:
+
+== Overview
+
+Download the link::energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  
+
+== Tasks
+
+Then use that data to do the following:
 
 * Nuclear Power in the Mid-Atlantic: Print the values for "Abbreviation" and "Nuclear" for each state where the "Region" has a value of "Mid Atlantic".  What was the total amount of Nuclear power generated in the entire United States (Mwh)?
 * Which state produces the most coal power?
