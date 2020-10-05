@@ -1,0 +1,13 @@
+= Exercise 2: JSON and Twitter Data
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+Download the set of Alexandria Ocasio-Cortez's tweets in JSON format in link::aoc.json  [aoc.json].  Read the dataset into a Python object.  Then, create a loop through the data, printing the text of each tweet.  Try to write a program that will print just the hashtags (words beginning with "#") and links (strings beginning with "http").

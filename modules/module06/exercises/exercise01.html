@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Object-Oriented Programming</title>
+<title>Exercise 1: Energy Data in CSV</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,20 +436,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>INST 326 Object-Oriented Programming</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_welcome">Welcome</a></li>
-<li><a href="#_acknowledgements">Acknowledgements</a></li>
-</ul>
-</div>
+<h1>Exercise 1: Energy Data in CSV</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
 <div align="center">
     <nav id="main_navigation">
         <a href="/inst326-public/index.html">Home</a> |
@@ -477,45 +468,51 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     }
     window.onload = localurl;
 </script>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_welcome">Welcome</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>This website is an Open Educational Resource (OER) for a course on Python Programming offered through the <a href="https://ischool.umd.edu">College of Information Studies</a> at the <a href="https://umd.edu">University of Maryland College Park</a>.</p>
+<p>Download the link::energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  Then use that data to do the following:</p>
 </div>
-<div class="paragraph">
-<p>The course is divided into 14 <a href="modules/index.html">modules</a> covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Fundamentals</p>
+<p>Nuclear Power in the Mid-Atlantic: Print the values for "Abbreviation" and "Nuclear" for each state where the "Region" has a value of "Mid Atlantic".  What was the total amount of Nuclear power generated in the entire United States (Mwh)?</p>
 </li>
 <li>
-<p>Object-Oriented Programming</p>
+<p>Which state produces the most coal power?</p>
 </li>
 <li>
-<p>Working with Data</p>
+<p>Make a function that takes in a state name and power source and displays a desired power measurement (i.e entering "arizona" and "wind") would give Arizona&#8217;s wind power. Write an interface that lets the user enter state and power source as command-line arguments.</p>
 </li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_acknowledgements">Acknowledgements</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This site was developed by Aric Bills, Gabriel Cruz, Jen Golbeck and Joshua Westgard in Summer 2020 with the support of a Teaching Innovation Grant from the Provost&#8217;s Office at the University of Maryland College Park. The site&#8217;s content is maintained in markdown and asciidoc files stored in a Github repository. It is built and published using <a href="https://www.gnu.org/software/make/">GNU Make</a>, <a href="https://pandoc.org">pandoc</a>, <a href="https://asciidoctor.org">asciidoctor</a>, and <a href="https://revealjs.com">reveal.js</a>, and is served to the public web via Github pages. Ed Summers and Joshua Westgard developed the site&#8217;s build framework for an earlier version of a shared INST326 website in 2019.</p>
-</div>
-</div>
+</ul>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-04 15:23:11 -0400
+Last updated 2020-10-05 01:37:49 -0400
 </div>
 </div>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
