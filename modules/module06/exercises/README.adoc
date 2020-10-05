@@ -10,11 +10,12 @@
 include::{includedir}/navigation.html[]
 ++++
 
+== Warm Up (Plain Text)
+
+* Download link:speech.txt[speech.txt] and practice reading the text from the file. If you completed the grouped-frequency word counter exercise, see if you can apply it to the data in this file.
+
 == Exercises
 
 * link:exercise01.html[Reading Energy Production Data from CSV]
 * link:exercise02.html[Reading Twitter Data from JSON]
 
-== Warm Up (Plain Text)
-
-* Download link:speech.txt[speech.txt] and practice reading the text from the file. If you completed the grouped-frequency word counter exercise, see if you can apply it to the data in this file.

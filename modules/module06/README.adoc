@@ -14,7 +14,7 @@ Module 4 introduces some techniques for reading and writing data into files with
 
 === Links
 * link:slides.html[Slides]
-* Exercises (forthcoming)
+* link:exercises/index.html[Exercises]
 
 == Learning Outcomes
 

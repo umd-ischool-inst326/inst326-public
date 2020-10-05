@@ -10,10 +10,9 @@
 include::{includedir}/navigation.html[]
 ++++
 
-
 == Overview
 
-Download the link::energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  
+Download the link:energy.csv[energy.csv] dataset and try reading the file using the csv.DictReader method.  
 
 == Tasks
 
