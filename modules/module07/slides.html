@@ -7,8 +7,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="../../lib/reveal/dist/reset.css">
-  <link rel="stylesheet" href="../../lib/reveal/dist/reveal.css">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reset.css">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -18,7 +18,7 @@
     ul.task-list{list-style: none;}
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="../../lib/reveal/dist/theme/inst326.css" id="theme">
+  <link rel="stylesheet" href="../../lib/reveal.js.4.0.2/dist/theme/inst326_gabriel.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -36,7 +36,7 @@
 <h1></h1>
 <h2 id="intro-to-regular-expressions">Intro to Regular Expressions</h2>
 <ul>
-<li>Strings of tests that are used in order to match characters in other bodies of text.</li>
+<li>Strings of text that are used in order to match characters in other bodies of text.</li>
 <li>The ability to use Regular Expressions is built into many text editors and programming languages.</li>
 </ul>
 </section>
@@ -127,7 +127,7 @@
 <td>\s</td>
 <td>Any whitespace character</td>
 <td>\s</td>
-<td>“ “</td>
+<td>" "</td>
 </tr>
 <tr class="even">
 <td>\t</td>
@@ -178,7 +178,7 @@
 <tr class="even">
 <td>*</td>
 <td>Zero or more times (greedy)</td>
-<td>A<em>B</em>C*</td>
+<td>A*B*C*</td>
 <td>AACCCCCC</td>
 </tr>
 </tbody>
@@ -200,19 +200,19 @@
 <tr class="odd">
 <td>+</td>
 <td>One or more times (greedy)</td>
-<td></td>
+<td>\d+</td>
 <td>1234555</td>
 </tr>
 <tr class="even">
 <td>?</td>
 <td>Once or none. / Makes quantifiers lazy</td>
 <td>words?</td>
-<td>word</td>
+<td>words, word</td>
 </tr>
 <tr class="odd">
 <td>?</td>
 <td>Once or none. / Makes quantifiers lazy</td>
-<td>?</td>
+<td>\w{2,4}?</td>
 <td>ab in abcd</td>
 </tr>
 </tbody>
@@ -311,7 +311,7 @@
 <td>^</td>
 <td>Start of the string or line</td>
 <td>^abc.*</td>
-<td>Abc (assuming that this is the begginign of the string</td>
+<td>Abc (assuming that this is the beginning of the string</td>
 </tr>
 <tr class="odd">
 <td>$</td>
@@ -359,10 +359,7 @@
 <h2 id="re-module">Re Module</h2>
 <div>
 <ul>
-<li class="fragment">Module that provides regular expression matching operations
-<ul>
-<li class="fragment">similar to those found in Perl</li>
-</ul></li>
+<li class="fragment">Module that provides regular expression matching operations</li>
 </ul>
 </div>
 </section>
@@ -370,7 +367,7 @@
 <h1></h1>
 <h2 id="re-module-continued">Re Module (continued)</h2>
 <ul>
-<li>There is a poblem, in Python the character “\” (used to escape special character in Regular Expressions) will escape strings in Python
+<li>There is a problem, in Python the character “\” (used to escape special character in Regular Expressions) will escape strings in Python
 <ul>
 <li>This causes issues when using the backslash for any reason</li>
 <li>We would constantly need to use double backslashes such as “\”</li>
@@ -397,12 +394,12 @@
     </div>
   </div>
 
-  <script src="../../lib/reveal/dist/reveal.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/dist/reveal.js"></script>
 
   // reveal.js plugins
-  <script src="../../lib/reveal/plugin/notes/notes.js"></script>
-  <script src="../../lib/reveal/plugin/search/search.js"></script>
-  <script src="../../lib/reveal/plugin/zoom/zoom.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/notes/notes.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/search/search.js"></script>
+  <script src="../../lib/reveal.js.4.0.2/plugin/zoom/zoom.js"></script>
 
   <script>
 

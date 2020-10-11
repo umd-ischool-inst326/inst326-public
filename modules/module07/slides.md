@@ -1,10 +1,11 @@
 ---
 title: "Regular Expressions"
 subtitle:
-revealjs-url: "../../lib/reveal"
-theme: "inst326"
+revealjs-url: "../../lib/reveal.js.4.0.2"
+theme: "inst326_gabriel"
 transition: "slide"
 ---
+
 #
 
 <a title="Daderot [Public domain], via Wikimedia Commons" href="https://imgs.xkcd.com/comics/regular_expressions.png"><img width="450" src="images/regex.png"></a>
@@ -13,7 +14,7 @@ transition: "slide"
 
 ## Intro to Regular Expressions
 
-- Strings of tests that are used in order to match characters in other bodies of text.
+- Strings of text that are used in order to match characters in other bodies of text.
 - The ability to use Regular Expressions is built into many text editors and programming languages.
 
 #
@@ -44,7 +45,7 @@ transition: "slide"
 ## Characters (continued)
 | Regular Expression    | Matches                                                                                  | Example        | Sample   |
 |-----------------------|------------------------------------------------------------------------------------------|----------------|----------|
-| \\s                   | Any whitespace character                                                                 | \\s            | “ “      |
+| \\s                   | Any whitespace character                                                                 | \\s            | " "      |
 | \\t                   | Tab                                                                                      | T\\t\\w{2}     | T     ab |
 | \\D, \\W, \\S         | Any character that is not a digit, word character or whitespace character.               | \\D\\W\\S      | s=2      |
 
@@ -52,22 +53,22 @@ transition: "slide"
 
 ## Quantifiers
 
-| Regular Expression | Matches                                | Example  | Sample     |
-|--------------------|----------------------------------------|----------|------------|
-| +                  | One or more of the item stated before. | w+       | wwww       |
-| {X}                | Exactly X amount of times.             | w{3}     | www        |
-| {X,Y}              | Match X to Y amount of times. (greedy) | w{2,4}   | wwww       |
-| *                  | Zero or more times (greedy)            | A*B*C*   | AACCCCCC   |
+| Regular Expression | Matches                                | Example     | Sample     |
+|--------------------|----------------------------------------|-------------|------------|
+| +                  | One or more of the item stated before. | w+          | wwww       |
+| {X}                | Exactly X amount of times.             | w{3}        | www        |
+| {X,Y}              | Match X to Y amount of times. (greedy) | w{2,4}      | wwww       |
+| *                  | Zero or more times (greedy)            | A\*B\*C\*   | AACCCCCC   |
 
 #
 
 ## Quantifiers (continued)
 
-| Regular Expression | Matches                                | Example  | Sample     |
-|--------------------|----------------------------------------|----------|------------|
-| +                  | One or more times (greedy)             | \d+      | 1234555    |
-| ?                  | Once or none. / Makes quantifiers lazy | words?   | word       |
-| ?                  | Once or none. / Makes quantifiers lazy | \w{2,4}? | ab in abcd |
+| Regular Expression | Matches                                | Example    | Sample      |
+|--------------------|----------------------------------------|------------|-------------|
+| +                  | One or more times (greedy)             | \\d+       | 1234555     |
+| ?                  | Once or none. / Makes quantifiers lazy | words?     | words, word |
+| ?                  | Once or none. / Makes quantifiers lazy | \\w{2,4}?  | ab in abcd  |
 
 #
 
@@ -90,7 +91,7 @@ transition: "slide"
 | [...]              | One of the characters in the brackets. | T[ao]p                   | Tap or Top                                             |
 | [...-...]          | Indicates range.                       | [a-z]                    | One lowercase letter.                                  |
 | [^x]               | One character that is not x            | [^a-z]{3}                | A1!                                                    |
-| ^                  | Start of the string or line            | ^abc.*                   | Abc (assuming that this is the begginign of the string |
+| ^                  | Start of the string or line            | ^abc.*                   | Abc (assuming that this is the beginning of the string |
 | $                  | End of string or line                  | .*? the end$             | this is the end                                        |
 
 #
@@ -125,14 +126,14 @@ transition: "slide"
 ::: incremental
 
 - Module that provides regular expression matching operations 
-    - similar to those found in Perl
+
 
 :::
 
 #
 
 ## Re Module (continued)
-- There is a poblem, in Python the character “\\” (used to escape special character in Regular Expressions) will escape strings in Python
+- There is a problem, in Python the character “\\” (used to escape special character in Regular Expressions) will escape strings in Python
     - This causes issues when using the backslash for any reason
     - We would constantly need to use double backslashes such as “\\”
 
