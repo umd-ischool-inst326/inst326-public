@@ -1,0 +1,13 @@
+= Module 7 Exercises
+//:stylesdir: ../../css
+//:stylesheet: page.css
+:includedir: ../../../includes
+:source-highlighter: rouge
+:stem:
+:toc: left
+
+++++
+include::{includedir}/navigation.html[]
+++++
+
+- link:exercise07_people.html[Songs]

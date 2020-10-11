@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Exercise: Book Indexer</title>
+<title>Module 7 Exercises</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,21 +436,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
 </head>
-<body class="article toc2 toc-left">
+<body class="article">
 <div id="header">
-<h1>Exercise: Book Indexer</h1>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#_background">Background</a></li>
-<li><a href="#_notes">Notes</a></li>
-<li><a href="#_instructions">Instructions</a></li>
-</ul>
-</div>
+<h1>Module 7 Exercises</h1>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
 <div align="center">
     <nav id="main_navigation">
         <a href="/inst326-public/index.html">Home</a> |
@@ -478,320 +468,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     }
     window.onload = localurl;
 </script>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_background">Background</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>For this exercise we are going to write a function that will create an index for words in two different books. Creating this kind of solution could allow users in the future to find word usage across differnet books and compare usage over time.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_notes">Notes</h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>The name of your file should consist exclusively of lower-case letters, numbers, and underscores, and the file extension .py. Your filename should not start with a number.</p>
-</li>
-<li>
-<p>This exercise does require the use of command line arguments.</p>
-</li>
-<li>
-<p>Your function does not need to clean input, however if you would like to try to make all your words in the index uppercase or lowercase (or get rid of non words) feel free to take on the challenge!</p>
+<p><a href="exercise07_people.html">Songs</a></p>
 </li>
 </ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_instructions">Instructions</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Write a function named <strong>indexer</strong> that will do the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Contain two parameters, both strings, which will both be paths to a file.</p>
-</li>
-<li>
-<p>Your function should read those files</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For information on reading files please read this tutorial: <a href="https://www.w3schools.com/python/python_file_open.asp" class="bare">https://www.w3schools.com/python/python_file_open.asp</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Once you have read in the files use sets to determine unique words in each text file.</p>
-</li>
-<li>
-<p>Create one large set that is the union of both sets</p>
-</li>
-<li>
-<p>Return a dictionary which is the index of the words to files:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Where key is the word and value is a list of all files containing that word</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Download the following files and place them in the same directory as your python script:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="files/monte_cristo.txt">Monte Cristo</a></p>
-</li>
-<li>
-<p><a href="files/two_cities.txt">Two Cities</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Write a <strong>main</strong> function that takes two arguments, two paths and call the function that you wrote by passing in these two arguments. Print the returned value (which should be the index dictionary)</p>
-</li>
-<li>
-<p>Write an <strong>if __name__ == __main__</strong> statement and use <strong>argparse</strong> to take two command line arguments with which you will call your <strong>main</strong> function. To run your file, you should pass in the names of both text files. For example, it should look something like this:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="n">python</span> <span class="n">exercise_05</span><span class="o">.</span><span class="n">py</span> <span class="s">'monte_cristo.txt'</span> <span class="s">'two_cities.txt'</span></code></pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-10 23:30:04 -0400
+Last updated 2020-10-10 23:43:45 -0400
 </div>
 </div>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   messageStyle: "none",
