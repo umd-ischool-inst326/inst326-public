@@ -10,4 +10,4 @@
 include::{includedir}/navigation.html[]
 ++++
 
-- link:exercise07_people.html[Songs]
+- link:exercise07_people.html[People]

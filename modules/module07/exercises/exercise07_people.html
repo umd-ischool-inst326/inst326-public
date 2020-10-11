@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Exercise: Song Maker</title>
+<title>Exercise: People</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,7 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Exercise: Song Maker</h1>
+<h1>Exercise: People</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -484,7 +484,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>In this exercise you will be writing a script that will take a text file and parse the text in each row in the text file so that we can extract the important information from each row. This text file represents an example of a messy data file that you might find yourself having to analyze at some point in time. In this case, each line in the text file contains data for one person. It contains the first and last name, address and email in that order.</p>
+</div>
+<div class="paragraph">
+<p>You will be writing three functions (parse_name, parse_address, parse_email) that use regular expressions to extract data from the string that we pass into the functions. You will also write two classes that will act as data containers. These classes are address and employee.</p>
+</div>
+<div class="paragraph">
+<p>The address class will have 3 attributes, street, city and state. The employee class will have four attributes, first_name, last_name, address, and email. Your script should also contain a main function that will have one parameter, a path to the file that we are extracting data from. Your main should read the file and will create employee instances out of each row in the file.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -505,19 +513,173 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>Download the following files and place them in the same directory as your python script:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="files/people.txt">People File</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Your script should import the "re" module.</p>
+</li>
+<li>
+<p>Your script should define the function parse_name.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This function will contain one parameter, text, a string representing a single line of the file.</p>
+</li>
+<li>
+<p>This function should use regular expressions in order to capture the first name and last name of the person in question.</p>
+</li>
+<li>
+<p>This function will return a tuple containing the first and last name as strings.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Your script should define the function parse_address.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This function will contain one parameter, text, a string representing a single line of the file.</p>
+</li>
+<li>
+<p>This function should use regular expressions in order to capture the street, city and state of the person in question.</p>
+</li>
+<li>
+<p>This function will create and return an address object using the street, city and state identified.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Your script should define the function parse_email.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This function will contain one parameter, text, a string representing a single line of the file.</p>
+</li>
+<li>
+<p>This function should use regular expressions in order to capture the email of the person in question.</p>
+</li>
+<li>
+<p>This function will return the email identified.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write a class address.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This class will have 3 attributes (street, city, state) that are created from the arguments that are passed in when an instance of address is created.</p>
+</li>
+<li>
+<p>This class will not have any methods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write a class employee.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This class will have 4 attributes (first_name, last_name, address, email).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>These attributes will all be created by passing in a row of the file when an instance of employee is created. This meaning, the init method will only have one parameter other than self.</p>
+</li>
+<li>
+<p>The first_name and last_name attributes are created by calling the parse_name function and passing in the parameter of the init method of employee as an argument in the parse_name function call.</p>
+</li>
+<li>
+<p>The address attribute is created by calling the parse_address function and passing in the parameter of the init method of employee as an argument in the parse_address function call.</p>
+</li>
+<li>
+<p>The email attribute is created by calling the parse_email function and passing in the parameter of the init method of employee as an argument in the parse_email function call.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This class will not have any methods.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write a main function. Your main should have one parameter, path, which is the path to the file that is being parsed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Create an empty list called employee_list.</p>
+</li>
+<li>
+<p>Open up the file from the path.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For each line in the file, create an instance of employee by passing in the string which is the line of the file that you are reading.</p>
+</li>
+<li>
+<p>Append this instance to the employee_list.</p>
+</li>
+<li>
+<p>Within the main, print the length of the employee_list.</p>
+</li>
+<li>
+<p>Within the main, print the employee_list</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Write an if name == main statement</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Call the main using the "people.txt" file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_hints">Hints</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>You will notice that the text file is formatted in a particular way. Use this formatting to your advantage when writing the regular expressions.</p>
+</li>
+<li>
+<p>You will notice that as you iterate over the lines in the file, that you are in essence breaking up the strings that you are working on to be just the single lines, meaning, you might find it advantageous to use anchors (^ or $) when writing regular expressions to indicate that you are matching items at the beginning or ends of the stings.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-10 23:51:12 -0400
+Last updated 2020-10-11 13:54:05 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">
