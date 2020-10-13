@@ -12,7 +12,7 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Walk through this tutorial to practice using regular expressions. Submit your solutions to the questions at the end through ELMS. link:files/cheatsheet.pdf[This cheatsheet] may be helful in practicing the regex sytax.
+Walk through this tutorial to practice using regular expressions. Submit your solutions to the questions at the end through ELMS. link:files/cheatsheet.pdf[This cheatsheet] may be helful in practicing the regex syntax.
 
 == Module import
 
