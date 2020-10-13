@@ -10,4 +10,10 @@
 include::{includedir}/navigation.html[]
 ++++
 
+== Tutorial
+
+- link:exercise07_tutorial.html[Regular Expressions: A Step-by-Step Tutorial]
+
+== Exercises
+
 - link:exercise07_people.html[People]

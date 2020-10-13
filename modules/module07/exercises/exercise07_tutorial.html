@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Object-Oriented Programming</title>
+<title>Regular Expressions: A Step-by-Step Tutorial</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,12 +438,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Object-Oriented Programming</h1>
+<h1>Regular Expressions: A Step-by-Step Tutorial</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_welcome">Welcome</a></li>
-<li><a href="#_acknowledgements">Acknowledgements</a></li>
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_module_import">Module import</a></li>
+<li><a href="#_pattern_declaration">Pattern Declaration</a></li>
+<li><a href="#_applying_the_pattern">Applying the Pattern</a>
+<ul class="sectlevel2">
+<li><a href="#_re_findall">re.findall()</a></li>
+<li><a href="#_re_finditer">re.finditer()</a></li>
+</ul>
+</li>
+<li><a href="#_questions">Questions</a></li>
 </ul>
 </div>
 </div>
@@ -480,42 +488,390 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_welcome">Welcome</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This website is an Open Educational Resource (OER) for a course on Python Programming offered through the <a href="https://ischool.umd.edu">College of Information Studies</a> at the <a href="https://umd.edu">University of Maryland College Park</a>.</p>
-</div>
-<div class="paragraph">
-<p>The course is divided into 14 <a href="modules/index.html">modules</a> covering various topics in programming with Python, designed for undergraduate students majoring in Information Science. The modules are organized into three main units:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Fundamentals</p>
-</li>
-<li>
-<p>Object-Oriented Programming</p>
-</li>
-<li>
-<p>Working with Data</p>
-</li>
-</ol>
+<p>Walk through this tutorial to practice using regular expressions. Submit your solutions to the questions at the end through ELMS. <a href="files/cheatsheet.pdf">This cheatsheet</a> may be helful in practicing the regex sytax.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_acknowledgements">Acknowledgements</h2>
+<h2 id="_module_import">Module import</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This site was developed by Aric Bills, Gabriel Cruz, Jen Golbeck and Joshua Westgard in Summer 2020 with the support of a Teaching Innovation Grant from the Provost&#8217;s Office at the University of Maryland College Park. The site&#8217;s content is maintained in markdown and asciidoc files stored in a Github repository. It is built and published using <a href="https://www.gnu.org/software/make/">GNU Make</a>, <a href="https://pandoc.org">pandoc</a>, <a href="https://asciidoctor.org">asciidoctor</a>, and <a href="https://revealjs.com">reveal.js</a>, and is served to the public web via Github pages. Ed Summers and Joshua Westgard developed the site&#8217;s build framework for an earlier version of a shared INST326 website in 2019.</p>
+<p>The re (regular expressions) module is part of the standard library, but must be imported to be available in your program.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">re</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pattern_declaration">Pattern Declaration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Regular expression patterns are declared as strings.  Python has a special type of string (an r-string) that has been designed for use in regexes.  The advantage of r-strings is that you do not have to escape all the characters that would otherwise need to be escaped in a regular string.</p>
+</div>
+<div class="paragraph">
+<p>The following pattern matches 'Sherlock' exactly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+</pre></td><td class="code"><pre><span class="n">pattern</span> <span class="o">=</span> <span class="s">r'Sherlock'</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_applying_the_pattern">Applying the Pattern</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to apply this expression you need to do two additional things:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>locate some text to search</p>
+</li>
+<li>
+<p>choose a function with which to apply the pattern</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For this exercise download a copy of the <a href="files/holmes.txt">Adventures of Sherlock Holmes</a>. Save the file in the folder with the python file you are using for this tutorial.</p>
+</div>
+<div class="paragraph">
+<p>Next, in your program you&#8217;ll need to read the contents of the file into a variable in order to search it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'Sherlock'</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'holmes.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you can apply your pattern to the text. The re.search() function is good for many use-cases. Search() takes two arguments, the pattern and the text to search.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="python"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'Sherlock'</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'holmes.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">hit</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">hit</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Search() is good for finding a match within a block of text, and the match object returns, in addition to the text of the match, its position in the source text (both beginning and ending by offset).  If you want to find multiple occurances of the match, it is often easier to use either findall() or finditer().</p>
+</div>
+<div class="sect2">
+<h3 id="_re_findall">re.findall()</h3>
+<div class="paragraph">
+<p>The syntax of findall() is the same as search() but this function returns the text of <strong>all matches</strong> as a list.  This is useful for counting matches. Can you use this to count the number of occurances of "Sherlock Holmes" in our sample text?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_re_finditer">re.finditer()</h3>
+<div class="paragraph">
+<p>Finditer() is particularly useful if you need to find all matches of a pattern, and also need to perform some processing on the matches. It returns an iterable set of match objects which you can process one-by-one.  Can you use re.finditer() to find all numbers in our source text, convert them to integers, and calculate their sum?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_questions">Questions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use regex to answer the following questions by analyzing <em>The Adventures of Sherlock Holmes</em>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>How many times does the word "Holmes" appear in the text?</p>
+</li>
+<li>
+<p>What is the name of the lodge that appears in one of the stories?  Hint: One way to find this is to search for words that come before the word "Lodge".</p>
+</li>
+<li>
+<p>What is the longest adverb in the text?  For the purpose of this question, an adverb is any word ending in "ly". The answer is the word itself, not the number of characters.</p>
+</li>
+<li>
+<p>How many times does Holmes use the phrase "Elementary, my dear Watson"?</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-04 15:23:11 -0400
+Last updated 2020-10-13 00:55:40 -0400
 </div>
 </div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+})
+MathJax.Hub.Register.StartupHook("AsciiMath Jax Ready", function () {
+  MathJax.InputJax.AsciiMath.postfilterHooks.Add(function (data, node) {
+    if ((node = data.script.parentNode) && (node = node.parentNode) && node.classList.contains('stemblock')) {
+      data.math.root.display = "block"
+    }
+    return data
+  })
+})
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
 </body>
 </html>
