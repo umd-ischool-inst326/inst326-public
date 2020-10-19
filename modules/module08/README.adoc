@@ -22,7 +22,7 @@ After completing this module, students should understand:
 
 * How git repositories work.
 * How to clone a repository locally.
-* How to make, stage, and commit changesk locally.
+* How to make, stage, and commit changes locally.
 * How to pull upstream changes to local and push local changes upstream.
 * Merge conflicts and how resolve them (or avoid them before they occur).
 
