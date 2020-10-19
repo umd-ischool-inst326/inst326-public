@@ -10,17 +10,22 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Remote collaboration.
+Remote collaboration using git and Github, and (optionally) the Agile development methodology.
 
 === Links
-- Slides (forthcoming)
-- Exercise(s) (forthcoming)
+* link:slides.html[Slides]
+* link:exercises/index.html[Exercises]
 
 == Learning Outcomes
 
-Forthcoming
+After completing this module, students should understand:
+
+* How git repositories work.
+* How to clone a repository locally.
+* How to make, stage, and commit changesk locally.
+* How to pull upstream changes to local and push local changes upstream.
+* Merge conflicts and how resolve them (or avoid them before they occur).
 
 == Additional Readings
 
-Forthcoming
-
+* John Wiegley, "link:https://jwiegley.github.io/git-from-the-bottom-up/[Git from the Bottom Up]"
