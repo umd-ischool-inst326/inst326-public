@@ -1,4 +1,4 @@
-= INST 326 Module 11: Data on the Web
+= INST 326 Module 11
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,17 +10,40 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Data on the web.
+Data on the Web
+
+This module introduces students to importing structured data on the web. We learn to use
+the requests module, the basics of HTTP, common web data formats including XML and JSON.
+
+=== Video
+- https://youtu.be/Ms5DHGHnY90[Video Lecture: Data on the Web]
+- https://www.youtube.com/watch?v=ov3RgPLETrM&feature=youtu.be[Video Lecture: installing the requests module]
+- https://www.youtube.com/watch?v=yDUjcoy6b5I&feature=youtu.be[Video Lecture: Reading Web Data and Processing RSS with feedparser]
+- https://www.youtube.com/watch?v=1We25ftRozU&feature=youtu.be[Video Lecture:  Generic XML Parsing of RSS]
+- https://www.youtube.com/watch?v=d38jm2aucLw[Video Lecture: JSON Parsing with Python]
 
 === Links
-- Slides (forthcoming)
-- Exercise(s) (forthcoming)
+- link:slides.html[Slides]
+- https://w1.weather.gov/xml/current_obs/KCGS.xml[College Park Weather XML]
+- link:rss2.py[rss2.py]
+- link:web.py[web.py]
+
+=== Exercise
+- link:exercise.html[Write an RSS Reader]
 
 == Learning Outcomes
 
-Forthcoming
+.After completing this module, students should be able to:
+* Recognize various web data formats, including XML and JSON
+* Parse formatted data using appropriate python modules
+* Import data from web formats into python data structures
 
-== Additional Readings
+== Readings
 
-Forthcoming
+- https://www.w3schools.com/xml/default.asp[XML Tutorial]
+- http://www.whatisrss.com/[What is RSS?]
+- https://cyber.harvard.edu/rss/rss.html[RSS Specification]
+- http://feeds.soundcloud.com/users/soundcloud:users:441673200/sounds.rss[Sample RSS Feed]
+- https://pythonhosted.org/feedparser/[Feedparser Documentation]
+
 

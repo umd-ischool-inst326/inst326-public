@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Module 8: Remote Collaboration</title>
+<title>INST 326 Module 11</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,17 +438,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Module 8: Remote Collaboration</h1>
+<h1>INST 326 Module 11</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_overview">Overview</a>
+<li><a href="#_exercise_write_an_xml_reader">Exercise: Write an XML reader</a>
 <ul class="sectlevel2">
-<li><a href="#_links">Links</a></li>
+<li><a href="#_part_1_10_points">Part 1 (10 points)</a></li>
+<li><a href="#_part_2_5_points">Part 2 (5 points)</a></li>
 </ul>
 </li>
-<li><a href="#_learning_outcomes">Learning Outcomes</a></li>
-<li><a href="#_additional_readings">Additional Readings</a></li>
 </ul>
 </div>
 </div>
@@ -485,69 +484,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview">Overview</h2>
+<h2 id="_exercise_write_an_xml_reader">Exercise: Write an XML reader</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_part_1_10_points">Part 1 (10 points)</h3>
 <div class="paragraph">
-<p>Remote collaboration using git and Github, and (optionally) the Agile development methodology.</p>
+<p>Start by reading in the XML file from Slate: <a href="http://www.slate.com/all.fulltext.all.rss">http://www.slate.com/all.fulltext.all.rss</a></p>
+</div>
+<div class="paragraph">
+<p>For each article (i.e. item), print the title and description. Number each from 1 to n, where n in however many articles there are.Ask the user to choose an article to read. Here is an example of what your program might print:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>1. Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After the user selects a number, print out the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>You can see that article at LINK</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where LINK is replaced with the URL of the article taken from the link element of the rss feed.</p>
+</div>
+<div class="paragraph">
+<p>Prompt the user to hit a key to continue, and print the list of articles again.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_links">Links</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="slides.html">Slides</a></p>
-</li>
-<li>
-<p><a href="exercises/index.html">Exercises</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_learning_outcomes">Learning Outcomes</h2>
-<div class="sectionbody">
+<h3 id="_part_2_5_points">Part 2 (5 points)</h3>
 <div class="paragraph">
-<p>After completing this module, students should understand:</p>
+<p>You should display a * next to any article the user has NOT read  If the user types a number to see an article, when the menu is displayed again the * should not appear next to that article. For example, your output may look like this to start:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>How git repositories work.</p>
-</li>
-<li>
-<p>How to clone a repository locally.</p>
-</li>
-<li>
-<p>How to make, stage, and commit changes locally.</p>
-</li>
-<li>
-<p>How to pull upstream changes to local and push local changes upstream.</p>
-</li>
-<li>
-<p>Merge conflicts and how resolve them (or avoid them before they occur).</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre>1. *Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. *The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. *Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. *Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>And if I read article #2, it would look like this after that:</p>
 </div>
-<div class="sect1">
-<h2 id="_additional_readings">Additional Readings</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>John Wiegley, "<a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a>"</p>
-</li>
-</ul>
+<div class="listingblock">
+<div class="content">
+<pre>1. *Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. *Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. *Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-19 17:12:26 -0400
+Last updated 2020-10-21 13:48:46 -0400
 </div>
 </div>
 </body>

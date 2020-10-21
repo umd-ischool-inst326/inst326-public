@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>INST 326 Module 8: Remote Collaboration</title>
+<title>INST 326 Module 12</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,17 +438,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>INST 326 Module 8: Remote Collaboration</h1>
+<h1>INST 326 Module 12</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_overview">Overview</a>
-<ul class="sectlevel2">
-<li><a href="#_links">Links</a></li>
-</ul>
-</li>
-<li><a href="#_learning_outcomes">Learning Outcomes</a></li>
-<li><a href="#_additional_readings">Additional Readings</a></li>
+<li><a href="#_exercise">Exercise</a></li>
 </ul>
 </div>
 </div>
@@ -485,69 +479,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_overview">Overview</h2>
+<h2 id="_exercise">Exercise</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Remote collaboration using git and Github, and (optionally) the Agile development methodology.</p>
+<p><a href="http://www.nuforc.org/webreports.html">The National UFO
+Reporting Database</a> has an index of UFO sightings.  Your
+task is to create a python script that extracts the location
+for each sighting in the database and creates a tally of sightings by
+city.</p>
 </div>
-<div class="sect2">
-<h3 id="_links">Links</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="slides.html">Slides</a></p>
-</li>
-<li>
-<p><a href="exercises/index.html">Exercises</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_learning_outcomes">Learning Outcomes</h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p>After completing this module, students should understand:</p>
+<p>We don&#8217;t want to abuse the UFO Databases&#8217;s servers, so we have a local version of some of the data that you should
+use for this assignment. Here is a page you can access as often as you want. This
+mimics the Events by Date listing:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>How git repositories work.</p>
-</li>
-<li>
-<p>How to clone a repository locally.</p>
-</li>
-<li>
-<p>How to make, stage, and commit changes locally.</p>
-</li>
-<li>
-<p>How to pull upstream changes to local and push local changes upstream.</p>
-</li>
-<li>
-<p>Merge conflicts and how resolve them (or avoid them before they occur).</p>
-</li>
-</ul>
+<div class="paragraph">
+<p><a href="http://www.cs.umd.edu/~golbeck/INST326/ndxLocOut.html">http://www.cs.umd.edu/~golbeck/INST326/ndxLocOut.html</a></p>
+</div>
+<div class="paragraph">
+<p>And it links to two months worth of data</p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.cs.umd.edu/~golbeck/INST326/ndxe201903.html">http://www.cs.umd.edu/~golbeck/INST326/ndxe201903.html</a></p>
+</div>
+<div class="paragraph">
+<p><a href="http://www.cs.umd.edu/~golbeck/INST326/ndxe201902.html">http://www.cs.umd.edu/~golbeck/INST326/ndxe201902.html</a></p>
+</div>
+<div class="paragraph">
+<p>The format of those sample pages is the same as on the database website.</p>
+</div>
+<div class="paragraph">
+<p>Many cities will appear multiple times. You do not want to list the
+cities over and over. Instead, store them in an object. You should
+create a class UFO that has variables for at least city, state, and
+number of reports. As you read in records, keep track of how many
+reports there are for each city. You will likely need a data structure
+to connect city and state names to your objects. When you get a new
+report for a city/state, increment the variable that tracks the number
+of reports.</p>
+</div>
+<div class="paragraph">
+<p>At the end of this step, you should have a bunch of objects with cities
+and states (or city,province or city,country if you use international
+locations) where there were sightings and a count of each time that city
+appeared. Create an output file that has that data. Use a tab to
+separate the city and the count. Your output file should look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Chicago,IL	5
+Washington,DC	7</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_additional_readings">Additional Readings</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>John Wiegley, "<a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a>"</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Deliverable: A python script that outputs a file the processes the sample data
+linked above. The output file should contain
+one city/state (or city,province or city,country if you
+use international locations) with the corresponding count on each line.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-19 17:12:26 -0400
+Last updated 2020-10-21 13:45:26 -0400
 </div>
 </div>
 </body>
