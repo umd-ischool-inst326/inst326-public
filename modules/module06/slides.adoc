@@ -218,7 +218,7 @@ spreadsheet.close()
 
 === Limitations of CSV
 
-Unfortunately, not all data fits neatly into tables. What makes this
+* Unfortunately, not all data fits neatly into tables. What makes this
 example hard to represent as a table?
 
 [source, python, linenums]
@@ -236,10 +236,7 @@ people = [
 ----
 
 [%step]
----
-The interests can have one to many values.
----
-
+* The interests can have one to many values.
 
 == JSON
 

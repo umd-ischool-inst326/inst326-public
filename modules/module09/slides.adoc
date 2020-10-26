@@ -1,4 +1,4 @@
-= Relational Databases
+= Inheritence & Composition: Patterns for Code Reuse
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2
@@ -6,511 +6,411 @@
 :customcss: ../../css/aric_slides.css
 :revealjs_width: 1400
 :revealjs_height: 800
+:title-slide-background-image: david-clode-3YEMFXYBgu8-unsplash.jpg
 
-== !
 
-++++
-<a title="Daderot [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Cuneiform_tablet_with_bread_and_flour_distributions,_Ur_III_Period,_c._2100-2000_BC_-_Harvard_Semitic_Museum_-_Cambridge,_MA_-_DSC06146.jpg"><img width="450" alt="Cuneiform tablet with bread and flour distributions, Ur III Period, c. 2100-2000 BC - Harvard Semitic Museum - Cambridge, MA - DSC06146" src="images/cuneiform.jpg"></a>
-++++
+
+== Introduction
+
+[%notitle]
+=== Design Patterns Book
+
+image::design-patterns.jpg[align=center, width=40%, link="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/"]
+
+
+=== Object-Oriented "Patterns"
+
+[%step]
+* Object-Oriented (OO) software design is a huge topic
+* Thinking about _designing_ software offers an opportunity to apply _craft_ in what we are buiding
+* Today will just look at two patterns as examples of OO design: 
+** Inheritance
+** Composition
+
+
+== Inheritance
+
+[%notitle]
+=== Inheritance Definition
+
+image::definition.png[align=center, width=75%, link="http://www.oed.com/view/Entry/95948"]
 
 [.notes]
 --
-This example of a cuneiform (wedge-shaped) writing tablet dates from the 3rd millennium BCE and records the distribution of bread and flour. It is shown here as an example of early record keeping. Writing systems developed first and foremost as a means of keeping track of legal agreements and business transactions, even before they were used for literary purposes.
-
-Image in public domain; original in Harvard Semitic Museum (Cambridge, MA).
+Click through to Definition 2b:  To derive (a quality or character, physical or mental) from one's progenitors by natural descent; to derive or possess by transmission from parents or ancestry.
 --
 
-== Tools
+[%notitle]
+=== Darwin's Finches Image
 
-For our work with databases, we'll be using three tools:
-
-- **SQLite** (database)
-- **sqlite3** (Python module)
-- **DB Browser** (GUI application)
-
-== Tools: SQLite
-
-[%step]
-- lightweight relational database (RDBMS)
-- runs locally and stores data in files
-- no separate database server required
-- already installed on your system (as part of Python)
-- project website: https://sqlite.org/mostdeployed.html[https://www.sqlite.org]
-
-== Tools: sqlite3
-
-[%step]
-- module in the standard library
-- facilitates interaction with the database by:
-[%step]
-    1. managing connections
-    2. passing queries to the database system
-    3. making results of queries accessible to Python
-
-== Tools: DB Browser for SQLite
-
-[%step]
-- graphical application (GUI)
-- allows you to view the contents of a SQLite database
-- an optional convenience for this course
-- downloadable from https://sqlitebrowser.org
-
-== Databases
-
-== !
-
-++++
-<a title="Washington, D.C. Jewal Mazique [i.e. Jewel] cataloging in the Library of Congress (1942)" href="https://www.loc.gov/pictures/item/2017828941/"><img width="600" alt="Image of a woman working with the card catalog in the Library of Congress, 1942" src="images/cardcatalog.jpg"></a>
-++++
+image::finches.png[align=center, width=75%]
 
 [.notes]
 --
-This image of Jewell Mazique (https://en.wikipedia.org/wiki/Jewell_Mazique) working with the card catalog in the Library of Congress is included here to illustrate the more general meaning of the term 'database' as any large collection of structured information.
+Darwin's Finches. Collected by Charles Darwin in the Galapagos Islands in the 1830s. Notice the similar characteristics that these birds have. This is because they inherited these traits from an ancestor from South America, the Tiaris obscurus or Dull-coloured grassquit.
+
+The idea of inheritence is a way of extending and customizing classes without having to copy and paste code.
 --
 
-== The Relational Model
-
-[%step]
-- Invented by E. F. Codd in the 1970s
-- Data stored in tables (relations)
-- Relations consist of rows (tuples)
-- Tuples have columns (attributes) that hold values
-- The term "database" now often connotes this type of relational database
-
-== Other DB Systems
-
-[.left]
---
-Database design/theory is a much larger topic. In fact it is an entire course (INST 327)! Here are a just a few database systems you may encounter:
-
-- **Relational**:
-    - mySQL/MariaDB
-    - PostgreSQL
-- **Non-relational** ("NoSQL"):
-    - Document: MongoDB (JSON), BaseX (XML)
-    - Graph: Neo4j, Fuseki
---
-
-== 'Normalization'
-
-[%step]
-- Through a design process, data are "normalized"
-- Normalization means applying a set of rules (called "normal forms") to increase efficiency and reduce redundancy
-- Many specifics of database design and normalization are outside the scope of this course
-
-== SQL
-
-[%step]
-- a standardized language is used to interact with a relational database
-- this is known as the Structured Query Language (SQL)
-- SQL has different flavors but generally works the same way across database systems
-
-== CRUD
-
-[.left]
---
-Basic database operations are called "CRUD":
---
-
-[%step]
-- CREATE: add data to the database
-- READ: retrive data from one or more tables
-- UPDATE: make changes to the data
-- DELETE: remove rows from a table (potentially with a cascade effect)
-
-== Using a Database with Python
-
-== Connecting to a database: in-memory
-
-[source, python]
-----
-# import the sqlite3 module
->>> import sqlite3
-
-# '::memory::' is special sqlite3 syntax
->>> conn = sqlite3.connect(':memory:')
->>> conn
-<sqlite3.Connection object at 0x10507b110>
-----
-
-== Connecting to a database: database file
-
-[source, python]
-----
-# connect to an in-memory database
->>> conn2 = sqlite3.connect('test.sqlite')
->>> conn2
-<sqlite3.Connection object at 0x10507b030>
-# a file will appear in the working directory
-----
-
-== The connection object
-
-- This object manages the database connection
-- In addition, we need a cursor to manage state
-- The cursor sends queries and contains results
-
-[source, python]
-----
-# imagine we are creating a bibliographic db
-conn = sqlite3.connect('biblio.sqlite')
-# to query this db we must create a cursor
-cursor = conn.cursor()
-----
-
-== Setting up the database
-
-[source, python]
-----
-# create a table to hold some data with CREATE
-# docstrings are commonly used for queries
-cq = '''CREATE TABLE books (
-        title TEXT, author TEXT, date INTEGER
-        )'''
-cursor.execute(cq)
-----
+[%notitle]
+=== Inheritance Diagram
+image::diagram.png[align=center, width=75%]
 
 [.notes]
 --
-Docstrings are triple-quoted strings (with ' or "), and allow internal line breaks. Line breaks, which are insignificant in SQL, are often used to format queries for readability.
+Ok, but what do finches have to do with code? If you are writing a program that needs to model social media posts it may be useful for you to use inheritance to model what the different social media posts have in common in terms of their properties and methods (things you can do with them). Here is a UML diagram for this inheritance relation.
 --
 
-== Create entries
+=== How Inheritance Works
 
-[source, python]
+[%step]
+* Declare a parent-child relationship between two classes
+* The relationship is declared on the child class (the subclass)
+* Declare the name of the parent as an argument in the class definition
+* All features of the parent are automatically available on the child class
+* New features can be added or changed (overridden) on the child class
+
+=== When Inheritance Makes Sense
+
+[%step]
+* Most useful when there is significant overlap between classes
+* Main benefit comes from avoiding duplicate code
+* Without substantial shared functionality, inheritance may not pay off
+
+=== Subclassing in Action
+
+Consider this example, what will be the result of lines 13-14?
+
+[source, python, linenums]
 ----
-# Next add a row to the table with INSERT
-iq = '''INSERT INTO books VALUES (
-     '2001: A Space Odyssey',
-     'Arthur C. Clarke', '1951'
-     )'''
-cursor.execute(iq)
-----
+class Post():
+  def __init__(self, creator):
+    self.creator = creator
 
-== Scaling up
+class Tweet(Post):
+  def retweet(self):
+    print("retweeted by " + self.creator)
 
-- This works fine, but can be impractical at scale
-- Larger numbers of records can be created with executemany()
+class Snap(Post):
+  def expire(self):
+    print("expired snap by " + self.creator)
 
-[source, python]
-----
-# First, create some data
-# (in real life you might read this from a file)
-# Structure it as a list of tuples
-data = [("I, Robot", "Isaac Asimov", 1950),
-        ("The Martian", "Andy Weir", 2012),
-        ("The Left Hand Of Darkness",
-            "Ursula K. Le Guin",1969)]
-----
-
-== Scaling up (continued)
-
-[source, python]
-----
-# Next, create a query with placeholders
-imq = '''INSERT INTO books VALUES (?,?,?)'''
-
-# Finally, pass query & data to executemany()
-cursor.executemany(imq, data)
-----
-
-== Read
-
-[source, python]
-----
-# Next, to view the data, use a SELECT query
-sq = '''SELECT title FROM books'''
-# Execute the query as before, appending fetchall()
-# which assigns results to 'books' variable
-books = cursor.execute(sq).fetchall()
-print(books)
-[('2001: A Space Odyssey',),
-    ('I, Robot',),
-    ('The Martian',),
-    ('The Left Hand Of Darkness',)]
+snap = Snap("edsu")
+snap.expire()
 ----
 
-== Update
+[.step]
+* ANSWER: expired snap by edsu
 
-- Now, imagine we need to update some data.
-- _The Martian_ was in fact published in 2011, so let's make that correction.
-
-[source, python]
-----
-uq = '''UPDATE books
-        SET year=2011
-        WHERE title="The Martian"'''
-cursor.execute(uq)
-----
-
-== Verify Update
-
-[source, python]
-----
-# now query just that row to verify
-vq = '''SELECT * FROM books
-        WHERE title="The Martian"'''
-cursor.execute(vq)
-print(cursor.fetchall())
-[('The Martian', 'Andy Weir', 2011)]
-----
-
-== Delete
-
-[.left]
+[.notes]
 --
-- Now, let's look at deleting data
-- This works much as you would expect
+There's no new syntax required to do inheritance. But notice how the Tweet and Snap classes are defined on line 5 and 9? See what is now in the parentheses? That is declaring that each inherit from a base class Post.
 --
 
-[source, python]
+=== Subclassing in Action
+
+In this example, note how the instatiation can use a keyword argument to create an instance of the Tweet. What will be the result?
+
+[source, python, linenums]
 ----
-dq = '''DELETE FROM books
-        WHERE author="Isaac Asimov"'''
-cursor.execute(dq)
+class Post():
+  def __init__(self, creator):
+    self.creator = creator
+
+class Tweet(Post):
+  def retweet(self):
+    print("retweeted by " + self.creator)
+
+class Snap(Post):
+  def expire(self):
+    print("expired snap by " + self.creator)
+
+tweet = Tweet(creator="edsu")
+tweet.retweet()
 ----
 
-== Committing Changes
+[%step]
+* ANSWER: **retweeted by edsu
 
-- So far, what we have done has occurred in-memory
-- To persist, changes must be committed (saved)
+=== Methods are not Shared Among Siblings
 
-[source, python]
+What will happen in this example?
+
+[source, python, linenums]
 ----
-# Normally you do this after completing each change
-conn.commit()
-# With changes saved, the connection can be closed
-conn.close()
+class Post():
+  def __init__(self, creator):
+    self.creator = creator
+
+class Tweet(Post):
+  def retweet(self):
+    print("retweeted by " + self.creator)
+
+class Snap(Post):
+  def expire(self):
+    print("expired snap by " + self.creator)
+
+tweet = Tweet(creator="edsu")
+tweet.expire()
 ----
 
-== Summary
+[%step]
+* ANSWER: AttributeError: 'Tweet' object has no attribute 'expire'
+
+=== Parent's Methods are Shared
+
+[source, python, linenums]
+----
+class Post():
+  def __init__(self, creator):
+    self.creator = creator
+  def delete(self):
+    print("post deleted by " + self.creator)
+
+class Tweet(Post):
+  def retweet(self):
+    print("retweeted by " + self.creator)
+
+class Snap(Post):
+  def expire(self):
+    print("expired snap by " + self.creator)
+
+tweet = Tweet(creator="edsu")
+tweet.delete()
+----
 
 [%step]
-- We have just covered a lot of ground
-- Connections, cursors, queries, CRUD
-- There is also a lot we have not touched
-- Next time we will look at normalization
-- Specifically: _primary keys_, _foreign keys_, and _joins_
+* post deleted by edsu
 
-== Exercise
+=== Overriding Methods
 
-== Exercise 1: Load a large dataset
+In some cases you may need/want to _redefine_ a method or attribute from the parent class. This is known as _overriding_ a method.
 
-[.left]
---
-The data in this CSV file ([books.csv](books.csv)) consists of a list of titles, authors, and dates of important works of fiction. The data are similar to the data used in the above examples.
+[source, python, linenums]
+----
+class Post():
+  def __init__(self, creator):
+    self.creator = creator
+  def update(self):
+    print("post updated by " + self.creator)
 
-The first task is to create a program that can read the data in the attached file and load it into a database.
---
+class Tweet(Post):
+  def update(self):
+    print("you can never update tweets!")
 
-== Normalizing and Joining Data
+class Snap(Post):
+  def expire(self):
+    print("expired snap by " + self.creator)
 
-== Why Normalize?
-
-[%step]
-- There are many reasons related to optimization
-- But the simplest way to think about it is this:
-[%step]
-    1. Consider that one author can write many books
-    2. Conversely one book can have many authors
-    3. To model such relationships effectively, author data should be stored apart from book data
-
-== Identifiers (Keys)
+tweet = Tweet(creator="edsu")
+tweet.update()
+----
 
 [%step]
-- The first requirement for modeling relationships between tables is to have unambiguous identifiers
-- These identifiers, called keys, allow data to be looked up
-- The unique id for a particular row in a table is called a primary key
+* you can never delete tweets!
 
-== Using Keys to Create Joins
 
-[%step]
-- Rows can also reference rows in other tables -- this cross-reference is called a foreign key
-- For example, the row "Hamlet" in the plays table might reference "William Shakespeare" in the authors table
+== Composition
 
-== Creating Normalized Data
+[%notitle]
+=== Composition Definition
 
-[%step]
-- When designing a database, before doing any coding tables and their relationships should be mapped out
-- The diagram created during this mapping process is called an ERD
-- This stands for Entity-Relationship Diagram
-- In addition to mapping out relationships, you need to create code to analyze the data and write it to the correct locations
-
-== Creating Normalized Data (continued)
-
-[%step]
-- For example, in working with our list of books and authors, you might:
-[%step]
-    1. Store the authors names in a separate table
-    2. As you read the data file, lookup the author
-    3. If the author is present already, get the id
-    4. If the author is not present, add the author and get the id
-    5. Add the book to the books table, referencing the author's id
-
-== Flat Data
-
-++++
-<table>
-<tr>
-    <th>title</th>
-    <th>author</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>Things Fall Apart</td>
-    <td>Chinua Achebe</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>Chimera</td>
-    <td>John Barth</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>The Sot-Weed Factor</td>
-    <td>John Barth</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>Under the Volcano</td>
-    <td>Malcolm Lowery</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
-
-== Add Primary Keys
-
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>title</th>
-    <th>author</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Things Fall Apart</td>
-    <td>Chinua Achebe</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Chimera</td>
-    <td>John Barth</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>The Sot-Weed Factor</td>
-    <td>John Barth</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Under the Volcano</td>
-    <td>Malcolm Lowry</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
+image::composition-def.png[align=center, width=75%]
 
 [.columns]
-== Move Authors to Own Table
+=== Things are Made from Other Things
 
 [.column]
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>title</th>
-    <th>author_id</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Things Fall Apart</td>
-    <td>1</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Chimera</td>
-    <td>2</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>The Sot-Weed Factor</td>
-    <td>2</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Under the Volcano</td>
-    <td>3</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
+--
+image::pizza.jpg[align=center]
+--
 
 [.column]
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>name</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Chinua Achebe</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>John Barth</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>Malcolm Lowry</td>
-</tr>
-</table>
-++++
-
-== Selecting Normalized Data
-
-[%step]
-- To lookup normalized data, you can use SQL's JOIN syntax
-- You specify the fields to match on (linking foreign key to primary key)
-
-[source, python, role="fragment"]
-----
-jq = '''SELECT authors.name, books.title, books.year
-        FROM books JOIN authors
-        ON books.author_id=authors.id'''
-books = cursor.execute(join_query, filter).fetchall()
-----
-
-== Deleting Normalized Data
-
-[%step]
-- Normalizing data introduces some additional complications
-- Consider our authors and books examples
-- If you remove a row from the authors table, what happens to the author's books?
-- There is a danger that orphaned rows will clutter the database
-
-== Deleting Normalized Data (continued)
-
-[%step]
-- In order to control the creation of bad data, SQL allows you to specify constraints in your database schema
-- Among the constraints is one called CASCADE DELETE
-- In essence, by specifying this constraint, you would force SQLite to remove books that were written by a deleted author when removing the author
-
-== Exercise 2: Normalization in action
-
-[.left]
 --
-Consider again the bibliographic database, note that there are multiple titles in the attached file written by a single author. In order to normalize this data, the author names should be moved into their own table and related to the book data through a relationship.
+**Ingredients of a Pizza**
 
-How can the authors data be related to the book titles? Can you create a program that will manage the normalization process at load time?
+[.step]
+* crust
+* toppings
+* cheese
+* sauce
 --
+
+[.notes]
+--
+A pizza is composed of multiple ingredients. In the context of pizza-order management software, you might model each of those ingredients separately.  You can model how these ingredients interact in your code.
+--
+
+[%notitle]
+=== Composition UML Diagram
+
+image::composition.png[canvas, size=contain]
+
+[.notes]
+--
+We can model the relationship between the Pizza class and the Topping objects of which it is composed. Notice the filled in diamond that indicates a composition relationship? Also notice the 0..7 that indicates there can be 0 to 7 toppings on a pizza.
+--
+
+=== Composition in Action
+
+Observe how the attributes work here.
+
+[source, python, linenums]
+----
+class Topping():
+
+    def __init__(self, name, num_pieces):
+        self.name = name
+        self.num_pieces = num_pieces
+
+topping = Topping("pepperoni", 25)
+print(topping)
+----
+
+[%step]
+* <__main__.Topping object at 0x10c6374e0>
+
+[.notes]
+--
+First lets create a Topping class that has a name, and a number of pieces.
+--
+
+=== Composition in Action
+
+Now let's create a class Pizza that can contain Toppings:
+
+[source, python, linenums]
+----
+class Pizza():
+
+    def __init__(self):
+        self.toppings = []
+
+    def add_topping(self, topping):
+        self.toppings.append(topping)
+
+pizza = Pizza()
+print(pizza)
+----
+
+[%step]
+* <__main__.Pizza object at 0x10c6374e0>
+
+[.notes]
+--
+Next lets create a Pizza class that initializes a list of toppings in the constuctor and has a method for adding toppings.
+--
+
+=== Composition in Action
+
+We can make the Pizza and Topping classes work together.
+
+[source, python, linenums]
+----
+class Pizza():
+    def __init__(self):
+        self.toppings = []
+    def add_topping(self, topping):
+        self.toppings.append(topping)
+
+class Topping():
+    def __init__(self, name, num_pieces):
+        self.name = name
+        self.num_pieces = num_pieces
+
+pizza = Pizza()
+pizza.add_topping(Topping("pepperoni", 18))
+pizza.add_topping(Topping("mushrooms", 12))
+pizza.add_topping(Topping("green peppers", 15))
+print(pizza.toppings)
+----
+
+[%step]
+* [<__main__.Topping object at 0x10c9ae748>, <__main__.Topping object at 0x10c9aea58>, <__main__.Topping object at 0x10c9aea90>]
+
+[.notes]
+--
+Here's what they look like when we put them together.
+--
+
+=== Composition in Action
+
+Remember "magic" methods? A useful one is repr, which controls how things print.
+
+[source, python, linenums]
+----
+class Topping():
+
+    def __init__(self, name, num_pieces):
+        self.name = name
+        self.num_pieces = num_pieces
+
+    def __repr__(self):
+        return "{} pieces of {}".format(self.num_pieces, self.name))
+
+pizza = Pizza()
+pizza.add_topping(Topping("pepperoni", 18))
+pizza.add_topping(Topping("mushrooms", 12))
+pizza.add_topping(Topping("green peppers", 15))
+print(pizza.toppings)
+----
+
+[%step]
+* 18 pieces of pepperoni, 12 pieces of mushrooms, 15 pieces of green peppers
+
+[.notes]
+--
+Every class you create can have a repr method, short for representation, which can define how to print out instances of the class as strings. Which can be handy for debugging.
+--
+
+=== Composition in Action
+
+Let's define a method on Pizza that "reads" its toppings. What will be the result?
+
+[source, python, linenums]
+----
+class Pizza():
+    """ ... imagine init and add_topping are the same as before ... """
+
+    def num_pieces(self):
+        count = 0
+        for topping in self.toppings:
+            count += topping.num_pieces
+        return count
+
+pizza = Pizza()
+pizza.add_topping(Topping("pepperoni", 18))
+pizza.add_topping(Topping("mushrooms", 12))
+pizza.add_topping(Topping("green peppers", 15))
+print(pizza.num_toppings())
+----
+
+[%step]
+* 45
+
+[.notes]
+--
+Here we added a method to Pizza named num_pieces which returns the total number of pizza topping pieces on the pizza!
+--
+
+== Conclusion
+
+=== Summary
+* Today we dipped a toe into the topic of OO Patterns.
+* We learned about _Inheritance_, which is useful for defining related classes with shared functionality.
+* We also learned about _Composition_, which is useful for defining objects that will be contained by other objects.
+
+[.columns, .notitle]
+=== Final Takaways
+
+[.column]
+image::timeless.jpg[width=75%, link=https://en.wikipedia.org/wiki/The_Timeless_Way_of_Building"]
+
+[.column]
+
+[%step]
+* _Composition_ is in many cases a much more useful OO pattern.
+* Inheritance should be used sparingly.
+* Composition is well suited to many data-science applications.
+* Always design your code to fit your requirements!
+

@@ -207,8 +207,8 @@ spreadsheet.writerow(['Val', 19, 'Physics'])
 spreadsheet.writerow(['Rick', 22, 'English'])
 spreadsheet.writerow(['Hope', 20, 'Information Studies'])
 
-spreadsheet.close()</code></pre></div></div></div></section><section id="_limitations_of_csv"><h2>Limitations of CSV</h2><div class="slide-content"><div class="paragraph"><p>Unfortunately, not all data fits neatly into tables. What makes this
-example hard to represent as a table?</p></div>
+spreadsheet.close()</code></pre></div></div></div></section><section id="_limitations_of_csv"><h2>Limitations of CSV</h2><div class="slide-content"><div class="ulist"><ul><li><p>Unfortunately, not all data fits neatly into tables. What makes this
+example hard to represent as a table?</p></li></ul></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">people = [
   {
     "name": "Val",
@@ -219,9 +219,7 @@ example hard to represent as a table?</p></div>
     "interests": ["karaoke"]
   }
 ]</code></pre></div></div>
-<hr>
-<div class="paragraph"><p>The interests can have one to many values.
----</p></div></div></section></section>
+<div class="ulist"><ul><li class="fragment"><p>The interests can have one to many values.</p></li></ul></div></div></section></section>
 <section><section id="_json"><h2>JSON</h2></section><section id="_different_apis" data-background-image="images/apis.png" data-background-size="contain"></section><section id="_reading_a_json_file"><h2>Reading a JSON File</h2><div class="slide-content"><div class="paragraph"><p>Python comes with a <a href="https://docs.python.org/3.7/library/json.html">json module</a>
 which makes it easy to read JSON using the <a href="https://docs.python.org/3.7/library/json.html#json.load">json.load</a> function. We&#8217;ll use it to load this JSON file of tweet data: <a href="exercises/aoc.json">aoc.json</a>.</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">import json
