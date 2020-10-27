@@ -109,7 +109,7 @@ There's no new syntax required to do inheritance. But notice how the Tweet and S
 
 === Subclassing in Action
 
-In this example, note how the instatiation can use a keyword argument to create an instance of the Tweet. What will be the result?
+In this example, note how the initialization method can use a keyword argument to create an instance of the Tweet. What will be the result?
 
 [source, python, linenums]
 ----
@@ -130,7 +130,7 @@ tweet.retweet()
 ----
 
 [%step]
-* ANSWER: **retweeted by edsu
+* ANSWER: retweeted by edsu
 
 === Methods are not Shared Among Siblings
 
@@ -207,7 +207,7 @@ tweet.update()
 ----
 
 [%step]
-* you can never delete tweets!
+* you can never update tweets!
 
 
 == Composition
@@ -227,7 +227,7 @@ image::pizza.jpg[align=center]
 
 [.column]
 --
-**Ingredients of a Pizza**
+Ingredients of a Pizza
 
 [.step]
 * crust

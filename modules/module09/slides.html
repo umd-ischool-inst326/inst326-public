@@ -164,7 +164,7 @@ class Snap(Post):
 snap = Snap("edsu")
 snap.expire()</code></pre></div></div>
 <div class="ulist step"><ul><li class="fragment"><p>ANSWER: expired snap by edsu</p></li></ul></div>
-<aside class="notes"><div class="paragraph"><p>There&#8217;s no new syntax required to do inheritance. But notice how the Tweet and Snap classes are defined on line 5 and 9? See what is now in the parentheses? That is declaring that each inherit from a base class Post.</p></div></aside></div></section><section id="_subclassing_in_action_2"><h2>Subclassing in Action</h2><div class="slide-content"><div class="paragraph"><p>In this example, note how the instatiation can use a keyword argument to create an instance of the Tweet. What will be the result?</p></div>
+<aside class="notes"><div class="paragraph"><p>There&#8217;s no new syntax required to do inheritance. But notice how the Tweet and Snap classes are defined on line 5 and 9? See what is now in the parentheses? That is declaring that each inherit from a base class Post.</p></div></aside></div></section><section id="_subclassing_in_action_2"><h2>Subclassing in Action</h2><div class="slide-content"><div class="paragraph"><p>In this example, note how the initialization method can use a keyword argument to create an instance of the Tweet. What will be the result?</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">class Post():
   def __init__(self, creator):
     self.creator = creator
@@ -179,7 +179,7 @@ class Snap(Post):
 
 tweet = Tweet(creator="edsu")
 tweet.retweet()</code></pre></div></div>
-<div class="ulist"><ul><li class="fragment"><p>ANSWER: **retweeted by edsu</p></li></ul></div></div></section><section id="_methods_are_not_shared_among_siblings"><h2>Methods are not Shared Among Siblings</h2><div class="slide-content"><div class="paragraph"><p>What will happen in this example?</p></div>
+<div class="ulist"><ul><li class="fragment"><p>ANSWER: retweeted by edsu</p></li></ul></div></div></section><section id="_methods_are_not_shared_among_siblings"><h2>Methods are not Shared Among Siblings</h2><div class="slide-content"><div class="paragraph"><p>What will happen in this example?</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true" data-line-numbers="">class Post():
   def __init__(self, creator):
     self.creator = creator
@@ -227,9 +227,9 @@ class Snap(Post):
 
 tweet = Tweet(creator="edsu")
 tweet.update()</code></pre></div></div>
-<div class="ulist"><ul><li class="fragment"><p>you can never delete tweets!</p></li></ul></div></div></section></section>
+<div class="ulist"><ul><li class="fragment"><p>you can never update tweets!</p></li></ul></div></div></section></section>
 <section><section id="_composition"><h2>Composition</h2></section><section id="_composition_definition"><div class="slide-content"><div class="imageblock" style="text-align: center"><img src="images/composition-def.png" alt="composition def" width="75%"></div></div></section><section id="_things_are_made_from_other_things" class="columns"><h2>Things are Made from Other Things</h2><div class="slide-content"><div class="openblock column"><div class="content"><div class="imageblock" style="text-align: center"><img src="images/pizza.jpg" alt="pizza"></div></div></div>
-<div class="openblock column"><div class="content"><div class="paragraph"><p><strong>Ingredients of a Pizza</strong></p></div>
+<div class="openblock column"><div class="content"><div class="paragraph"><p>Ingredients of a Pizza</p></div>
 <div class="ulist step"><ul><li class="fragment"><p>crust</p></li><li class="fragment"><p>toppings</p></li><li class="fragment"><p>cheese</p></li><li class="fragment"><p>sauce</p></li></ul></div></div></div>
 <aside class="notes"><div class="paragraph"><p>A pizza is composed of multiple ingredients. In the context of pizza-order management software, you might model each of those ingredients separately.  You can model how these ingredients interact in your code.</p></div></aside></div></section><section id="_composition_uml_diagram" data-background-image="images/composition.png" data-background-size="contain"><div class="slide-content">
 <aside class="notes"><div class="paragraph"><p>We can model the relationship between the Pizza class and the Topping objects of which it is composed. Notice the filled in diamond that indicates a composition relationship? Also notice the 0..7 that indicates there can be 0 to 7 toppings on a pizza.</p></div></aside></div></section><section id="_composition_in_action"><h2>Composition in Action</h2><div class="slide-content"><div class="paragraph"><p>Observe how the attributes work here.</p></div>

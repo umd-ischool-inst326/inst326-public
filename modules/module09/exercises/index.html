@@ -442,7 +442,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_exercises">Exercises</a></li>
+<li><a href="#_exercise_1_inheritance">Exercise 1: Inheritance</a></li>
+<li><a href="#_exercise_2_composition">Exercise 2: Composition</a></li>
 </ul>
 </div>
 </div>
@@ -479,24 +480,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_exercises">Exercises</h2>
+<h2 id="_exercise_1_inheritance">Exercise 1: Inheritance</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="exercise01.html">Exercise 1</a></p>
-</li>
-<li>
-<p><a href="exercise02.html">Exercise 2</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Object Oriented Programming provides a way to <em>reuse</em> software. When you reuse <em>classes</em> you often need to adapt it in a particular way by adding or modifying behavior or data. One way of doing this is to create a new class that extends the existing one using the pattern of <em>inheritance</em>.</p>
+</div>
+<div class="paragraph">
+<p>Imagine that you have been using the <em>Email</em> class found in the attached file <a href="enron.py"><em>enron.py</em></a>. You would like the class to provide access to the <em>Subject</em> of the email (which can be found by searching for the first occurence of "Subject" at the beginning of a line in the text of the email). But you don’t want to change the behavior of the Email class itself because other people are using it already. Write a new class called <em>ExtendedEmail</em> that provides this additional method <em>get\_subject()</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exercise_2_composition">Exercise 2: Composition</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you model things using classes in Object Oriented Programming you often find yourself discovering your classes contain multiple types of things that can also be modeled as classes. When your objects contain other objects you use the pattern of <em>composition</em> to define your classes.</p>
+</div>
+<div class="paragraph">
+<p>Download <a href="pizza.py"><em>pizza.py</em></a>. The Pizza class is being used by a restaurant that doesn’t like to put more than 7 toppings on pizzas. Update the <em>add\_topping()</em> method to print out a warning when a user tries to add more than 7 toppings. Your method should not only print an error message but should also disallow the adding of the requested topping to the toppings list, so that if effect no pizza can ever have more than 7 topings.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-26 18:59:59 -0400
+Last updated 2020-10-26 19:59:47 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">

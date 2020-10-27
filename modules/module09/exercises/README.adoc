@@ -10,8 +10,16 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Exercises
+== Exercise 1: Inheritance
 
-* link:exercise01.html[Exercise 1]
-* link:exercise02.html[Exercise 2]
+Object Oriented Programming provides a way to _reuse_ software. When you reuse _classes_ you often need to adapt it in a particular way by adding or modifying behavior or data. One way of doing this is to create a new class that extends the existing one using the pattern of _inheritance_.
+
+Imagine that you have been using the _Email_ class found in the attached file link:enron.py[_enron.py_]. You would like the class to provide access to the _Subject_ of the email (which can be found by searching for the first occurence of "Subject" at the beginning of a line in the text of the email). But you don’t want to change the behavior of the Email class itself because other people are using it already. Write a new class called _ExtendedEmail_ that provides this additional method _get\_subject()_.
+
+
+== Exercise 2: Composition
+
+When you model things using classes in Object Oriented Programming you often find yourself discovering your classes contain multiple types of things that can also be modeled as classes. When your objects contain other objects you use the pattern of _composition_ to define your classes.
+
+Download link:pizza.py[_pizza.py_]. The Pizza class is being used by a restaurant that doesn’t like to put more than 7 toppings on pizzas. Update the _add\_topping()_ method to print out a warning when a user tries to add more than 7 toppings. Your method should not only print an error message but should also disallow the adding of the requested topping to the toppings list, so that if effect no pizza can ever have more than 7 topings.
 
