@@ -16,10 +16,12 @@ Object Oriented Programming provides a way to _reuse_ software. When you reuse _
 
 Imagine that you have been using the _Email_ class found in the attached file link:enron.py[_enron.py_]. You would like the class to provide access to the _Subject_ of the email (which can be found by searching for the first occurence of "Subject" at the beginning of a line in the text of the email). But you don’t want to change the behavior of the Email class itself because other people are using it already. Write a new class called _ExtendedEmail_ that provides this additional method _get_subject()_.
 
+You can download the link:enron-sample.zip[_enron-sample.zip_] as test data for this exercise.  Any of the files contained in that zip archive is an email message that should have a subject line. 
+
 
 == Exercise 2: Composition
 
 When you model things using classes in Object Oriented Programming you often find yourself discovering your classes contain multiple types of things that can also be modeled as classes. When your objects contain other objects you use the pattern of _composition_ to define your classes.
 
-Download link:pizza.py[_pizza.py_]. The Pizza class is being used by a restaurant that doesn’t like to put more than 7 toppings on pizzas. Update the _add_topping()_ method to print out a warning when a user tries to add more than 7 toppings. Your method should not only print an error message but should also disallow the adding of the requested topping to the toppings list, so that if effect no pizza can ever have more than 7 topings.
+Download link:pizza.py[_pizza.py_]. The Pizza class is being used by a restaurant that doesn’t like to put more than 7 toppings on pizzas. Update the _add_topping()_ method to print out a warning when a user tries to add more than 7 toppings. Your method should not only print an error message but should also disallow the adding of the requested topping to the toppings list, so that in effect no pizza can ever have more than 7 topings.
 
