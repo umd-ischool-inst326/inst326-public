@@ -1,4 +1,4 @@
-= Inheritence & Composition: Patterns for Code Reuse
+= Inheritance & Composition: Patterns for Code Reuse
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2
@@ -49,7 +49,7 @@ image::finches.png[align=center, width=75%]
 --
 Darwin's Finches. Collected by Charles Darwin in the Galapagos Islands in the 1830s. Notice the similar characteristics that these birds have. This is because they inherited these traits from an ancestor from South America, the Tiaris obscurus or Dull-coloured grassquit.
 
-The idea of inheritence is a way of extending and customizing classes without having to copy and paste code.
+The idea of inheritance is a way of extending and customizing classes without having to copy and paste code.
 --
 
 [%notitle]
