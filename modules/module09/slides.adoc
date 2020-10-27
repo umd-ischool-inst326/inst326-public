@@ -401,7 +401,7 @@ Here we added a method to Pizza named num_pieces which returns the total number 
 * We also learned about _Composition_, which is useful for defining objects that will be contained by other objects.
 
 [.columns, .notitle]
-=== Final Takaways
+=== Final Takeaways
 
 [.column]
 image::timeless.jpg[width=75%, link=https://en.wikipedia.org/wiki/The_Timeless_Way_of_Building"]
