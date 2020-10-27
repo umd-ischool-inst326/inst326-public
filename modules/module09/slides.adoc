@@ -22,7 +22,7 @@ image::design-patterns.jpg[align=center, width=40%, link="https://www.amazon.com
 
 [%step]
 * Object-Oriented (OO) software design is a huge topic
-* Thinking about _designing_ software offers an opportunity to apply _craft_ in what we are buiding
+* Thinking about _designing_ software offers an opportunity to apply _craft_ in what we are building
 * Today will just look at two patterns as examples of OO design: 
 ** Inheritance
 ** Composition
@@ -33,7 +33,7 @@ image::design-patterns.jpg[align=center, width=40%, link="https://www.amazon.com
 [%notitle]
 === Inheritance Definition
 
-image::definition.png[align=center, width=75%, link="http://www.oed.com/view/Entry/95948"]
+image::definition.png[align=center, width=75%, link="https://www-oed-com.proxy-um.researchport.umd.edu/view/Entry/95948"]
 
 [.notes]
 --
@@ -215,7 +215,7 @@ tweet.update()
 [%notitle]
 === Composition Definition
 
-image::composition-def.png[align=center, width=75%]
+image::composition-def.png[align=center, width=75%, link="https://www-oed-com.proxy-um.researchport.umd.edu/view/Entry/37795"]
 
 [.columns]
 === Things are Made from Other Things
