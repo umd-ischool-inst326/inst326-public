@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Module 9 Exercises</title>
+<title>Module 10 Exercises</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,12 +438,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Module 9 Exercises</h1>
+<h1>Module 10 Exercises</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_using_sql_for_querying">Using SQL for querying</a></li>
 <li><a href="#_populating_a_database_programmatically">Populating a database programmatically</a></li>
+<li><a href="#_using_sql_for_querying">Using SQL for querying</a></li>
 <li><a href="#_challenge_design_and_modeling_practice">Challenge: Design and modeling practice</a></li>
 </ul>
 </div>
@@ -481,29 +481,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="_using_sql_for_querying">Using SQL for querying</h2>
+<h2 id="_populating_a_database_programmatically">Populating a database programmatically</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The data in the CSV file, <a href="energy.csv" class="bare">energy.csv</a>, should look familiar to you, it’s the data that we were working with in module 4. Remember how we had to iterate through the file to determine the largest wind and solar producing state?</p>
+<p>The data in this CSV file (<a href="books.csv" class="bare">books.csv</a>) consists of a list of titles, authors, and dates of important works of fiction. The same dataset was used in the earlier exercises.</p>
 </div>
 <div class="paragraph">
-<p>This time the CSV has been cleaned up a bit by removing the total rows which we had to ignore the last time. We’re going to use it as a way of explore why SQL, databases and Python are useful tools to use together.</p>
-</div>
-<div class="paragraph">
-<p>create a program that can read in the CSV data and load it into a database
-query the database to see what the maximum solar and wind producers are
-determine the total solar and wind production in the US by year</p>
+<p>The first task is to create a program that can read the data in the attached file and load it into a single-table database.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_populating_a_database_programmatically">Populating a database programmatically</h2>
+<h2 id="_using_sql_for_querying">Using SQL for querying</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The data in this CSV file (<a href="books.csv" class="bare">books.csv</a>) consists of a list of titles, authors, and dates of important works of fiction. The data are similar to the data used in the above examples.</p>
+<p>The data in the CSV file, <a href="energy.csv" class="bare">energy.csv</a>, should look familiar to you, it’s the data that we were working with in previous exercises. Remember how we had to iterate through the file to determine the largest wind and solar producing state? Now we’re going to use it as a way of explore why SQL, databases and Python are useful tools to use together.</p>
 </div>
 <div class="paragraph">
-<p>The first task is to create a program that can read the data in the attached file and load it into a database.</p>
+<p>Create a program that can:
+  # read in the CSV data
+  # load it into a database
+  # query the database to find maximum solar and wind producers
+  # determine the total solar and wind production in the US by year</p>
 </div>
 </div>
 </div>
@@ -521,7 +520,7 @@ determine the total solar and wind production in the US by year</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-08-29 14:53:29 -0400
+Last updated 2020-11-02 19:16:16 -0500
 </div>
 </div>
 </body>
