@@ -17,16 +17,25 @@ The first task is to create a program that can read the data in the attached fil
 
 == Using SQL for querying
 
-The data in the CSV file, link:energy.csv[], should look familiar to you, it’s the data that we were working with in previous exercises. Remember how we had to iterate through the file to determine the largest wind and solar producing state? Now we’re going to use it as a way of explore why SQL, databases and Python are useful tools to use together.
+The data in the CSV file (link:energy.csv[]) should look familiar to you, it’s the data that we were working with in previous exercises. Remember how we had to iterate through the file to determine the largest wind and solar producing state? Now we’re going to use it as a way of explore why SQL, databases and Python are useful tools to use together.
 
 Create a program that can:
-  # read in the CSV data
-  # load it into a database 
-  # query the database to find maximum solar and wind producers
-  # determine the total solar and wind production in the US by year
+
+  1. read in the CSV data
+  2. load it into a database 
+  3. query the database to find maximum solar and wind producers
+  4. determine the total solar and wind production in the US by year
+
+HINT: Once you have the data loaded, consider using these queries:
+[source, sql, linenums]
+----
+SELECT MAX(mwh) FROM production WHERE source=?;
+SELECT * FROM production WHERE source=? AND mwh=?;
+SELECT mwh FROM production WHERE source=? and year=?;
+---- 
 
 == Challenge: Design and modeling practice
 
-Consider again the bibliographic database, note that there are multiple titles in the attached file written by a single author. In order to normalize this data, the author names should be moved into their own table and related to the book data through a relationship.
+Consider again the bibliographic database, note that there are multiple titles in the attached file (link:books.csv[]) written by a single author. In order to normalize this data, the author names should be moved into their own table and related to the book data through a relationship.
 
 How can the authors data be related to the book titles? Can you create a program that will manage the normalization process at load time?
