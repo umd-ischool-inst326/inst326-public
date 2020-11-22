@@ -575,10 +575,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">if</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">True</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">return</span> <span class="bp">False</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python">if a &lt;= b &lt; c:
+    return True
+else:
+    return False</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -586,7 +586,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="k">return</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">c</span></code></pre>
+<pre class="rouge highlight"><code data-lang="python">return a &lt;= b &lt; c</code></pre>
 </div>
 </div>
 </div>
@@ -614,32 +614,32 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">use_appointment.py</div>
 <div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="kn">from</span> <span class="nn">appointment</span> <span class="kn">import</span> <span class="n">Appointment</span>
+<pre class="rouge highlight"><code data-lang="python">from appointment import Appointment
 
 
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="s">""" Demonstrate use of the Appointment class. """</span>
-    <span class="n">appt1</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"Physics meeting"</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">45</span><span class="p">))</span>
-    <span class="n">appt2</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"Brunch"</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">00</span><span class="p">))</span>
-    <span class="n">appt3</span> <span class="o">=</span> <span class="n">Appointment</span><span class="p">(</span><span class="s">"English study session"</span><span class="p">,</span> <span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">00</span><span class="p">),</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">00</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">appt1</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{appt1.name} overlaps with {appt2.name}"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{appt1.name} does not overlap with {appt2.name}"</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">appt1</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{appt1.name} overlaps with {appt3.name}"</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"{appt1.name} does not overlap with {appt3.name}"</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">appt1</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">appt2</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt1</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt3</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt1</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt2</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt3</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="ow">not</span> <span class="n">appt3</span><span class="o">.</span><span class="n">overlaps</span><span class="p">(</span><span class="n">appt2</span><span class="p">)</span>
+def main():
+    """ Demonstrate use of the Appointment class. """
+    appt1 = Appointment("Physics meeting", (9, 30), (10, 45))
+    appt2 = Appointment("Brunch", (10, 30), (11, 00))
+    appt3 = Appointment("English study session", (13, 00), (14, 00))
+    if appt1.overlaps(appt2):
+        print(f"{appt1.name} overlaps with {appt2.name}")
+    else:
+        print(f"{appt1.name} does not overlap with {appt2.name}")
+    if appt1.overlaps(appt3):
+        print(f"{appt1.name} overlaps with {appt3.name}")
+    else:
+        print(f"{appt1.name} does not overlap with {appt3.name}")
+    assert appt1.overlaps(appt2)
+    assert appt2.overlaps(appt1)
+    assert not appt1.overlaps(appt3)
+    assert not appt3.overlaps(appt1)
+    assert not appt2.overlaps(appt3)
+    assert not appt3.overlaps(appt2)
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span></code></pre>
+if __name__ == "__main__":
+    main()</code></pre>
 </div>
 </div>
 </div>
@@ -647,220 +647,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-21 17:48:58 -0400
+Last updated 2020-09-22 22:58:02 -0400
 </div>
 </div>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
   messageStyle: "none",

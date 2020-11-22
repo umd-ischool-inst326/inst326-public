@@ -1,14 +1,14 @@
-all: index slides
+all: index slides exercises_dir
 
-index: README.md ../../includes/navigation.html
-	pandoc -s README.md \
-	       --template=Github.html5 \
-	       -B ../../includes/navigation.html \
-	       -o index.html
+index: README.adoc ../../includes/navigation.html
+	asciidoctor README.adoc -o index.html
 
-slides: slides.md
-	pandoc --to revealjs --standalone --output slides.html slides.md
+slides: slides.adoc
+	asciidoctor-revealjs slides.adoc -o slides.html
+
+exercises_dir:
+	cd exercises && $(MAKE)
 
 clean:
-	rm index.html
-	rm slides.html
+	rm -f index.html slides.html
+	cd exercises && $(MAKE) clean
