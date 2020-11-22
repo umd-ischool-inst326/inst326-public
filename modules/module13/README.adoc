@@ -35,6 +35,10 @@ After completing this module, students should:
     ** ANOVA tests
 * know how to use the statsmodels module in order to create linear regression models
 
+== Supplementary Files
+* link:files/cars.csv[Cars Dataset]
+* link:files/production_companies_action.csv[Exercises]
+
 == Readings
 
 * [_Pandas Cheat Sheet_](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
