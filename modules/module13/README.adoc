@@ -37,7 +37,8 @@ After completing this module, students should:
 
 == Supplementary Files
 * link:files/cars.csv[Cars Dataset]
-* link:files/production_companies_action.csv[Exercises]
+* link:files/movies.csv[Movies Dataset]
+* link:files/production_companies_action.csv[Production Companies Action Dataset]
 
 == Readings
 
