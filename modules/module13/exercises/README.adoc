@@ -1,4 +1,4 @@
-= Module 8 Exercises
+= Module 13 Exercises
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../../includes
@@ -12,4 +12,5 @@ include::{includedir}/navigation.html[]
 
 == Exercises
 
-- link:exercise08_marathon.html[Marathon]
+- link:exercise13_iris.html[Iris]
+- link:exercise13_airbnb.html[AirBnb]
