@@ -1,4 +1,4 @@
-= INST 326 Module 12
+= INST 326 Module 12: Data on the Web
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -9,9 +9,6 @@ include::{includedir}/navigation.html[]
 ++++
 
 == Overview
-
-Data on the Web
-
 This module introduces students to importing structured data on the web. We learn to use
 the requests module, the basics of HTTP, common web data formats including XML and JSON.
 

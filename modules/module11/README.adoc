@@ -8,7 +8,7 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Topics
+== Overview
 
 This module looks at ways to integrate Python programs with databases and SQL (Structured Query Language). SQL is an ISO/ANSI standard for creating relational databases, and there are a number of widely used implementations, both commercial (e.g. Oracle) and open source (e.g. MariaDB).
 

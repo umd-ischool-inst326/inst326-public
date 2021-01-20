@@ -13,6 +13,7 @@ include::{includedir}/navigation.html[]
 Remote collaboration using git and Github, and (optionally) the Agile development methodology.
 
 === Links
+
 * link:slides.html[Slides]
 * link:exercises/index.html[Exercises]
 

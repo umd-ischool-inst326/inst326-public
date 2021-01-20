@@ -13,6 +13,7 @@ include::{includedir}/navigation.html[]
 An introduction to software testing, Python's module import system (including how to import your own modules), and the basics of version control using git.
 
 === Links
+
 * link:slides.html[Slides]
 * link:exercises/index.html[Exercises]
 
