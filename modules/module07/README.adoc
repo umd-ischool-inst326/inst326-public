@@ -1,4 +1,4 @@
-= INST 326 Module 8: Remote Collaboration
+= INST 326 Module 7: Remote Collaboration
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes

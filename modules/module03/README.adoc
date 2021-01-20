@@ -1,4 +1,4 @@
-= INST 326 Module 3: Introduction to Testing and Git
+= INST 326 Module 3: Testing
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -24,7 +24,7 @@ After completing this module, students should understand:
 * How to organized code for testing.
 * How to write tests and run them with pytest.
 * How module imports work.
-* The basics of version control with git and Github.
+* How to clone a git repository.
 
 == Additional Readings
 

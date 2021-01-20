@@ -1,4 +1,4 @@
-= INST 326 Module 13: Data Analysis
+= INST 326 Module 10: Data Analysis
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
