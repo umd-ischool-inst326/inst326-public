@@ -1,4 +1,4 @@
-= INST 326 Module 11
+= INST 326 Module 10: Databases and SQL
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -8,42 +8,44 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Overview
+== Topics
 
-Data on the Web
-
-This module introduces students to importing structured data on the web. We learn to use
-the requests module, the basics of HTTP, common web data formats including XML and JSON.
-
-=== Video
-- https://youtu.be/Ms5DHGHnY90[Video Lecture: Data on the Web]
-- https://www.youtube.com/watch?v=ov3RgPLETrM&feature=youtu.be[Video Lecture: installing the requests module]
-- https://www.youtube.com/watch?v=yDUjcoy6b5I&feature=youtu.be[Video Lecture: Reading Web Data and Processing RSS with feedparser]
-- https://www.youtube.com/watch?v=1We25ftRozU&feature=youtu.be[Video Lecture:  Generic XML Parsing of RSS]
-- https://www.youtube.com/watch?v=d38jm2aucLw[Video Lecture: JSON Parsing with Python]
+This module looks at ways to integrate Python programs with databases and SQL (Structured Query Language). SQL is an ISO/ANSI standard for creating relational databases, and there are a number of widely used implementations, both commercial (e.g. Oracle) and open source (e.g. MariaDB).
 
 === Links
-- link:slides.html[Slides]
-- https://w1.weather.gov/xml/current_obs/KCGS.xml[College Park Weather XML]
-- link:rss2.py[rss2.py]
-- link:web.py[web.py]
 
-=== Exercise
-- link:exercise.html[Write an RSS Reader]
+* link:slides.html[Slides]
+* link:exercises[Exercises]
+
 
 == Learning Outcomes
 
-.After completing this module, students should be able to:
-* Recognize various web data formats, including XML and JSON
-* Parse formatted data using appropriate python modules
-* Import data from web formats into python data structures
+After completing this module, students should understand:
+
+* How to use the sqlite3 module to connect to a database
+* How to load data to the database
+* How to query the database
+* The basics of CRUD operations
 
 == Readings
 
-- https://www.w3schools.com/xml/default.asp[XML Tutorial]
-- http://www.whatisrss.com/[What is RSS?]
-- https://cyber.harvard.edu/rss/rss.html[RSS Specification]
-- http://feeds.soundcloud.com/users/soundcloud:users:441673200/sounds.rss[Sample RSS Feed]
-- https://pythonhosted.org/feedparser/[Feedparser Documentation]
+* Severance, _Python for Everybody_,  link:https://www.py4e.com/html3/15-database[Chapter 15: "Using Databases and SQL"]
+* link:https://docs.python.org/3/library/sqlite3.html[Python documentation for sqlite3]
 
+== Additional Readings
+
+=== Historical Background
+* Codd, E. F. (1970). "link:https://dl.acm.org/doi/10.1145/362384.362685[A Relational Model of Data for Large Shared Data Banks]," Communications of the ACM 13.6, 377-87.
+
+=== Python Resources
+* PEP 249: link:https://www.python.org/dev/peps/pep-0249[Python Database API Specification], v2.0
+* Tutorials (all of these cover much the same ground):
+    ** link:https://www.pythoncentral.io/introduction-to-sqlite-in-python[]
+    ** link:https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html[]
+    ** link:http://www.sqlitetutorial.net/sqlite-python[]
+
+=== Database Resources
+* link:https://mariadb.org[MariaDB, a community fork of MySQL]
+* link:https://www.postgresql.org[PostgreSQL]
+* link:https://www.fullstackpython.com/no-sql-datastore.html[Overview of Python on NoSQL (i.e. non-relational) databases]
 

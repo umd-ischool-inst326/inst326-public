@@ -1,4 +1,4 @@
-= INST 326 Module 12
+= INST 326 Module 11
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,31 +10,40 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Web Scraping
+Data on the Web
 
-This module introduces the core concepts of web scraping, i.e. extracting data from unstructured or semi-structured data sources online. We learn to use the BeautifulSoup module and experiment with a number of examples
+This module introduces students to importing structured data on the web. We learn to use
+the requests module, the basics of HTTP, common web data formats including XML and JSON.
 
 === Video
-- https://youtu.be/Aj8ejVQMvps[Video Lecture: Web Scraping with Python]
-- https://www.youtube.com/watch?v=IqSi1XWM08M[Video Lecture: Hands on HTML Analysis for Web Scraping]
-- https://youtu.be/dc5Rfko4e2g[Video Lecture: Coding Python for Web Scraping]
+- https://youtu.be/Ms5DHGHnY90[Video Lecture: Data on the Web]
+- https://www.youtube.com/watch?v=ov3RgPLETrM&feature=youtu.be[Video Lecture: installing the requests module]
+- https://www.youtube.com/watch?v=yDUjcoy6b5I&feature=youtu.be[Video Lecture: Reading Web Data and Processing RSS with feedparser]
+- https://www.youtube.com/watch?v=1We25ftRozU&feature=youtu.be[Video Lecture:  Generic XML Parsing of RSS]
+- https://www.youtube.com/watch?v=d38jm2aucLw[Video Lecture: JSON Parsing with Python]
 
 === Links
 - link:slides.html[Slides]
-- link:html2.py[Example Code from lecture video]
+- https://w1.weather.gov/xml/current_obs/KCGS.xml[College Park Weather XML]
+- link:rss2.py[rss2.py]
+- link:web.py[web.py]
 
 === Exercise
-- link:exercise.html[UFO Data Exercise]
+- link:exercise.html[Write an RSS Reader]
 
 == Learning Outcomes
 
 .After completing this module, students should be able to:
-* Analyze HTML pages to identify repeating structural elements that support web scraping
-* Use the BeautifulSoup module
-* Extract data from web pages with web scraping techniques
+* Recognize various web data formats, including XML and JSON
+* Parse formatted data using appropriate python modules
+* Import data from web formats into python data structures
 
-== Additional Readings
+== Readings
 
-* https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460[How to Web Scrape with Python in 4 Minutes]
-* https://www.crummy.com/software/BeautifulSoup/bs4/doc/[BeautifulSoup Documentation]
+- https://www.w3schools.com/xml/default.asp[XML Tutorial]
+- http://www.whatisrss.com/[What is RSS?]
+- https://cyber.harvard.edu/rss/rss.html[RSS Specification]
+- http://feeds.soundcloud.com/users/soundcloud:users:441673200/sounds.rss[Sample RSS Feed]
+- https://pythonhosted.org/feedparser/[Feedparser Documentation]
+
 

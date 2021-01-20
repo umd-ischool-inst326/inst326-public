@@ -1,4 +1,4 @@
-= Data Analysis
+= Web Scraping
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2
@@ -6,153 +6,153 @@
 :customcss: ../../css/aric_slides.css
 :revealjs_width: 1400
 :revealjs_height: 800
-:title-slide-background-image: background.jpeg
 
-== Jupyter/IPython Notebooks
 
-=== What are Jupyter Notebooks?
-    * Interactive Python notebook/environment
-    * Popular for Data Analysis and rapid prototyping. 
-    * link:https://nbviewer.jupyter.org/github/ptwobrussell/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/Chapter%203%20-%20Mining%20LinkedIn.ipynb[Mining the Social Web, 2nd Edition, Chapter 3] 
-    * link:https://miykael.github.io/nipype_tutorial/notebooks/introduction_jupyter-notebook.html[Jupyter Notebooks Introduction]
+== What is Web Scraping?
+When you don't have structured data (XML, JSON, etc), you are not doomed!
 
-=== Advantages of Notebooks
-    * Built to integrate well with markdown, latex, pandas, matplotlib, etc
-    * Non-linear nature means that we can run any cell at any time
-    * Displays the result of the last expression
+With web scraping, you rely on consistent formatting on a web page (or site) and write code to extract the data you want.
 
-=== Disadvantages of Notebooks
-    * Built to integrate well with markdown, latex, pandas, matplotlib, etc...Which means that it is not meant for long form code-style correction
-        ** Not meant for instances where modules or libraries need to be created
-    * Non-linear nature means that we can run any cell at any time...Which can be confusing and difficult to debug
-    * Displays the result of the last expression...Which means that sometimes the output what we want to see and may be difficult to debug.
+== Web Pages
 
-=== Important Points
-    * Kernel - "Computational engine" that runs the code in a notebook
-        ** Due to the nature of IPython notebooks, the kernel may begin to consume more resources than we intend it to.
-    * Some helpful shortcuts:
-        ** Shift - Enter = Runs Cell and creates new one if there is no cell beneath it.
-        ** Ctr - Enter = Runs Cell.
+Web pages are written in HTML, the Hyper Text Markup Language. HTML is based on XML, so it has tags. 
 
-== Pandas
+HTML tags divide the content on the page into sections and adjust how it appears on the screen. 
 
-===  What is Pandas?
-    * Open source library meant for data analysis and data manipulation.
-    * Lets you create DataFrames from different data types that you may already be working with (csv, text, Excel, etc). 
-    * Lends itself to data manipulation (data wrangling) and data analysis purposes. 
+For example, consider this HTML code:
+----
+<html>
+<body>
+<a href=http://example.com>Visit example.com!</a>
+<img src=myPic.jpg />
+</body></html>
+----
+The `html` tag is the root of this XML tree. The `body` is a nested section that has everything that will appear on the page. The `a` tag (called an `anchor` tag), is code for a clickable link. The text between the `<a>` and `</a>` tags is what's clickable. The `img` tag puts an image on the page.
 
-=== DataFrames
-    * 2-dimensional labeled data structure with columns of potentially different types.
-    * You can think of them like a spreadsheet containing data
-    * They have indexes (row labels) and headers (column labels)
+== Extracting Information
+Say you wanted to get all the links out of this page. How would you do it? Using what we know already, you could fetch the page and use some `string` operations
 
-=== DataFrame Example
+----
+import requests
 
-image::df.png[DataFrame, 700, 500]
+page = requests.get("https://example.com/page.html")
+result = page.text.find("<a ")
+print ("link found at index", result)
+----
 
-=== Getting Basic Information from a DataFrame
+From there, you would need to do additional parsing to find the URL. It's possible, but difficult*.
 
-The functions you need to know are:
+*For a little side challenge, try doing this! Hint: use regular expressions
 
-* .head()
-    ** Will print the first 5 rows of the dataframe by default
-    ** Takes an optional argument for number of rows to print
-* .tail()
-    ** Will print the last 5 rows of the dataframe by default
-    ** Takes an optional argument for number of rows to print
+== Parsing HTML with `beautifulsoup`
+Fortunately, python has a module called `beautifulsoup` that can help you parse HTML much more easily. We do the request the same way as above:
+----
+import requests
 
-=== Getting Basic Information from a DataFrame (contd)
+page = requests.get("https://example.com/page.html")
+----
 
-The functions you need to know are:
+Next, we add in the BeautifulSoup module and let it do its work! Basically, we just give it the name of the tag we care about, and it will extract all instances.
 
-* .info()
-    ** Returns information on the columns present in the dataframe, the amount of rows in the dataframe, and the datatypes.
-* .describe()
-    ** Will return basic descriptive statistics such as counts, mean, standard deviation, min, max and quartiles.
+----
+import requests
+from bs4 import BeautifulSoup
 
-=== Pandas GroupBy
-* It is important to understand how to navigate documentation.
-* There are way too many methods with way too many arguments to memorize.
-* GroupBy Method
-    ** link:https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html[Group By Documentation]
+page = requests.get("https://example.com/page.html")
+soup = BeautifulSoup(page.text, "html.parser")
+links =  soup.findAll("a")
+print(links)
 
-=== Subsetting and Other Methods
-* There are simply too many Pandas methods to memorize.
-* Luckily we have a very helpful resource.
-    ** link:https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf[Additional Pandas Functions]
+----
 
-=== Potential Scenario
-* Let's say that someone comes up to us and asks:
-    ** “Is there any way that I can get a dataset where I can see the mean budget, profit, and popularities for action movies for each production company that played a secondary role in production?”
-* Dataset:
-    ** link:https://www.kaggle.com/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv[Movies Dataset]
-    ** Contains data on production company, budgets, and genres for 5000 movies.
+Substitute in any working URL for our example, and you will see this work.
 
-== Data Visualizations
+== Web Scraping at Work: Extract URLs
+When pulling data from the web, it's common that you will encounter a page with lots of links to the pages with the actual data. 
 
-=== Using Pandas
-* Pandas conveniently has methods that we can use in order to plot data that we might be interested in seeing.
-* Under the hood, Pandas is using a library called Matplotlib
-    ** Matplotlib is a library specifically made for data visualizations. 
-    ** Can be difficult to use.
+In this case, we can use the code from above, and then process the links. We have to extract the URL from the `href` part of the tag and then handle it.
+----
+import requests
+from bs4 import BeautifulSoup
 
-=== The Important DataFrame Methods
+page = requests.get("https://example.com/page.html")
+soup = BeautifulSoup(page.text, "html.parser")
+links =  soup.findAll("a")
+i=0
+while i < len(links)
+    currentLink = links[i]["href"]
+    #process URLs here
+    i=i+1
 
-* Scatter
-* Bar Graph
-* Histograms
+----
 
-=== Alternatives: Seaborn
 
-* We have been using methods built into pandas in order to create data visualizations.
-* These methods are dependent on matplotlib
-* Matplotlib can get complicated to use for more complex visualizations.
-* Seaborn tries to fix that issue by simplifying the process for making complex visualizations that look good.
 
-== Statistics and DataScience
+== Web Scraping at Work: Tables 1
+A lot of times, data is in table format. Here's an HTML table.
+----
 
-=== SciPy
+<TR VALIGN=TOP>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157408.html>5/31/20 16:37</A></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Portland</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OR</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 66</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
 
-* Package used for scientific computing
-* Part of the code packages that make up the "SciPy" ecosystem. 
-    * Exosystem of packages that are particularly useful in science applications
-    * These packages include matplotlib, pandas, and numpy
+</TR>
 
-=== Some Important Statistical Tests
+<TR VALIGN=TOP>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157409.html>5/31/20 14:21</A></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Garrettsville</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OH</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 64</TD>
+<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
 
-* Correlation Testing
-* Z-Score
-* T-Test
-* ANOVA
+</TR>
+----
 
-=== Correlation Testing
+== Web Scraping at Work: Tables 2
+We have 7 columns in this table. How do we scrape this?
 
-* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html[Correlation Testing]
-    * Used to evaluate the association between two or more variables.
+First, we can see that each row is in a `<TR>` tag. Then, there are columns in the `<TD>` tags in each row.
 
-=== Z Score
+So we can begin by extracting the `<TR>` tags:
+----
+import requests
+from bs4 import BeautifulSoup
 
-* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.htmlscipy.stats.norm[Z Score]
-    * Z tests are used to determine if two sample means are different
-    * Z scores is a number representing how many standard deviations a datapoint is from the sample mean.
-        ** We can use [Z Score Tables](http://www.z-table.com/) to manually convert Z-Scores to find the percentage of observations that we expect to see to the left of the curve.
-        ** We can also use scipy to do this for us.
+page = requests.get("http://example.com/page2.html")
+soup = BeautifulSoup(page.text, "html.parser")
+rows =  soup.findAll("tr")
+i=0
+while i < len(rows):
+        print (rows[i])
+        i=i+1
 
-=== T Test
+----
 
-* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html[T Test]
-    * Used to determine if the means of two sample groups are different.
+== Web Scraping at Work: Tables 3
 
-=== ANOVA
+From here, we can go into each row and extract the cells with the `td` tag. In this example, we will just print the contents of each cell.
+----
+import requests
+from bs4 import BeautifulSoup
 
-* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html[ANOVA]
-    * Tests if two or more groups have the same population mean.
+page = requests.get("http://example.com/page2.html")
+soup = BeautifulSoup(page.text, "html.parser")
+rows =  soup.findAll("tr")
+i=0
+while i < len(rows):
+        cols = rows[i].findAll("td")
+        j=0
+        while j<len(cols):
+                print("col ",cols[j].text)
+                j=j+1
+        i=i+1
 
-=== Statsmodels
+----
 
-* link:https://www.statsmodels.org/stable/index.html[Statsmodels] is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration.
-
-=== Linear Regression
-
-* Modeling of the relationship between a dependent variable and one or more independent variables. 
-* We are interested in using statsmodels to create linear regression models. 

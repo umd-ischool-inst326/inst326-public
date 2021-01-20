@@ -1,4 +1,4 @@
-= INST 326 Module 10: Databases and SQL
+= INST 326 Module 13: Data Analysis
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -8,44 +8,45 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Topics
+== Overview
 
-This module looks at ways to integrate Python programs with databases and SQL (Structured Query Language). SQL is an ISO/ANSI standard for creating relational databases, and there are a number of widely used implementations, both commercial (e.g. Oracle) and open source (e.g. MariaDB).
+The purpose of this module is to introduce students to performing data analysis using Python. Currently there are many different modules for working with data in Python. We are going to examine some of the most widely used open source modules. Pandas, seaborn, scipy and statsmodels. All of these modules are used to perform different tasks, from data wrangling to creating linear regression models to visualizing data trends. This module aims to introduce these concepts and contains examples of how we can apply this functionality with real world data. 
 
-=== Links
+=== Links (these are the navigational links within the module)
 
 * link:slides.html[Slides]
-* link:exercises[Exercises]
+* link:exercises/index.html[Exercises]
 
+## Learning Outcomes
 
-== Learning Outcomes
+After completing this module, students should:
 
-After completing this module, students should understand:
+* Have an understanding of what the pandas, seaborn, scipy and statsmodels modules are used for
+* Have an undetstanding of how to read the documentation for each of these modules
+* know how to create pandas dataframes and perform data manipulation including:
+    ** creating columns based on values found in other columns
+    ** inspecting and analyzing dataframes
+    ** subsetting dataframes
+* know how to create data visualizations using the seaborn module
+* know how to apply scipy in order to perform statistical analysis and tests including:
+    ** Correlation
+    ** Z tests
+    ** T tests
+    ** ANOVA tests
+* know how to use the statsmodels module in order to create linear regression models
 
-* How to use the sqlite3 module to connect to a database
-* How to load data to the database
-* How to query the database
-* The basics of CRUD operations
+== Supplementary Files
+* link:files/cars.csv[Cars Dataset]
+* link:files/movies.csv[Movies Dataset]
+* link:files/production_companies_action.csv[Production Companies Action Dataset]
 
 == Readings
 
-* Severance, _Python for Everybody_,  link:https://www.py4e.com/html3/15-database[Chapter 15: "Using Databases and SQL"]
-* link:https://docs.python.org/3/library/sqlite3.html[Python documentation for sqlite3]
+* [_Pandas Cheat Sheet_](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+* [_An Introduction to Seaborn_](https://seaborn.pydata.org/introduction.html)
+* [_Scipy Introduction_](https://docs.scipy.org/doc/scipy/reference/tutorial/general.html)
 
-== Additional Readings
+== Additional Readings (optional, as needed)
 
-=== Historical Background
-* Codd, E. F. (1970). "link:https://dl.acm.org/doi/10.1145/362384.362685[A Relational Model of Data for Large Shared Data Banks]," Communications of the ACM 13.6, 377-87.
-
-=== Python Resources
-* PEP 249: link:https://www.python.org/dev/peps/pep-0249[Python Database API Specification], v2.0
-* Tutorials (all of these cover much the same ground):
-    ** link:https://www.pythoncentral.io/introduction-to-sqlite-in-python[]
-    ** link:https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html[]
-    ** link:http://www.sqlitetutorial.net/sqlite-python[]
-
-=== Database Resources
-* link:https://mariadb.org[MariaDB, a community fork of MySQL]
-* link:https://www.postgresql.org[PostgreSQL]
-* link:https://www.fullstackpython.com/no-sql-datastore.html[Overview of Python on NoSQL (i.e. non-relational) databases]
+* Kopf, _Quartz_, [Meet the man behind the most important tool in data science](https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/)
 

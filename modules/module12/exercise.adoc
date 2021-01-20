@@ -1,4 +1,4 @@
-= INST 326 Module 12
+= INST 326 Module 11
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -8,61 +8,52 @@
 include::{includedir}/navigation.html[]
 ++++
 
-== Exercise
+== Exercise: Write an XML reader
+=== Part 1 (10 points)
 
-http://www.nuforc.org/webreports.html[The National UFO
-Reporting Database] has an index of UFO sightings.  Your
-task is to create a python script that extracts the location
-for each sighting in the database and creates a tally of sightings by
-city.
+Start by reading in the XML file from Slate: http://www.slate.com/all.fulltext.all.rss[http://www.slate.com/all.fulltext.all.rss]
 
-
-
-
-We don't want to abuse the UFO Databases's servers, so we have a local version of some of the data that you should
-use for this assignment. Here is a page you can access as often as you want. This
-mimics the Events by Date listing:
-
-http://www.cs.umd.edu/\~golbeck/INST326/ndxLocOut.html[http://www.cs.umd.edu/~golbeck/INST326/ndxLocOut.html]
-
-
-And it links to two months worth of data
-
-
-http://www.cs.umd.edu/\~golbeck/INST326/ndxe201903.html[http://www.cs.umd.edu/~golbeck/INST326/ndxe201903.html]
-
-
-http://www.cs.umd.edu/\~golbeck/INST326/ndxe201902.html[http://www.cs.umd.edu/~golbeck/INST326/ndxe201902.html]
-
-
-The format of those sample pages is the same as on the database website.
-
-
-
-Many cities will appear multiple times. You do not want to list the
-cities over and over. Instead, store them in an object. You should
-create a class UFO that has variables for at least city, state, and
-number of reports. As you read in records, keep track of how many
-reports there are for each city. You will likely need a data structure
-to connect city and state names to your objects. When you get a new
-report for a city/state, increment the variable that tracks the number
-of reports.
-
-
-At the end of this step, you should have a bunch of objects with cities
-and states (or city,province or city,country if you use international
-locations) where there were sightings and a count of each time that city
-appeared. Create an output file that has that data. Use a tab to
-separate the city and the count. Your output file should look like this:
-
+For each article (i.e. item), print the title and description. Number each from 1 to n, where n in however many articles there are.Ask the user to choose an article to read. Here is an example of what your program might print:
 
 ----
-Chicago,IL	5 
-Washington,DC	7
+1. Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.
+
 ----
 
-Deliverable: A python script that outputs a file the processes the sample data 
-linked above. The output file should contain
-one city/state (or city,province or city,country if you
-use international locations) with the corresponding count on each line.
+
+After the user selects a number, print out the following:
+----
+You can see that article at LINK
+----
+where LINK is replaced with the URL of the article taken from the link element of the rss feed.
+
+Prompt the user to hit a key to continue, and print the list of articles again.
+
+=== Part 2 (5 points)
+You should display a * next to any article the user has NOT read  If the user types a number to see an article, when the menu is displayed again the * should not appear next to that article. For example, your output may look like this to start:
+
+----
+1. *Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. *The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. *Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. *Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.
+
+----
+
+And if I read article #2, it would look like this after that:
+
+----
+1. *Pukemark, Sweatyrocks, Demonlick: Made-for-Amazon Brand Names Are Getting Ridiculously Surreal-  So many questions.
+2. The Government Sued the Author of an Embarrassing Melania Trump Book Because … Christmas Ornaments Can Be State Secrets Too? - The first lady isn’t a government employee, so why is the Justice Department getting involved? That’s a good question.
+3. *Help! My Ridiculously High Standards Make It Difficult for Me to Find a Worthy Man. - It feels like I have a brick wall to break through when it comes to dating.
+4. *Trump-Fueled DOJ Probe Into Obama “Unmasking” Conspiracy Reportedly Comes Up Empty - Shocker.
+
+----
+
+
+
+
 

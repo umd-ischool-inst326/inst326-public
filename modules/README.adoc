@@ -12,21 +12,21 @@ include::{includedir}/navigation.html[]
 
 - link:module01/index.html[Module 1: Python Fundamentals 1]
 - link:module02/index.html[Module 2: Python Fundamentals 2]
-- link:module03/index.html[Module 3: Intro to Git and Testing]
+- link:module03/index.html[Module 3: Testing]
 
 == Part 2: Object-Oriented Programming in Python
 
 - link:module04/index.html[Module 4: Basics of OOP]
 - link:module05/index.html[Module 5: Advanced Data Structures]
 - link:module06/index.html[Module 6: Serialization and File I/O]
-- link:module07/index.html[Module 7: Regular Expressions]
-- link:module08/index.html[Module 8: Remote Collaboration]
+- link:module07/index.html[Module 7: Remote Collaboration]
+- link:module08/index.html[Module 8: Regular Expressions]
 - link:module09/index.html[Module 9: Advanced OOP]
 
 == Part 3: Python for Data Analysis
 
-- link:module10/index.html[Module 10: Databases and SQL]
-- link:module11/index.html[Module 11: Data on the Web]
-- link:module12/index.html[Module 12: Web Scraping]
-- link:module13/index.html[Module 13: Data Analysis]
+- link:module10/index.html[Module 10: Data Analysis]
+- link:module11/index.html[Module 11: Databases and SQL]
+- link:module12/index.html[Module 12: Data on the Web]
+- link:module13/index.html[Module 13: Web Scraping]
 - link:module14/index.html[Module 14: Ethics in Programming]

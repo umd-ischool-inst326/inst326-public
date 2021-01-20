@@ -10,6 +10,5 @@ exercises_dir:
 	cd exercises && $(MAKE)
 
 clean:
-	rm index.html
-	rm slides.html
+	rm -f index.html slides.html
 	cd exercises && $(MAKE) clean

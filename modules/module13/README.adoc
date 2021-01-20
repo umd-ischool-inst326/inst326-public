@@ -1,4 +1,4 @@
-= INST 326 Module 13: Data Analysis
+= INST 326 Module 12
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,43 +10,31 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-The purpose of this module is to introduce students to performing data analysis using Python. Currently there are many different modules for working with data in Python. We are going to examine some of the most widely used open source modules. Pandas, seaborn, scipy and statsmodels. All of these modules are used to perform different tasks, from data wrangling to creating linear regression models to visualizing data trends. This module aims to introduce these concepts and contains examples of how we can apply this functionality with real world data. 
+Web Scraping
 
-=== Links (these are the navigational links within the module)
+This module introduces the core concepts of web scraping, i.e. extracting data from unstructured or semi-structured data sources online. We learn to use the BeautifulSoup module and experiment with a number of examples
 
-* link:slides.html[Slides]
-* link:exercises/index.html[Exercises]
+=== Video
+- https://youtu.be/Aj8ejVQMvps[Video Lecture: Web Scraping with Python]
+- https://www.youtube.com/watch?v=IqSi1XWM08M[Video Lecture: Hands on HTML Analysis for Web Scraping]
+- https://youtu.be/dc5Rfko4e2g[Video Lecture: Coding Python for Web Scraping]
 
-## Learning Outcomes
+=== Links
+- link:slides.html[Slides]
+- link:html2.py[Example Code from lecture video]
 
-After completing this module, students should:
+=== Exercise
+- link:exercise.html[UFO Data Exercise]
 
-* Have an understanding of what the pandas, seaborn, scipy and statsmodels modules are used for
-* Have an undetstanding of how to read the documentation for each of these modules
-* know how to create pandas dataframes and perform data manipulation including:
-    ** creating columns based on values found in other columns
-    ** inspecting and analyzing dataframes
-    ** subsetting dataframes
-* know how to create data visualizations using the seaborn module
-* know how to apply scipy in order to perform statistical analysis and tests including:
-    ** Correlation
-    ** Z tests
-    ** T tests
-    ** ANOVA tests
-* know how to use the statsmodels module in order to create linear regression models
+== Learning Outcomes
 
-== Supplementary Files
-* link:files/cars.csv[Cars Dataset]
-* link:files/movies.csv[Movies Dataset]
-* link:files/production_companies_action.csv[Production Companies Action Dataset]
+.After completing this module, students should be able to:
+* Analyze HTML pages to identify repeating structural elements that support web scraping
+* Use the BeautifulSoup module
+* Extract data from web pages with web scraping techniques
 
-== Readings
+== Additional Readings
 
-* [_Pandas Cheat Sheet_](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
-* [_An Introduction to Seaborn_](https://seaborn.pydata.org/introduction.html)
-* [_Scipy Introduction_](https://docs.scipy.org/doc/scipy/reference/tutorial/general.html)
-
-== Additional Readings (optional, as needed)
-
-* Kopf, _Quartz_, [Meet the man behind the most important tool in data science](https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/)
+* https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460[How to Web Scrape with Python in 4 Minutes]
+* https://www.crummy.com/software/BeautifulSoup/bs4/doc/[BeautifulSoup Documentation]
 

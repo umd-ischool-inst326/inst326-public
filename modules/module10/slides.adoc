@@ -1,4 +1,4 @@
-= Relational Databases
+= Data Analysis
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2
@@ -6,481 +6,153 @@
 :customcss: ../../css/aric_slides.css
 :revealjs_width: 1400
 :revealjs_height: 800
-:title-slide-background-image: mike-von-X4d6DUMappU-unsplash.jpg
+:title-slide-background-image: background.jpeg
+
+== Jupyter/IPython Notebooks
 
-== Introduction
+=== What are Jupyter Notebooks?
+    * Interactive Python notebook/environment
+    * Popular for Data Analysis and rapid prototyping. 
+    * link:https://nbviewer.jupyter.org/github/ptwobrussell/Mining-the-Social-Web-2nd-Edition/blob/master/ipynb/Chapter%203%20-%20Mining%20LinkedIn.ipynb[Mining the Social Web, 2nd Edition, Chapter 3] 
+    * link:https://miykael.github.io/nipype_tutorial/notebooks/introduction_jupyter-notebook.html[Jupyter Notebooks Introduction]
 
-[%notitle]
-=== Record Keeping in Historical Context
+=== Advantages of Notebooks
+    * Built to integrate well with markdown, latex, pandas, matplotlib, etc
+    * Non-linear nature means that we can run any cell at any time
+    * Displays the result of the last expression
 
-image::cuneiform.jpg[align=center, width=40%, link="https://commons.wikimedia.org/wiki/File:Cuneiform_tablet_with_bread_and_flour_distributions,_Ur_III_Period,_c._2100-2000_BC_-_Harvard_Semitic_Museum_-_Cambridge,_MA_-_DSC06146.jpg", alt="Cuneiform tablet with bread and flour distributions, Ur III Period, c. 2100-2000 BC - Harvard Semitic Museum - Cambridge, MA - DSC06146", label="Daderot [Public domain], via Wikimedia Commons"]
+=== Disadvantages of Notebooks
+    * Built to integrate well with markdown, latex, pandas, matplotlib, etc...Which means that it is not meant for long form code-style correction
+        ** Not meant for instances where modules or libraries need to be created
+    * Non-linear nature means that we can run any cell at any time...Which can be confusing and difficult to debug
+    * Displays the result of the last expression...Which means that sometimes the output what we want to see and may be difficult to debug.
 
-[.notes]
---
-This example of a cuneiform (wedge-shaped) writing tablet dates from the 3rd millennium BCE and records the distribution of bread and flour. It is shown here as an example of early record keeping. Writing systems developed first and foremost as a means of keeping track of legal agreements and business transactions, even before they were used for literary purposes.
+=== Important Points
+    * Kernel - "Computational engine" that runs the code in a notebook
+        ** Due to the nature of IPython notebooks, the kernel may begin to consume more resources than we intend it to.
+    * Some helpful shortcuts:
+        ** Shift - Enter = Runs Cell and creates new one if there is no cell beneath it.
+        ** Ctr - Enter = Runs Cell.
 
-Image in public domain; original in Harvard Semitic Museum (Cambridge, MA).
---
+== Pandas
 
-=== Tools
+===  What is Pandas?
+    * Open source library meant for data analysis and data manipulation.
+    * Lets you create DataFrames from different data types that you may already be working with (csv, text, Excel, etc). 
+    * Lends itself to data manipulation (data wrangling) and data analysis purposes. 
 
-For our work with databases, we'll be using three tools:
+=== DataFrames
+    * 2-dimensional labeled data structure with columns of potentially different types.
+    * You can think of them like a spreadsheet containing data
+    * They have indexes (row labels) and headers (column labels)
 
-[%step]
-* SQLite (database)
-* sqlite3 (Python module)
-* DB Browser (GUI application)
+=== DataFrame Example
 
-=== Tools: SQLite
+image::df.png[DataFrame, 700, 500]
 
-[%step]
-* lightweight relational database (RDBMS)
-* runs locally and stores data in files
-* no separate database server required
-* already installed on your system (as part of Python)
-* project website: https://sqlite.org/mostdeployed.html[https://www.sqlite.org]
+=== Getting Basic Information from a DataFrame
 
-=== Tools: sqlite3
+The functions you need to know are:
 
-[%step]
-* module in the standard library
-* facilitates interaction with the database by:
-[%step]
-    1. managing connections
-    2. passing queries to the database system
-    3. making results of queries accessible to Python
+* .head()
+    ** Will print the first 5 rows of the dataframe by default
+    ** Takes an optional argument for number of rows to print
+* .tail()
+    ** Will print the last 5 rows of the dataframe by default
+    ** Takes an optional argument for number of rows to print
 
-=== Tools: DB Browser for SQLite
+=== Getting Basic Information from a DataFrame (contd)
 
-[%step]
-* graphical application (GUI)
-* allows you to view the contents of a SQLite database
-* an optional convenience for this course
-* downloadable from https://sqlitebrowser.org
+The functions you need to know are:
 
-== Databases in Theory
+* .info()
+    ** Returns information on the columns present in the dataframe, the amount of rows in the dataframe, and the datatypes.
+* .describe()
+    ** Will return basic descriptive statistics such as counts, mean, standard deviation, min, max and quartiles.
 
-[%notitle]
-=== Databases as Structured Information
+=== Pandas GroupBy
+* It is important to understand how to navigate documentation.
+* There are way too many methods with way too many arguments to memorize.
+* GroupBy Method
+    ** link:https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html[Group By Documentation]
 
-image::cardcatalog.jpg[align=center, width=60%, link="https://www.loc.gov/pictures/item/2017828941/", alt="Image of a woman working with the card catalog in the Library of Congress, 1942"]
+=== Subsetting and Other Methods
+* There are simply too many Pandas methods to memorize.
+* Luckily we have a very helpful resource.
+    ** link:https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf[Additional Pandas Functions]
 
-[.notes]
---
-Washington, D.C. Jewal Mazique [i.e. Jewel] cataloging in the Library of Congress (1942). This image of Jewell Mazique (https://en.wikipedia.org/wiki/Jewell_Mazique) working with the card catalog in the Library of Congress is included here to illustrate the more general meaning of the term 'database' as any large collection of structured information.
---
+=== Potential Scenario
+* Let's say that someone comes up to us and asks:
+    ** “Is there any way that I can get a dataset where I can see the mean budget, profit, and popularities for action movies for each production company that played a secondary role in production?”
+* Dataset:
+    ** link:https://www.kaggle.com/tmdb/tmdb-movie-metadata?select=tmdb_5000_movies.csv[Movies Dataset]
+    ** Contains data on production company, budgets, and genres for 5000 movies.
 
-=== The Relational Model
+== Data Visualizations
 
-[%step]
-* Invented by E. F. Codd in the 1970s
-* Data stored in tables (relations)
-* Relations consist of rows (tuples)
-* Tuples have columns (attributes) that hold values
-* The term "database" now often connotes this type of relational database
+=== Using Pandas
+* Pandas conveniently has methods that we can use in order to plot data that we might be interested in seeing.
+* Under the hood, Pandas is using a library called Matplotlib
+    ** Matplotlib is a library specifically made for data visualizations. 
+    ** Can be difficult to use.
 
-=== Other DB Systems
+=== The Important DataFrame Methods
 
-Database design is a vast topic. In fact it is an entire course (INST 327)! Here are a just a few database systems you may encounter:
+* Scatter
+* Bar Graph
+* Histograms
 
-[%step]
-* Relational:
-    ** mySQL/MariaDB
-    ** PostgreSQL
-* Non-relational ("NoSQL"):
-    ** Document: MongoDB (JSON), BaseX (XML)
-    ** Graph: Neo4j, Fuseki
+=== Alternatives: Seaborn
 
-=== Normalization
+* We have been using methods built into pandas in order to create data visualizations.
+* These methods are dependent on matplotlib
+* Matplotlib can get complicated to use for more complex visualizations.
+* Seaborn tries to fix that issue by simplifying the process for making complex visualizations that look good.
 
-[%step]
-* Through a design process, data are "normalized"
-* Normalization means applying a set of rules (called "normal forms") to increase efficiency and reduce redundancy
-* Many specifics of database design and normalization are outside the scope of this course
+== Statistics and DataScience
 
-=== SQL
+=== SciPy
 
-[%step]
-* a standardized language is used to interact with a relational database
-* this is known as the Structured Query Language (SQL)
-* SQL has different flavors but generally works the same way across database systems
+* Package used for scientific computing
+* Part of the code packages that make up the "SciPy" ecosystem. 
+    * Exosystem of packages that are particularly useful in science applications
+    * These packages include matplotlib, pandas, and numpy
 
-=== CRUD
+=== Some Important Statistical Tests
 
-Basic database operations are called "CRUD":
+* Correlation Testing
+* Z-Score
+* T-Test
+* ANOVA
 
-[%step]
-* CREATE: add data to the database
-* READ: retrive data from one or more tables
-* UPDATE: make changes to the data
-* DELETE: remove rows from a table (potentially with a cascade effect)
+=== Correlation Testing
 
-== Databases in Practice
+* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html[Correlation Testing]
+    * Used to evaluate the association between two or more variables.
 
-=== Connecting: in-memory
+=== Z Score
 
-* Import sqlite3
-* Connect to an in-memory database 
+* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.htmlscipy.stats.norm[Z Score]
+    * Z tests are used to determine if two sample means are different
+    * Z scores is a number representing how many standard deviations a datapoint is from the sample mean.
+        ** We can use [Z Score Tables](http://www.z-table.com/) to manually convert Z-Scores to find the percentage of observations that we expect to see to the left of the curve.
+        ** We can also use scipy to do this for us.
 
-[source, python, linenums]
-----
->>> import sqlite3
->>> conn = sqlite3.connect(':memory:')
->>> conn
-<sqlite3.Connection object at 0x10507b110>
-----
+=== T Test
 
-=== Connecting: database file
-
-* For persistent data, use a database file
-
-[source, python, linenums]
-----
->>> conn2 = sqlite3.connect('test.sqlite')
->>> conn2
-<sqlite3.Connection object at 0x10507b030>
-----
-
-=== The connection object
-
-* This object manages the database connection
-* In addition, we need a cursor to manage state
-* The cursor sends queries and contains results
-
-[source, python, linenums]
-----
-conn = sqlite3.connect('biblio.sqlite')
-cursor = conn.cursor()
-----
-
-=== Setting up the database
-
-* Use a CREATE statement to set up a table
-
-[source, python, linenums]
-----
-cq = '''CREATE TABLE books (
-        title TEXT, author TEXT, date INTEGER
-        )'''
-cursor.execute(cq)
-----
-
-[.notes]
---
-Triple-quoted strings (with ' or ") allow internal line breaks. Line breaks, which are insignificant in SQL, are often used to format queries for readability.
---
-
-=== Create entries
-
-* Next add a row to the table with INSERT
-
-[source, python, linenums]
-----
-iq = '''INSERT INTO books VALUES (
-            '2001: A Space Odyssey',
-            'Arthur C. Clarke', 
-            '1951'
-            )'''
-cursor.execute(iq)
-----
-
-=== Scaling up
+* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html[T Test]
+    * Used to determine if the means of two sample groups are different.
 
-* This works fine, but can be impractical at scale
-* Larger numbers of records can be created with executemany()
-
-[source, python, linenums]
-----
-data = [
-    ("I, Robot", "Isaac Asimov", 1950),
-    ("The Martian", "Andy Weir", 2012),
-    ("The Left Hand Of Darkness", "Ursula K. Le Guin", 1969)
-    ]
-----
-
-=== Scaling up (continued)
-
-* Map your data tuples onto a query using the ? placeholder
-
-[source, python, linenums]
-----
-imq = '''INSERT INTO books VALUES (?,?,?)'''
-cursor.executemany(imq, data)
-----
-
-=== Read
+=== ANOVA
 
-* To view data in the database, use READ
-* .fetchall() can be used to get all results as a list
-
-[source, python, linenums]
-----
-sq = '''SELECT title FROM books'''
-books = cursor.execute(sq).fetchall()
-print(books)
-[('2001: A Space Odyssey',),('I, Robot',),('The Martian',),('The Left Hand Of Darkness',)]
-----
-
-=== Update
-
-* Now, imagine we need to update some data.
-* _The Martian_ was in fact published in 2011, so let's make that correction.
-
-[source, python, linenums]
-----
-uq = '''UPDATE books
-           SET year=2011
-         WHERE title="The Martian"'''
-cursor.execute(uq)
-----
-
-=== Verify Update
-
-[source, python, linenums]
-----
-vq = '''SELECT * 
-          FROM books
-         WHERE title="The Martian"'''
-cursor.execute(vq)
-print(cursor.fetchall())
-[('The Martian', 'Andy Weir', 2011)]
-----
-
-=== Delete
-
-* Now, let's look at deleting data
-* This works much as you would expect
-
-[source, python, linenums]
-----
-dq = '''DELETE 
-          FROM books
-         WHERE author="Isaac Asimov"'''
-cursor.execute(dq)
-----
-
-=== Committing Changes
-
-* So far, what we have done has occurred in-memory
-* To persist, changes must be committed (saved)
-* In practice, you should commit frequently
-
-[source, python, linenums]
-----
-conn.commit()
-conn.close()
-----
-
-=== Summary
-
-[%step]
-* We have just covered a lot of ground
-* Connections, cursors, queries, CRUD
-* There is also a lot we have not touched
-* Next time we will look at normalization
-* Specifically: _primary keys_, _foreign keys_, and _joins_
-
-
-== Normalization in Depth
-
-=== Why Normalize?
-
-[%step]
-* There are many reasons related to optimization
-* But the simplest way to think about it is this:
-[%step]
-    1. Consider that one author can write many books
-    2. Conversely one book can have many authors
-    3. To model such relationships effectively, author data should be stored apart from book data
-
-=== Identifiers (Keys)
-
-[%step]
-* The first requirement for modeling relationships between tables is to have unambiguous identifiers
-* These identifiers, called keys, allow data to be looked up
-* The unique id for a particular row in a table is called a primary key
-
-=== Using Keys to Create Joins
-
-[%step]
-* Rows can also reference rows in other tables -- this cross-reference is called a foreign key
-* For example, the row "Hamlet" in the plays table might reference "William Shakespeare" in the authors table
-
-=== Creating Normalized Data
-
-[%step]
-* When designing a database, before doing any coding tables and their relationships should be mapped out
-* The diagram created during this mapping process is called an ERD
-* This stands for Entity-Relationship Diagram
-* In addition to mapping out relationships, you need to create code to analyze the data and write it to the correct locations
-
-=== Creating Normalized Data (continued)
-
-[%step]
-* For example, in working with our list of books and authors, you might:
-[%step]
-    1. Store the authors names in a separate table
-    2. As you read the data file, lookup the author
-    3. If the author is present already, get the id
-    4. If the author is not present, add the author and get the id
-    5. Add the book to the books table, referencing the author's id
-
-=== Flat Data
-
-++++
-<table>
-<tr>
-    <th>title</th>
-    <th>author</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>Things Fall Apart</td>
-    <td>Chinua Achebe</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>Chimera</td>
-    <td>John Barth</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>The Sot-Weed Factor</td>
-    <td>John Barth</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>Under the Volcano</td>
-    <td>Malcolm Lowery</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
-
-=== Add Primary Keys
-
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>title</th>
-    <th>author</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Things Fall Apart</td>
-    <td>Chinua Achebe</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Chimera</td>
-    <td>John Barth</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>The Sot-Weed Factor</td>
-    <td>John Barth</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Under the Volcano</td>
-    <td>Malcolm Lowry</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
-
-[.columns]
-=== Move Authors to Own Table
-
-[.column]
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>title</th>
-    <th>author_id</th>
-    <th>year</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Things Fall Apart</td>
-    <td>1</td>
-    <td>1958</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Chimera</td>
-    <td>2</td>
-    <td>1972</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>The Sot-Weed Factor</td>
-    <td>2</td>
-    <td>1960</td>
-</tr>
-<tr>
-    <td>4</td>
-    <td>Under the Volcano</td>
-    <td>3</td>
-    <td>1947</td>
-</tr>
-</table>
-++++
-
-[.column]
-++++
-<table>
-<tr>
-    <th>id</th>
-    <th>name</th>
-</tr>
-<tr>
-    <td>1</td>
-    <td>Chinua Achebe</td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>John Barth</td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>Malcolm Lowry</td>
-</tr>
-</table>
-++++
-
-=== Selecting Normalized Data
-
-[%step]
-* To lookup normalized data, you can use SQL's JOIN syntax
-* You specify the fields to match on (linking foreign key to primary key)
-
-[source, python, linenums]
-----
-jq = '''SELECT authors.name, books.title, books.year
-        FROM books JOIN authors
-        ON books.author_id=authors.id'''
-books = cursor.execute(join_query, filter).fetchall()
-----
-
-=== Deleting Normalized Data
-
-[%step]
-* Normalizing data introduces some additional complications
-* Consider our authors and books examples
-* If you remove a row from the authors table, what happens to the author's books?
-* There is a danger that orphaned rows will clutter the database
-
-=== Deleting Normalized Data (continued)
-
-[%step]
-* In order to control the creation of bad data, SQL allows you to specify constraints in your database schema
-* Among the constraints is one called CASCADE DELETE
-* In essence, by specifying this constraint, you would force SQLite to remove books that were written by a deleted author when removing the author
+* link:https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html[ANOVA]
+    * Tests if two or more groups have the same population mean.
 
+=== Statsmodels
+
+* link:https://www.statsmodels.org/stable/index.html[Statsmodels] is a Python module that provides classes and functions for the estimation of many different statistical models, as well as for conducting statistical tests, and statistical data exploration.
+
+=== Linear Regression
+
+* Modeling of the relationship between a dependent variable and one or more independent variables. 
+* We are interested in using statsmodels to create linear regression models. 

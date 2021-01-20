@@ -1,4 +1,4 @@
-= Web Scraping
+= Data on the Web
 :imagesdir: images
 :docinfo: shared
 :revealjsdir: ../../lib/reveal.js.3.9.2
@@ -8,151 +8,233 @@
 :revealjs_height: 800
 
 
-== What is Web Scraping?
-When you don't have structured data (XML, JSON, etc), you are not doomed!
+== What is Data on the Web?
 
-With web scraping, you rely on consistent formatting on a web page (or site) and write code to extract the data you want.
+`Data`, in any format, accessible over the `Web` using `http`
 
-== Web Pages
+.Skills
+* Parsing data formats
+* Making http requests
+	
+== HTTP
 
-Web pages are written in HTML, the Hyper Text Markup Language. HTML is based on XML, so it has tags. 
+* HTTP is the Hyper Text Transfer Protocol	
+* How data is transported on the web
+* Easy to use because programming languages have lots of support for getting and sending data this way
+* Can be used to fetch text files with data (covered in this lecture) and is the common foundation for Representational state transfer (REST) API interfaces that allow programmers to request specific data from a service (e.g. Twitter)
 
-HTML tags divide the content on the page into sections and adjust how it appears on the screen. 
+== Formats
 
-For example, consider this HTML code:
+* XML (eXtensible Markup Language)
+* JSON (JavaScript Object Notation)
+* CSV / TDF (comma separated values / tab-delimited file)
+* Unformated or semistructured
+
+== XML Basics
+
+XML allows anyone to create their own structured data on the web. It is called a `metalanguage` because other languages are built on top of it. HTML, for example, is built on top of XML.
+
+When it was first created, XML was not case sensitive, but standards have been updated since then and it is now case sensitive. White space does not matter in XML.
+
+== XML Tags
+XML uses tags to label data. Think of most formatted data as name-value pairs. The tag is the name and between the tags are the values. 
+
+Tags look like this `<age>`. They use < and > on either side. In between the <> is the `name` of the tag. This tag's name is "age".
+
+All tags have a corresponding `end tag`, in which the <> contains a / (indicating the end) followed by the name of the tag. The end tag for age would be `</age>`.
+
+The value goes between the start and end tags. Your age may be indicated like this:
 ----
-<html>
-<body>
-<a href=http://example.com>Visit example.com!</a>
-<img src=myPic.jpg />
-</body></html>
+<age>21</age>
 ----
-The `html` tag is the root of this XML tree. The `body` is a nested section that has everything that will appear on the page. The `a` tag (called an `anchor` tag), is code for a clickable link. The text between the `<a>` and `</a>` tags is what's clickable. The `img` tag puts an image on the page.
 
-== Extracting Information
-Say you wanted to get all the links out of this page. How would you do it? Using what we know already, you could fetch the page and use some `string` operations
+
+
+== Nesting in XML
+XML can get more complex with nested tags. Think about this and it should start to remind you of objects. For example, we could create XML to describe a person who has various attributes:
+----
+<person>
+    <name>Michelle Obama</name>
+    <birthday>1964-01-17</birthday>
+</person>
+----
+
+This creates an XML `tree`. The top level tag is the root, and the nested elements can be thought of as branches.
+
+== XML Attributes
+Tags can have attributes other than the values that come between start and end tags. These can be embedded in the start tag. This can be an alternative to some nested tags. 
+
+For example, our person from the previous slide:
+----
+<person>
+    <name>Michelle Obama</name>
+    <birthday>1964-01-17</birthday>
+</person>
+----
+
+Could be written like this:
+----
+<person name="Michelle Obama" birthday="1964-01-17" />
+  
+----
+Note the / at the end of that tag. That indicates the tag is complete, with the start and end tag all contained in one.
+
+== JSON
+
+JSON is another web data format. It is currently more popular than XML, in part because it can be written more compactly. It represents the same data but in a slightly different way.
+
+Our XML example from above:
+----
+<person>
+    <name>Michelle Obama</name>
+    <birthday>1964-01-17</birthday>
+</person>
+----
+Can be written in JSON as:
+----
+"person": {
+    "name": "Michelle Obama",
+    "birthday": "1964-01-17"
+}
+----
+
+== Parsing Web Data
+Python has modules to parse XML (`xml`) and JSON (`json`)
+
+The most popular use of XML is in RSS (Really Simple Syndication), which is used for podcasts, news readers, blogs, and other web feeds. It is so popular that python has a separate module just for handling rss, `feedparser`
+
+
+== RSS
+RSS is essentially an XML file that's updated with new items published to a feed. The main tag is `channel` which refers to the entire feed. Inside the `channel` are `item` tags that have each item in the feed.
+
+An `item` must have a `title` (the title of the item), `link` (a link to the item), and a `description` (a description of the item)
+
+Example:
+----
+<channel>
+    <item>
+        <title>Python Podcast: XML Episode</title>
+        <link>http://example.com/podcast/xml.mp3</link>
+        <description>A fictional podcast episode about XML in python</description>
+    </item>
+</channel>
+----
+
+== Getting Web Data
+Now that we know about formats, how do we get that data from the web? 
+
+We have to request the file from the server. That means we need to know the URL of the file we want. We'll use https://w1.weather.gov/xml/current_obs/KCGS.xml as an example. That is the current weather conditions for College Park airport.
+
+To access this file, we use the `requests` module, which will fetch web documents for us. It will store that in a `requests` object which we can then use to access the information. Here's a simple example
+
+----
+import requests
+
+page = requests.get("https://w1.weather.gov/xml/current_obs/KCGS.xml")
+print(page.text)
+----
+
+That will print out XML-formatted data with the weather observations.
+
+== Processing Web Data
+
+Once we have the data, we want to parse it and use it. I have put a sample file of the RSS feed from the excellent XKCD website at this URL: http://www.cs.umd.edu/~golbeck/rss.xml
+
+Let's parse that file!
+
+First, we have to get it.
+
+We could do this:
+----
+import requests
+
+rssFeed = requests.get("http://www.cs.umd.edu/~golbeck/rss.xml")
+----
+But for RSS, there is a better way!
+
+== feedparser
+`feedparser` is a module that reads RSS feeds specifically. You can use it like requests, but it has additional features. Here's how the previous code changes:
+
+----
+import requests
+import feedparser
+
+rssFeed = feedparser.parse("http://www.cs.umd.edu/~golbeck/rss.xml")
+
+----
+
+Instead of using `requests`, we use `feedparser`. That does the request for us and stores the data in a feedparser object. Next, we can use the feedparser features to get the items from the RSS feed. We basically just create an index and iterate through the entries:
+
+----
+import requests
+import feedparser
+
+rssFeed = feedparser.parse("http://www.cs.umd.edu/~golbeck/rss.xml")
+
+for i in range(len(rssFeed.entries)):
+    print (rssFeed.entries[i].title)
+----
+
+
+== Beyond RSS
+RSS is an easy example to start with because of the built in `feedparser` support. But what if you have an XML file that's not RSS? There are modules to help with that, too.
+
+For this, we will use the `xml.etree.ElementTree` module. This lets us start at the top level tag and move through the nested tags in an XML document.
+
+== Processing XML 1
+Let's process that same RSS feed, but treating it like any XML. 
+
+First we get the file:
+----
+import requests
+
+rssFeed = requests.get("http://www.cs.umd.edu/~golbeck/rss.xml")
+----
+
+Next, we make an object using the `xml` module. This will parse our file for us:
+----
+import requests
+
+rssFeed = requests.get("http://www.cs.umd.edu/~golbeck/rss.xml")
+root  = xml.etree.ElementTree.fromstring(rssFeed.content)
+----
+== Processing XML 2
+Now, we can iterate through our file. The `xml` module has parameters for starting at the root of the XML tree and iterating through it:
 
 ----
 import requests
 
-page = requests.get("https://example.com/page.html")
-result = page.text.find("<a ")
-print ("link found at index", result)
-----
-
-From there, you would need to do additional parsing to find the URL. It's possible, but difficult*.
-
-*For a little side challenge, try doing this! Hint: use regular expressions
-
-== Parsing HTML with `beautifulsoup`
-Fortunately, python has a module called `beautifulsoup` that can help you parse HTML much more easily. We do the request the same way as above:
-----
-import requests
-
-page = requests.get("https://example.com/page.html")
-----
-
-Next, we add in the BeautifulSoup module and let it do its work! Basically, we just give it the name of the tag we care about, and it will extract all instances.
-
-----
-import requests
-from bs4 import BeautifulSoup
-
-page = requests.get("https://example.com/page.html")
-soup = BeautifulSoup(page.text, "html.parser")
-links =  soup.findAll("a")
-print(links)
+rssFeed = requests.get("http://www.cs.umd.edu/~golbeck/rss.xml")
+root  = xml.etree.ElementTree.fromstring(rssFeed.content)
+for item in root.iter("item"):
+    for attribute in item.iter("title"):
+        print (attribute.text)
 
 ----
 
-Substitute in any working URL for our example, and you will see this work.
+In the `for` loop, we're starting at the root and iterating through each "item" attribute. Then, in the nested loop, we're iterating through each "title" attribute within each item. 
 
-== Web Scraping at Work: Extract URLs
-When pulling data from the web, it's common that you will encounter a page with lots of links to the pages with the actual data. 
+== Processing JSON
 
-In this case, we can use the code from above, and then process the links. We have to extract the URL from the `href` part of the tag and then handle it.
+Using the JSON module, you can process JSON in a similar way. `json.loads()` loads the JSON and creates a python dictionary object:
+
+If we have the JSON example from above:
+
+----
+"person": {
+    "name": "Michelle Obama",
+    "birthday": "1964-01-17"
+}
+----
+
+We can process it like this:
+
 ----
 import requests
-from bs4 import BeautifulSoup
+import json
 
-page = requests.get("https://example.com/page.html")
-soup = BeautifulSoup(page.text, "html.parser")
-links =  soup.findAll("a")
-i=0
-while i < len(links)
-    currentLink = links[i]["href"]
-    #process URLs here
-    i=i+1
+jsonFile = requests.get("http://www.cs.umd.edu/~golbeck/example.json")
 
+jsonObject = json.loads(jsonFile.content)
+print(jsonObject["person"]["name"])
 ----
-
-
-
-== Web Scraping at Work: Tables 1
-A lot of times, data is in table format. Here's an HTML table.
-----
-
-<TR VALIGN=TOP>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157408.html>5/31/20 16:37</A></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Portland</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OR</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 66</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
-
-</TR>
-
-<TR VALIGN=TOP>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><A HREF=157/S157409.html>5/31/20 14:21</A></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>Garrettsville</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>OH</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000><BR></TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>MADAR Node 64</TD>
-<TD bgcolor="#FFFFCC" ><FONT style=FONT-SIZE:11pt FACE="Calibri" COLOR=#000000>7/9/20</TD>
-
-</TR>
-----
-
-== Web Scraping at Work: Tables 2
-We have 7 columns in this table. How do we scrape this?
-
-First, we can see that each row is in a `<TR>` tag. Then, there are columns in the `<TD>` tags in each row.
-
-So we can begin by extracting the `<TR>` tags:
-----
-import requests
-from bs4 import BeautifulSoup
-
-page = requests.get("http://example.com/page2.html")
-soup = BeautifulSoup(page.text, "html.parser")
-rows =  soup.findAll("tr")
-i=0
-while i < len(rows):
-        print (rows[i])
-        i=i+1
-
-----
-
-== Web Scraping at Work: Tables 3
-
-From here, we can go into each row and extract the cells with the `td` tag. In this example, we will just print the contents of each cell.
-----
-import requests
-from bs4 import BeautifulSoup
-
-page = requests.get("http://example.com/page2.html")
-soup = BeautifulSoup(page.text, "html.parser")
-rows =  soup.findAll("tr")
-i=0
-while i < len(rows):
-        cols = rows[i].findAll("td")
-        j=0
-        while j<len(cols):
-                print("col ",cols[j].text)
-                j=j+1
-        i=i+1
-
-----
-

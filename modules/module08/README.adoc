@@ -1,4 +1,4 @@
-= INST 326 Module 8: Remote Collaboration
+= INST 326 Module 7: Regular Expressions
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../includes
@@ -10,22 +10,30 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-Remote collaboration using git and Github, and (optionally) the Agile development methodology.
+The purpose of this module is to introduce students to Regular Expressions usage and applications. This module takes a look at how we can use modules made for using Regular Expressions in Python in order to solve different data challenges in an OOP context. 
 
 === Links
+
 * link:slides.html[Slides]
-* link:exercises/index.html[Exercises]
+* link:exercises[Exercises]
 
 == Learning Outcomes
 
-After completing this module, students should understand:
+After completing this module, students should be able to:
 
-* How git repositories work.
-* How to clone a repository locally.
-* How to make, stage, and commit changes locally.
-* How to pull upstream changes to local and push local changes upstream.
-* Merge conflicts and how resolve them (or avoid them before they occur).
+* understand what regular expressions are.
+* recognize regular expressions.
+* write regular expressions to match identified patterns.
+* understand how regular expressions are built into text editors.
+* understand the application of regular expressions in web scraping, data wrangling, and data validation.
+* understand how to write Regular Expressions.
+* understand how to use the re python module to find regular expressions matches. 
+* understand how to use the re python module to extract data from files. 
 
 == Additional Readings
 
-* John Wiegley, "link:https://jwiegley.github.io/git-from-the-bottom-up/[Git from the Bottom Up]"
+You may find it helpful to refer to the following resources:
+
+* Severance, _Python for Everybody_
+    ** link:https://www.py4e.com/html3/11-regex[Chapter 11: "Regex"]
+* Murugan, _Medium_ link:https://medium.com/@minisha.mit/regular-expression-part-1-8d75128f6274[History of Regular Expression]

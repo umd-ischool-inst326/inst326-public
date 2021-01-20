@@ -1,4 +1,4 @@
-= Module 8 Exercises
+= Module 7 Exercises
 //:stylesdir: ../../css
 //:stylesheet: page.css
 :includedir: ../../../includes
@@ -10,6 +10,10 @@
 include::{includedir}/navigation.html[]
 ++++
 
+== Tutorial
+
+- link:exercise07_tutorial.html[Regular Expressions: A Step-by-Step Tutorial]
+
 == Exercises
 
-- link:exercise08_marathon.html[Marathon]
+- link:exercise07_people.html[People]
