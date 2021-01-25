@@ -42,11 +42,11 @@ After completing this module, students should:
 
 == Readings
 
-* [_Pandas Cheat Sheet_](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
-* [_An Introduction to Seaborn_](https://seaborn.pydata.org/introduction.html)
-* [_Scipy Introduction_](https://docs.scipy.org/doc/scipy/reference/tutorial/general.html)
+* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf[Pandas Cheat Sheet]
+* https://seaborn.pydata.org/introduction.html[An Introduction to Seaborn]
+* https://docs.scipy.org/doc/scipy/reference/tutorial/general.html[SciPy Introduction]
 
 == Additional Readings (optional, as needed)
 
-* Kopf, _Quartz_, [Meet the man behind the most important tool in data science](https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/)
+* Kopf, _Quartz_, https://qz.com/1126615/the-story-of-the-most-important-tool-in-data-science/[Meet the man behind the most important tool in data science]
 
