@@ -15,7 +15,7 @@ This module covers strings, lists, and files; mastery of these topics will allow
 === Links
 
 * link:slides.html[Slides]
-// * link:exercises[Exercises]
+* link:exercises[Exercises]
 
 == Learning Outcomes
 
