@@ -12,3 +12,4 @@ include::{includedir}/navigation.html[]
 
 - link:exercise01_rock_paper_scissors.html[Rock, Paper, Scissors]
 - link:exercise01_easter_date.html[Calculating Easter]
+- link:exercise01_covid_testing.html[COVID Testing]

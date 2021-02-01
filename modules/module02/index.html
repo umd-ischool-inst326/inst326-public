@@ -490,7 +490,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This module is a review of the most important basic data structures in the Python language, including strings, lists, dictionaries, and tuples.</p>
+<p>This module covers strings, lists, and files; mastery of these topics will allow us to start working with interesting real-world data.</p>
 </div>
 <div class="sect2">
 <h3 id="_links">Links</h3>
@@ -498,9 +498,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul>
 <li>
 <p><a href="slides.html">Slides</a></p>
-</li>
-<li>
-<p><a href="exercises/index.html">Exercises</a></p>
 </li>
 </ul>
 </div>
@@ -511,21 +508,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_learning_outcomes">Learning Outcomes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After completing this module, students should understand:</p>
+<p>After completing this module, students should understand</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The fundamental data types in Python.</p>
+<p>Common techniques for creating, modifying, and using strings</p>
 </li>
 <li>
-<p>How to create instances of data types, and where applicable, how to update them.</p>
+<p>How to insert values into a string using f-strings</p>
 </li>
 <li>
-<p>How Python implements data types as objects.</p>
+<p>Common techniques for creating, modifying, and using lists</p>
 </li>
 <li>
-<p>How to find out more about these types and their methods using the built-in documentation.</p>
+<p>What container data types and ordered sequences are</p>
+</li>
+<li>
+<p>How to access an item in an ordered sequence by index</p>
+</li>
+<li>
+<p>How to extract a subsequence using slice notation</p>
+</li>
+<li>
+<p>The difference between mutable and immutable data types</p>
+</li>
+<li>
+<p>What aliasing is, why it can be problematic, and how to avoid it</p>
+</li>
+<li>
+<p>The difference between relative and absolute paths</p>
+</li>
+<li>
+<p>How to create a file object</p>
+</li>
+<li>
+<p>How to write to and read from files</p>
+</li>
+<li>
+<p>What a context manager is and how to use a file object as a context manager</p>
 </li>
 </ul>
 </div>
@@ -534,20 +555,70 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_additional_readings">Additional Readings</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>You may find it helpful to refer to the following resources:</p>
+</div>
 <div class="ulist">
-<div class="title">Severance, <em>Python for Everybody</em></div>
 <ul>
 <li>
-<p><a href="https://www.py4e.com/html3/06-strings">Chapter 6: Strings</a></p>
+<p>Severance, <em>Python for Everybody</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.py4e.com/html3/06-strings">Chapter 6: "Strings"</a></p>
 </li>
 <li>
-<p><a href="https://www.py4e.com/html3/08-lists">Chapter 8: Lists</a></p>
+<p><a href="https://www.py4e.com/html3/07-files">Chapter 7: "Files"</a></p>
 </li>
 <li>
-<p><a href="https://www.py4e.com/html3/09-dictionaries">Chapter 9: Dictionaries</a></p>
+<p><a href="https://www.py4e.com/html3/08-lists">Chapter 8: "Lists"</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a href="https://www.py4e.com/html3/10-tuples">Chapter 10: Tuples</a></p>
+<p>van Rossum, <em>The Python Tutorial</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/introduction.html#strings">Section 3.1.2: "Strings"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/introduction.html#strings">Section 7.1.1: "Formatted String Literals"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/introduction.html#lists">Section 3.1.3: "Lists"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists">Section 5.1: "More on Lists"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Section 7.2: "Reading and Writing Files"</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Python Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str">"Text Sequence Type — `str`"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range">"Sequence Types — <code>list</code>, <code>tuple</code>, `range`"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/stdtypes.html#lists">"Lists"</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/library/functions.html#open">&#8220;open()&#8221;</a></p>
+</li>
+<li>
+<p><a href="https://docs.python.org/3/reference/compound_stmts.html#with">The <code>with</code> statement</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -556,7 +627,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-09-07 22:04:54 -0400
+Last updated 2021-02-01 12:54:37 -0500
 </div>
 </div>
 </body>

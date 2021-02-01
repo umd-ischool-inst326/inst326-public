@@ -12,7 +12,7 @@ include::{includedir}/navigation.html[]
 
 == Background
 
-For this exercise you will develop a module containing a `Car` class. Instances of the class will be able to turn left or right and drive forward. They will be able to consume and 
+For this exercise you will develop a module containing a `Car` class. Instances of the class will be able to turn left or right and drive forward.
 
 == Instructions
 

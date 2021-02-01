@@ -10,26 +10,48 @@ include::{includedir}/navigation.html[]
 
 == Overview
 
-This module is a review of the most important basic data structures in the Python language, including strings, lists, dictionaries, and tuples.
+This module covers strings, lists, and files; mastery of these topics will allow us to start working with interesting real-world data.
 
 === Links
+
 * link:slides.html[Slides]
-* link:exercises/index.html[Exercises]
+// * link:exercises[Exercises]
 
 == Learning Outcomes
 
-After completing this module, students should understand:
+After completing this module, students should understand
 
-* The fundamental data types in Python.
-* How to create instances of data types, and where applicable, how to update them.
-* How Python implements data types as objects.
-* How to find out more about these types and their methods using the built-in documentation.
+* Common techniques for creating, modifying, and using strings
+* How to insert values into a string using f-strings
+* Common techniques for creating, modifying, and using lists
+* What container data types and ordered sequences are
+* How to access an item in an ordered sequence by index
+* How to extract a subsequence using slice notation
+* The difference between mutable and immutable data types
+* What aliasing is, why it can be problematic, and how to avoid it
+* The difference between relative and absolute paths
+* How to create a file object
+* How to write to and read from files
+* What a context manager is and how to use a file object as a context manager
+
 
 == Additional Readings
 
-.Severance, _Python for Everybody_
-* link:https://www.py4e.com/html3/06-strings[Chapter 6: Strings]
-* link:https://www.py4e.com/html3/08-lists[Chapter 8: Lists]
-* link:https://www.py4e.com/html3/09-dictionaries[Chapter 9: Dictionaries]
-* link:https://www.py4e.com/html3/10-tuples[Chapter 10: Tuples]
+You may find it helpful to refer to the following resources:
 
+* Severance, _Python for Everybody_
+    ** link:https://www.py4e.com/html3/06-strings[Chapter 6: "Strings"]
+    ** link:https://www.py4e.com/html3/07-files[Chapter 7: "Files"]
+    ** link:https://www.py4e.com/html3/08-lists[Chapter 8: "Lists"]
+* van Rossum, _The Python Tutorial_
+    ** link:https://docs.python.org/3/tutorial/introduction.html#strings[Section 3.1.2: "Strings"]
+    ** link:https://docs.python.org/3/tutorial/introduction.html#strings[Section 7.1.1: "Formatted String Literals"]
+    ** link:https://docs.python.org/3/tutorial/introduction.html#lists[Section 3.1.3: "Lists"]
+    ** link:https://docs.python.org/3/tutorial/datastructures.html#more-on-lists[Section 5.1: "More on Lists"]
+    ** link:https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files[Section 7.2: "Reading and Writing Files"]
+* Python Documentation
+    ** link:https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str["Text Sequence Type — `str`"]
+    ** link:https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range["Sequence Types — `list`, `tuple`, `range`"]
+    ** link:https://docs.python.org/3/library/stdtypes.html#lists["Lists"]
+    ** link:https://docs.python.org/3/library/functions.html#open["`open()`"]
+    ** link:https://docs.python.org/3/reference/compound_stmts.html#with[The `with` statement]

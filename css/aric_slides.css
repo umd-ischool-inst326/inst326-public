@@ -15,7 +15,7 @@
 }
 
 p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
-    color: #bb88ff;
+    color: #b300ff;
     font-size: 85%;
 }
 
@@ -23,6 +23,15 @@ p code, h1 code, h2 code, h3 code, h4 code, h5 code, h6 code {
     color: yellow;
     font-variant: small-caps;
     font-weight: bold;
+}
+
+.emph {
+    color: darkorange;
+    font-weight: bold;
+}
+
+.filelisting {
+    color: cornflowerblue;
 }
 
 li li {
@@ -75,4 +84,112 @@ li li {
 .fullwidth pre {
     width: 100% !important;
     margin: 0 !important;
+}
+
+.noborder img {
+    border: 0 !important;
+}
+
+.background img {
+    background-color: white !important;
+}
+
+.lefttable {
+    margin: 0 !important;
+}
+
+.lefttable td {
+    padding-left: 0 !important;
+    padding-right: 2em !important;
+}
+
+.twocoltable {
+    margin: 0 !important;
+}
+
+.twocoltable td {
+    padding-left: 0 !important;
+    padding-right: 1em !important;
+}
+
+.twocoltable td:last-child {
+    padding-left: 1em !important;
+    padding-right: 0 !important;
+}
+
+.notopmargin li:first-child p {
+    margin: 0 !important;
+}
+
+.lefttable pre {
+    margin: 0;
+    width: 100%;
+}
+
+.smallspace pre {
+    padding-top: 1em;
+}
+
+.smalltext {
+    font-size: 67%;
+}
+
+.tinytext {
+    font-size: 50%;
+}
+
+.tinytext p.tableblock {
+    margin: 0 !important;
+}
+
+.tinytext td {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.tighttext {
+    font-size: 67%;
+}
+
+.tighttext p.tableblock {
+    margin: .125em !important;
+}
+
+.tighttext td {
+    padding-left: .25em !important;
+    padding-right: .25em !important;
+}
+
+.prettytinytext {
+    font-size: 52%;
+}
+
+.prettytinytext p.tableblock {
+    margin: 0 !important;
+}
+
+.prettytinytext th {
+    padding: .2em .2em .2em .2em !important;
+}
+
+.prettytinytext td {
+    padding-left: .2em !important;
+    padding-right: .2em !important;
+}
+
+.reveal table.grid-none table.grid-rows th, .reveal table.grid-none table.grid-rows td {
+    border-bottom: 1px !important;
+}
+
+.reveal .slides section[data-vertical-align-top] {
+    top: 0 !important;
+}
+
+.lessspace li li p {
+    margin: 10px 0;
+    line-height: 1;
+}
+
+.columns .slide-content > .column:last-of-type {
+    padding: 0;
 }
