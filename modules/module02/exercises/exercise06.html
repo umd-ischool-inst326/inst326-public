@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<title>Exercise: Bulk pricing</title>
+<title>Exercise: COVID Testing</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,227 +437,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge .cm {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cp {
-  color: #999999;
-  font-weight: bold;
-}
-pre.rouge .c1 {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .cs {
-  color: #999999;
-  font-weight: bold;
-  font-style: italic;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
-  color: #999988;
-  font-style: italic;
-}
-pre.rouge .err {
-  color: #a61717;
-  background-color: #e3d2d2;
-}
-pre.rouge .gd {
-  color: #000000;
-  background-color: #ffdddd;
-}
-pre.rouge .ge {
-  color: #000000;
-  font-style: italic;
-}
-pre.rouge .gr {
-  color: #aa0000;
-}
-pre.rouge .gh {
-  color: #999999;
-}
-pre.rouge .gi {
-  color: #000000;
-  background-color: #ddffdd;
-}
-pre.rouge .go {
-  color: #888888;
-}
-pre.rouge .gp {
-  color: #555555;
-}
-pre.rouge .gs {
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #aaaaaa;
-}
-pre.rouge .gt {
-  color: #aa0000;
-}
-pre.rouge .kc {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kd {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kn {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kp {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kr {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .kt {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .k, pre.rouge .kv {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .mf {
-  color: #009999;
-}
-pre.rouge .mh {
-  color: #009999;
-}
-pre.rouge .il {
-  color: #009999;
-}
-pre.rouge .mi {
-  color: #009999;
-}
-pre.rouge .mo {
-  color: #009999;
-}
-pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
-  color: #009999;
-}
-pre.rouge .sb {
-  color: #d14;
-}
-pre.rouge .sc {
-  color: #d14;
-}
-pre.rouge .sd {
-  color: #d14;
-}
-pre.rouge .s2 {
-  color: #d14;
-}
-pre.rouge .se {
-  color: #d14;
-}
-pre.rouge .sh {
-  color: #d14;
-}
-pre.rouge .si {
-  color: #d14;
-}
-pre.rouge .sx {
-  color: #d14;
-}
-pre.rouge .sr {
-  color: #009926;
-}
-pre.rouge .s1 {
-  color: #d14;
-}
-pre.rouge .ss {
-  color: #990073;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
-  color: #d14;
-}
-pre.rouge .na {
-  color: #008080;
-}
-pre.rouge .bp {
-  color: #999999;
-}
-pre.rouge .nb {
-  color: #0086B3;
-}
-pre.rouge .nc {
-  color: #445588;
-  font-weight: bold;
-}
-pre.rouge .no {
-  color: #008080;
-}
-pre.rouge .nd {
-  color: #3c5d5d;
-  font-weight: bold;
-}
-pre.rouge .ni {
-  color: #800080;
-}
-pre.rouge .ne {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nl {
-  color: #990000;
-  font-weight: bold;
-}
-pre.rouge .nn {
-  color: #555555;
-}
-pre.rouge .nt {
-  color: #000080;
-}
-pre.rouge .vc {
-  color: #008080;
-}
-pre.rouge .vg {
-  color: #008080;
-}
-pre.rouge .vi {
-  color: #008080;
-}
-pre.rouge .nv, pre.rouge .vm {
-  color: #008080;
-}
-pre.rouge .ow {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .o {
-  color: #000000;
-  font-weight: bold;
-}
-pre.rouge .w {
-  color: #bbbbbb;
-}
-pre.rouge {
-  background-color: #f8f8f8;
-}
-</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Exercise: Bulk pricing</h1>
+<h1>Exercise: COVID Testing</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_background">Background</a></li>
 <li><a href="#_instructions">Instructions</a></li>
-<li><a href="#_running_your_program">Running your program</a></li>
 </ul>
 </div>
 </div>
@@ -696,107 +484,91 @@ pre.rouge {
 <div class="sect1">
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>An online magnet seller sells a particular magnet at a base price of $0.75 but offers bulk pricing depending on the quantity of magnets ordered, as follows:</p>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/testing.jpg" alt="A scientist at Houston Methodist Hospital last month preparing patient samples to be tested for the coronavirus." width="600">
 </div>
-<table class="tableblock frame-all grid-all stripes-even fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Quantity</th>
-<th class="tableblock halign-left valign-top">Price</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0&ndash;49</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">$0.75</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">50&ndash;99</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">$0.72</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">100&ndash;999</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">$0.70</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1000+</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">$0.67</p></td>
-</tr>
-</tbody>
-</table>
+</div>
+<div class="paragraph">
+<p>Congratulations, you have successfully identified the cause of the errors in the
+COVID test results data collection program. Based on your advice the director
+has decided to wait to add the collection of demographic information to the
+program since it is currently unclear what categories to use for ethnicity and
+gender. The director was so pleased with your work that she has promoted you to be the
+head of the new data processing department for the lab.</p>
+</div>
+<div class="paragraph">
+<p>This morning the director called a meeting of all the department heads to
+announce new rules that have been issued by the White House that require all
+test results to be sent to the Department of Health and Human Services instead
+of the Centers for Disease Control. <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>You&#8217;ve been asked to adjust the data collection program to persist the test
+results to a file named <code>covid-results.txt</code>. Every night this file will be
+automatically picked up and sent to HHS on behalf of client hospitals and then
+deleted. HHS would like the data to be in a comma delimited format where each
+line in the file represents a test result including:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Test Result: 1 (positive) or 0 (negative)</p>
+</li>
+<li>
+<p>Sample Quality: 0.0 - 1.0</p>
+</li>
+<li>
+<p>Last Equipment Calibration (Hours): A positive integer</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example here are three test results:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Ed Summers,1,.91,4
+Michael Knight,0,.92,3
+Bonnie Knight,0,.91,2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the program runs it should allow a user to enter data, and then on exiting it
+should <strong>append</strong> the data to <code>covid-results.csv</code>. It is important for it to
+append or else it could erase data from a previous run.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Write a script using the <a href="bulk_pricing.py">template</a> below. Replace the comment in the template with a function called <code>get_cost()</code> that calculates the cost of an order of magnets using the pricing scheme in the table above. Your function should take a non-negative number of magnets (an integer) as its only argument. It should return <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> a float indicating the cost of the order in dollars.</p>
+<p>Examine the updated <a href="covid_testing.py">source code</a> and complete the
+following steps:</p>
 </div>
-<div class="paragraph">
-<p>If the number of magnets is less than zero, your function should raise a <code>ValueError</code>.</p>
-</div>
-<div class="paragraph">
-<p>Your function should have a docstring that briefly states</p>
-</div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>what the function does</p>
+<p>One of your colleagues has modified the data collection program to store the
+test results in a list. But they have asked for your help in writing the
+function to save the data. Fill in that function marked with a TODO. (5 points)</p>
 </li>
 <li>
-<p>what argument(s) it requires</p>
+<p>In no less than 150 words please describe what some potential problems or
+pitfalls might be encountered with this data processing pipeline. For
+example, how resilient or adaptable is the format of the data file? What could be
+done to better describe the contents of the file? Could another
+data format work better? What problems might there be with how the data is sent off
+each night? How many people could use this program at the same time? These
+questions are just examples, which you may choose to answer, but you can also come up
+with your own. Try to think creatively and defensively about how this program
+might be used. (5 points)</p>
 </li>
-<li>
-<p>what kind of value it returns and what this value means</p>
-</li>
-<li>
-<p>what error(s) it raises and what they mean</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The template code is designed to take one integer as a <a href="https://realpython.com/python-command-line-arguments/">command-line argument</a>. It validates this argument, converts it to an integer, invokes your function, and prints a string containing the value returned by your function.</p>
-</div>
-<div class="listingblock">
-<div class="title">Template</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="python"><span class="s">""" Calculate the price of an order of magnets according to a bulk
-pricing scheme. """</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-
-
-<span class="c1"># replace this comment with your implementation of the get_cost() function
-</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">magnets</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
-        <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">"this program expects a number of magnets as a command-line"</span>
-                 <span class="s">" argument"</span><span class="p">)</span>
-    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
-        <span class="n">sys</span><span class="p">.</span><span class="nb">exit</span><span class="p">(</span><span class="s">"could not convert "</span> <span class="o">+</span> <span class="n">sys</span><span class="p">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s">" into an integer"</span><span class="p">)</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">get_cost</span><span class="p">(</span><span class="n">magnets</span><span class="p">))</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_running_your_program">Running your program</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To run your program, open a terminal and ensure you are in the directory where your script is saved. At the command prompt, type <code>python3</code> (Windows users, type <code>python</code> instead) followed by a space, the name of your script, another space, and an integer. For example, if your script were called <code>bulk_pricing.py</code> and you wanted to calculate the cost of ordering 75 magnets, you would type</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>python3 bulk_pricing.py 75</pre>
-</div>
+</ol>
 </div>
 </div>
 </div>
@@ -804,12 +576,12 @@ pricing scheme. """</span>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. Note the difference between returning a value and printing a value. Your function should not print anything.
+<a href="#_footnoteref_1">1</a>. Stolberg, Sheryl G. (2020, July 14). Trump Administration Strips C.D.C. of Control of Coronavirus Data.  <em>New York Times</em>. <a href="https://www.nytimes.com/2020/07/14/us/politics/trump-cdc-coronavirus.html" class="bare">https://www.nytimes.com/2020/07/14/us/politics/trump-cdc-coronavirus.html</a>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-04 17:48:13 -0500
+Last updated 2021-02-07 22:29:00 -0500
 </div>
 </div>
 <script type="text/x-mathjax-config">

@@ -1,5 +1,6 @@
 def is_valid_sample(sample_quality):
-    """
+    """Test if the sample quality is acceptable.
+
     Returns True if the sample quality is high enough for valid test results
     and, False if it is not.
     """
@@ -9,7 +10,8 @@ def is_valid_sample(sample_quality):
         return False
 
 def is_valid_calibration(calibration_time):
-    """
+    """Test if the calibration is acceptable.
+
     Returns True if the calibration time is low enough for valid results, and
     False if it is not.
     """

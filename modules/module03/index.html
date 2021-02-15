@@ -450,7 +450,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_learning_outcomes">Learning Outcomes</a></li>
-<li><a href="#_additional_readings">Additional Readings</a></li>
 </ul>
 </div>
 </div>
@@ -490,7 +489,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>An introduction to software testing, Python&#8217;s module import system (including how to import your own modules), and the basics of version control using git.</p>
+<p>Module 3 is the final module in the "fundamentals" unit of the course. Unlike
+the topics of the previous two modules, this week&#8217;s topic, software testing, is
+probably new to many of you.  Though testing may seem advanced, the reason we
+are introducing it at this early stage is because testing is very useful for
+improving the quality of your code, and hence can be a valuable tool as you are
+learning to program.</p>
 </div>
 <div class="sect2">
 <h3 id="_links">Links</h3>
@@ -511,45 +515,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_learning_outcomes">Learning Outcomes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>After completing this module, students should understand:</p>
+<p>This module introduces the concept of software testing. After completing this module, you should understand</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Why software testing is important.</p>
+<p>Why software testing is important</p>
 </li>
 <li>
-<p>How to organized code for testing.</p>
+<p>How to organize code for testing</p>
 </li>
 <li>
-<p>How to write tests and run them with pytest.</p>
+<p>What assert statements do and how to write them</p>
 </li>
 <li>
-<p>How module imports work.</p>
+<p>What a module is</p>
 </li>
 <li>
-<p>How to clone a git repository.</p>
+<p>What a namespace is and why they are useful</p>
+</li>
+<li>
+<p>How to import a module, or specific objects from a module</p>
+</li>
+<li>
+<p>How to structure a program as a module</p>
+</li>
+<li>
+<p>What if <code><em>name</em> == "<em>main</em>"</code>: does and why it is used</p>
+</li>
+<li>
+<p>What Pytest is and how to write Pytest test scripts</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>You may find it helpful to refer to the following resources:</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_additional_readings">Additional Readings</h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>John Wiegley, "<a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a>"</p>
+<p>Resources on modules,  if <code><em>name</em> == "<em>main</em>"</code>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>van Rossum, The Python Tutorial: <a href="https://docs.python.org/3/tutorial/modules.html">Section 6: Modules</a> (covers importing and if <code><em>name</em> == "<em>main</em>"</code>:, among other things)</p>
+</li>
+<li>
+<p>Official <code><em>main</em></code> <a href="https://docs.python.org/3/library/__main__.html">documentation</a></p>
+</li>
+<li>
+<p>bogotobogo.com provides <a href="https://realpython.com/pytest-python-testing/">a nice tutorial</a> explaining <code>if <em>name</em> == "<em>main</em>":</code></p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p>Resources on testing</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Official <code>abs()</code> <a href="https://docs.python.org/3/library/functions.html#abs">documentation</a></p>
+</li>
+<li>
+<p>Official <code>math.isclose()</code> <a href="https://docs.python.org/3/library/math.html#math.isclose">documentation</a></p>
+</li>
+<li>
+<p><code>pytest.approx()</code> <a href="https://docs.pytest.org/en/stable/reference.html#pytest-approx">documentation</a> (solves the same problem as math.isclose(), but in a different, elegant way)</p>
+</li>
+<li>
+<p><a href="https://docs.pytest.org/en/stable/contents.html">Pytest documentation</a></p>
+</li>
+<li>
+<p>realpython.com: <a href="https://realpython.com/pytest-python-testing/">Effective Python Testing With Pytest</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you have not already installed Pytest, please take a moment and do so by
+typing the following in your VSCode terminal window (if <code>pip3</code> is not found try
+<code>pip</code> instead):</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pip3 install pytest</pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-20 15:35:27 -0500
+Last updated 2021-02-14 21:14:32 -0500
 </div>
 </div>
 </body>

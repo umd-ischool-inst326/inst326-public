@@ -17,6 +17,7 @@ include::{includedir}/navigation.html[]
 * link:exercise03.html[Prime Number Finder]
 * link:exercise04.html[Dictionary Traversal]
 * link:exercise05.html[Turtle Drawing]
+* link:exercise06.html[COVID Testing]
 
 == Warm Ups
 

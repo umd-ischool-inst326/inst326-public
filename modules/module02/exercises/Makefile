@@ -1,4 +1,4 @@
-all: index.html exercise01 exercise02 exercise03 exercise04 exercise05
+all: index.html exercise01 exercise02 exercise03 exercise04 exercise05 exercise06
 
 index.html: README.adoc ../../../includes/navigation.html
 	asciidoctor README.adoc -o index.html
@@ -17,6 +17,9 @@ exercise04: exercise04.adoc ../../../includes/navigation.html
 
 exercise05: exercise05.adoc ../../../includes/navigation.html
 	asciidoctor exercise05.adoc -o exercise05.html
+
+exercise06: exercise06.adoc ../../../includes/navigation.html
+	asciidoctor exercise06.adoc -o exercise06.html
 
 clean:
 	rm -f index.html exercise01.html exercise02.html exercise03.html exercise04.html exercise05.html
