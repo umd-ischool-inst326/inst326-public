@@ -484,8 +484,61 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/testing.jpg" alt="RT-PCR and Amplification" width="600">
+</div>
+</div>
 <div class="paragraph">
-<p>The covid_test</p>
+<p>Congratulations, you have successfully identified the cause of the errors in
+the COVID test results data collection program. Based on your advice the
+director has decided to wait to add the collection of demographic information
+to the program since it is currently unclear what categories to use for
+ethnicity and gender. The director was so pleased with your work that she has
+promoted you to be the head of the new data processing department for the lab.</p>
+</div>
+<div class="paragraph">
+<p>This morning the director called a meeting of all the department heads to
+announce new rules that have been issued by the White House that require all
+test results to be sent to the Department of Health and Human Services instead
+of the Centers for Disease Control. <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+</div>
+<div class="paragraph">
+<p>You’ve been asked to adjust the data collection program to persist the test
+results to a file named covid-results.txt. Every night this file will be
+automatically picked up and sent to HHS on behalf of client hospitals and then
+deleted. HHS would like the data to be in a comma delimited format where each
+line in the file represents a test result including:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Test Result: 1 (positive) or 0 (negative)</p>
+</li>
+<li>
+<p>Sample Quality: 0.0 - 1.0</p>
+</li>
+<li>
+<p>Last Equipment Calibration (Hours): A positive integer</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For example here are three test results:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Ed Summers,1,.91,4
+Michael Knight,0,.92,3
+Bonnie Knight,0,.91,2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the program runs it should allow a user to enter data, and then on exiting it should append the data to covid-results.csv. It is important for it to append or else it could erase data from a previous run.
+Instructions</p>
 </div>
 </div>
 </div>
@@ -519,9 +572,15 @@ might be used. (5 points)</p>
 </div>
 </div>
 </div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Stolberg, Sheryl G. (2020, July 14). Trump Administration Strips C.D.C. of Control of Coronavirus Data. New York Times. <a href="https://www.nytimes.com/2020/07/14/us/politics/trump-cdc-coronavirus.html" class="bare">https://www.nytimes.com/2020/07/14/us/politics/trump-cdc-coronavirus.html</a>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-15 07:46:30 -0500
+Last updated 2021-02-19 14:52:43 -0500
 </div>
 </div>
 <script type="text/x-mathjax-config">
