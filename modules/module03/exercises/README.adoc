@@ -12,3 +12,4 @@ include::{includedir}/navigation.html[]
 
 - link:exercise_bulk_pricing.html[Bulk Pricing]
 - link:exercise_testing.html[Testing]
+- link:exercise_covid_testing.html[COVID Testing]
