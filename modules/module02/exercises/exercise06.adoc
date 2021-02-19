@@ -10,42 +10,8 @@ include::{includedir}/navigation.html[]
 
 == Background
 
-image::images/testing.jpg[A scientist at Houston Methodist Hospital last month preparing patient samples to be tested for the coronavirus., 600, align=center]
+The covid_test
 
-Congratulations, you have successfully identified the cause of the errors in the
-COVID test results data collection program. Based on your advice the director
-has decided to wait to add the collection of demographic information to the
-program since it is currently unclear what categories to use for ethnicity and
-gender. The director was so pleased with your work that she has promoted you to be the
-head of the new data processing department for the lab.
-
-This morning the director called a meeting of all the department heads to
-announce new rules that have been issued by the White House that require all
-test results to be sent to the Department of Health and Human Services instead
-of the Centers for Disease Control. footnote:[Stolberg, Sheryl G. (2020, July
-14). Trump Administration Strips C.D.C. of Control of Coronavirus Data.  _New
-York Times_. https://www.nytimes.com/2020/07/14/us/politics/trump-cdc-coronavirus.html]
-
-You've been asked to adjust the data collection program to persist the test
-results to a file named `covid-results.txt`. Every night this file will be
-automatically picked up and sent to HHS on behalf of client hospitals and then
-deleted. HHS would like the data to be in a comma delimited format where each
-line in the file represents a test result including: 
-
-1. Name
-2. Test Result: 1 (positive) or 0 (negative)
-3. Sample Quality: 0.0 - 1.0
-4. Last Equipment Calibration (Hours): A positive integer
-
-For example here are three test results:
-
-        Ed Summers,1,.91,4
-        Michael Knight,0,.92,3
-        Bonnie Knight,0,.91,2
-
-When the program runs it should allow a user to enter data, and then on exiting it
-should *append* the data to `covid-results.csv`. It is important for it to
-append or else it could erase data from a previous run.
 
 == Instructions
 
