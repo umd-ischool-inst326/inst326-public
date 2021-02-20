@@ -56,7 +56,7 @@ my_tuple[:3]   # (1, “string”, 5.8)
 [options="header]
 |=======================================================================
 | Python Expression         | Results                   | Description   
-| len((1,2,3))              | 3                         | Length        
+| len(x)                    | length of x               | Length        
 | (1,2,3) + (4,5,6)         | (1,2,3,4,5,6)             | Concatenation 
 | ("Hi!",) * 4              | ("Hi!","Hi!","Hi!","Hi!") | Repetition    
 | 3 in (1,2,3)              | True                      | Membership    
@@ -141,18 +141,6 @@ results = book(my_path).meta_data()
 for item in results:
     print(item)
 ----
-
-=== Perform Sequence Operations
-
-[options = "header"]
-|=======================================================================
-| Python Expression         | Results                   | Description   
-| len((1,2,3))              | 3                         | Length        
-| (1,2,3) + (4,5,6)         | (1,2,3,4,5,6)             | Concatenation 
-| ("Hi!",) * 4              | ("Hi!","Hi!","Hi!","Hi!") | Repetition    
-| 3 in (1,2,3)              | True                      | Membership    
-| for x in (1,2,3): print x | 1 2 3                     | Iteration     
-|=======================================================================
 
 == Sets 
 
