@@ -12,3 +12,4 @@ include::{includedir}/navigation.html[]
 
 - link:exercise_car.html[Car Exercise]
 - link:exercise_appointment.html[Appointment Exercise]
+- link:exercise_covid.html[COVID Exercise]
