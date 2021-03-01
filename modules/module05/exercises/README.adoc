@@ -12,3 +12,4 @@ include::{includedir}/navigation.html[]
 
 - link:exercise05_songs.html[Songs]
 - link:exercise05_books.html[Books]
+- link:exercise05_covid.html[COVID Vaccinations]
