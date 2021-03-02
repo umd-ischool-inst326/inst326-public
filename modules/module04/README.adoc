@@ -26,6 +26,7 @@ Basics of object-oriented programming in Python:
   ** link:memobox_demo.py[Example usage of memobox class]
 * link:exercises/exercise_car.html[Car exercise]
 * link:exercises/exercise_appointment.html[Appointment exercise]
+* link:exercises/exercise_covid.html[COVID testing exercise]
 
 == Learning Outcomes
 
