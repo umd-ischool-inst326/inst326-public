@@ -8,7 +8,6 @@
 :revealjs_height: 810
 :title-slide-background-image: lance-grandahl-nShLC-WruxQ-unsplash.jpg
 
-
 == Overview of Git
 
 [%step]
