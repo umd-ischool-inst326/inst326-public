@@ -1,4 +1,4 @@
-all: index slides slides_gabriel slides_git exercises_dir
+all: index slides slides_gabriel exercises_dir
 
 index: README.adoc ../../includes/navigation.html
 	asciidoctor README.adoc -o index.html
@@ -8,9 +8,6 @@ slides_gabriel: slides_gabriel.adoc
 
 slides: slides_gabriel.adoc
 	asciidoctor-revealjs slides_gabriel.adoc -o slides.html
-
-slides_git: slides_git.adoc
-	asciidoctor-revealjs slides_git.adoc -o slides_git.html
 
 exercises_dir:
 	cd exercises && $(MAKE)
