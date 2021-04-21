@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.13">
-<title>Exercise: Marathon</title>
+<title>Exercise: Reddit</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -437,16 +437,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Exercise: Marathon</h1>
+<h1>Exercise: Reddit</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_background">Background</a></li>
-<li><a href="#_instructions">Instructions</a>
-<ul class="sectlevel2">
-<li><a href="#_note">Note</a></li>
-</ul>
-</li>
+<li><a href="#_instructions">Instructions</a></li>
 </ul>
 </div>
 </div>
@@ -486,135 +482,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_background">Background</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For this exercise we are going to create a simple game. This game will have players that will race against each other.However, in order to make this game more interesting, we will create two kinds of players which will both move differently based on the functionality of its class.</p>
+<p><a href="https://www.reddit.com/">Reddit</a> is a social media platform for sharing links to
+web resources and commenting on them. Reddit is organized into thematic groups
+called "subreddits" which allow virtual communities of people to have
+conversations about things that are organized around topics such as
+<a href="https://www.reddit.com/r/politics">politics</a>,
+<a href="https://www.reddit.com/r/gaming">gaming</a>, <a href="https://www.reddit.com/r/music">music</a>,
+etc. You may know this already but there is a subreddit for the
+<a href="https://www.reddit.com/r/UMD">University of Maryland</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_instructions">Instructions</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Write a script called <code>players.py</code>. This script should contain the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Write a class called ​<strong>Player</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Write an ​<strong>__init__()</strong>​ method. This method should have two parameters, ​<strong>self</strong>​ and ​<strong>name</strong>​. This method should to the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Create ​<strong>name</strong>​ and a ​position​ attributes. ​Position​ will be represented by a number. The ​position represents how many miles they are along a trail</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Write a ​<strong>RedPlayer​</strong> class and a <strong>​BluePlayer​</strong> class. Both of these classes should be subclasses of <strong>​Player​</strong>. These classes should do the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Write a <strong>​walk​</strong> method that will change the position attribute by a certain amount given the subclass.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>When a ​<strong>RedPlayer​</strong> walks, they should move forward between 1 and 10 steps. A ​<strong>BluePlayer</strong> should move forward between 4 and 8 steps. The actual number of steps should be randomly generated within the given range. (hint. You want to use the random library which contains a randrange function. This function generates random numbers based on a the range that you define)</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Write a ​<strong>play_game</strong>​ function. This function should not have any parameters but it should do the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>It should create a list that will contain 3 instances of <strong>​BluePlayer​</strong> and 3 instances of ​<strong>RedPlayer​</strong>. This function should not use inputs to assign names, instead, it should dynamically create names while it creates instances.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Ex. BluePlayer1, BluePlayer2, etc.</p>
-</li>
-<li>
-<p>Hint: Use a while loop to handle this kind of problem.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Iterate over the list, for each instance in the list invoke the ​<strong>walk​</strong> method. This will cause the player to walk a certain amount of steps. Count how many times you iterate over the whole list.</p>
-</li>
-<li>
-<p>Check the ​<strong>position​</strong> of the instance and if the ​<strong>position</strong>​ is over 100 on any player return the <strong>name</strong> of the instance and the amount of times that you iterated over the list as a tuple.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Write docstrings for each method. (​<strong>__init__()​</strong> doesn&#8217;t need a docstring.)</p>
-</li>
-<li>
-<p>Make an ​<strong>if __name__ == "__main__":</strong>​ statement in which you call the ​<strong>play_game()</strong>​ function.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Unpack the returned value into two variables and print them both for the user to see the winner and how many turns it took for the game to finish.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Write a script called <code>marathon.py</code>. This script should contain the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>import <code>players.py</code></p>
-</li>
-<li>
-<p>Re-write the <strong>play_game</strong> function. The difference here is that that instead of checking if the position of any instance is over 100, we will check if the position of any instance is over 1000.</p>
-</li>
-<li>
-<p>Make an ​<strong>if __name__ == "__main__":</strong>​ statement in which:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>You call the ​<strong>play_game()</strong>​ function that is in this script and print the result.</p>
-</li>
-<li>
-<p>You call the ​<strong>play_game()</strong> function that is in the namespace of the module that you imported (<code>players.py</code>) and print the result.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="_note">Note</h3>
 <div class="paragraph">
-<p>Run the marathon script multiple times. Observe who the winners are when you run the simulation multiple times under the different conditions (pos &gt;= 100 vs pos &gt;= 1000).</p>
-</div>
+<p>The last year&#8217;s posts to the UMD subreddit have been collected from the
+<a href="https://pushshift.io/api-parameters/">PushShift API</a> as
+<a href="files/reddit.csv">this CSV</a>. Please use what you have learned about <strong>regular
+expressions</strong> to write a program that will read in the data and find the post
+that has been commented on the most that mentions the Coronavirus. Be sure to
+look for posts that mention either "Coronavirus", "COVID", and "COVID19" in any
+capitalization. The output of your program should include the title, URL
+and number of comments for this post.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-19 16:24:29 -0400
+Last updated 2021-04-19 23:55:29 -0400
 </div>
 </div>
 <script type="text/x-mathjax-config">
