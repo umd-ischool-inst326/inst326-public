@@ -27,6 +27,6 @@ include::{includedir}/navigation.html[]
 
 - link:module10/index.html[Module 10: Data Analysis]
 - link:module11/index.html[Module 11: Databases and SQL]
-- link:module12/index.html[Module 12: Data on the Web]
+- link:module12/index.html[Module 12: Data on the Web] / link:module12b/index.html[Module 12b (alternate version)]
 - link:module13/index.html[Module 13: Web Scraping]
 - link:module14/index.html[Module 14: Ethics in Programming]
