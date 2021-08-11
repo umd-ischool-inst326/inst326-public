@@ -3,6 +3,12 @@ title: INST 326 Object-Oriented Programming
 css: css/page.css
 ---
 
+# Notice: This repository has been deprecated!
+
+**Please see the materials in the [inst326](https://github.com/umd-ischool-inst326/inst326) repository instead.**
+
+---
+
 ## Welcome
 
 This website is an Open Educational Resource (OER) for a course on Python Programming offered through the [College of Information Studies](https://ischool.umd.edu) at the [University of Maryland College Park](https://umd.edu).
