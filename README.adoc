@@ -1,6 +1,4 @@
-= INST 326 Object-Oriented Programming
-//:stylesdir: css
-//:stylesheet: page.css
+= Notice: This repository has been deprecated!
 :includedir: includes
 :toc: left
 
@@ -8,9 +6,8 @@
 include::{includedir}/navigation.html[]
 ++++
 
-= Notice: This repository has been deprecated!
 
-**Please see the materials in the [inst326](https://github.com/umd-ischool-inst326/inst326) repository instead.**
+**Please see the materials in the link:https://github.com/umd-ischool-inst326/inst326[inst326] repository instead.**
 
 ---
 
